@@ -1,6 +1,6 @@
-// prepare.ts — fixed evaluation harness. Do not modify.
+// evaluate.ts — fixed evaluation harness. Do not modify.
 // Loads the dataset, runs extractPhoneNLCandidates from tweak.ts, and reports val_score.
-// Run: npx tsx prepare.ts
+// Run: npx tsx evaluate.ts
 
 import * as fs from "fs";
 import * as path from "path";

@@ -6,7 +6,7 @@ Give an AI agent a single function and let it experiment autonomously — modify
 
 Three files:
 
-- **`prepare.ts`** — fixed evaluation harness. Not modified.
+- **`evaluate.ts`** — fixed evaluation harness. Not modified.
 - **`tweak.ts`** — the single file the agent edits.
 - **`program.md`** — instructions for the agent. Edited by the human.
 

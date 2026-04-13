@@ -10,7 +10,7 @@ To set up a new tweak session, work with the user to:
 2. **Create the branch**: `git checkout -b autotweak/<tag>` from current main.
 3. **Read the in-scope files**: The repo is small. Read these files for full context:
    - `README.md` — repository context.
-   - `prepare.ts` — fixed CSV loading and evaluation harness. Do not modify.
+   - `evaluate.ts` — fixed CSV loading and evaluation harness. Do not modify.
    - `tweak.ts` — the file you modify. Tokenization, number word tables, candidate building, scoring logic.
 4. **Initialize results.csv**: Create `results.csv` with just the header row. The baseline will be recorded after the first run.
 5. **Confirm and go**: Confirm setup looks good.
@@ -19,13 +19,13 @@ Once you get confirmation, kick off the experimentation.
 
 ## Experimentation
 
-Each experiment evaluates the function against the full dataset. You launch it as: `npx tsx prepare.ts`.
+Each experiment evaluates the function against the full dataset. You launch it as: `npx tsx evaluate.ts`.
 
 **What you CAN do:**
 - Modify `tweak.ts` — this is the only file you edit. Everything is fair game: tokenization rules, regex patterns, number word tables, candidate building logic, scoring weights, normalization steps, etc.
 
 **What you CANNOT do:**
-- Modify `prepare.ts`. It is read-only. It contains the fixed CSV loader and evaluation harness.
+- Modify `evaluate.ts`. It is read-only. It contains the fixed CSV loader and evaluation harness.
 - Install new packages or add dependencies. You can only use what's already in `package.json`.
 
 **Objective**: maximize `val_score` (accuracy %), then minimize `lines_of_code`. val_score always trumps LoC. When val_score is equal, fewer lines wins. Deleting code and keeping the same score is a win. Adding 20 lines for a 0.1% gain is probably not.
@@ -82,7 +82,7 @@ LOOP FOR 10 ITERATIONS:
 1. Look at the git state: the current branch/commit we're on
 2. Tune `tweak.ts` with an experimental idea by directly hacking the code.
 3. git commit — include val_score and loc in the message, e.g. `exp3: simplify tokenizer | 99.76% 241loc`
-4. Run the experiment: `npx tsx prepare.ts > run.log 2>&1` (redirect everything — do NOT use tee or let output flood your context)
+4. Run the experiment: `npx tsx evaluate.ts > run.log 2>&1` (redirect everything — do NOT use tee or let output flood your context)
 5. Read out the results: `grep "^val_score:\|^lines_of_code:" run.log`
 6. If the grep output is empty, the run crashed. Run `tail -n 50 run.log` to read the error and attempt a fix. If you can't get things to work after more than a few attempts, give up.
 7. Record the results in the csv
