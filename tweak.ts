@@ -110,14 +110,6 @@ const SIMPLE_NUMBER_WORDS: Record<string, number> = {
   zeventien: 17,
   achttien: 18,
   negentien: 19,
-  twintig: 20,
-  dertig: 30,
-  veertig: 40,
-  vijftig: 50,
-  zestig: 60,
-  zeventig: 70,
-  tachtig: 80,
-  negentig: 90,
 };
 
 function tokensToDigitFragments(tokens: string[]): string[] {
@@ -186,13 +178,14 @@ function parseDutchNumberWord(word: string): number | null {
   if (DIGIT_WORDS[s] !== undefined) return Number(DIGIT_WORDS[s]);
   if (SIMPLE_NUMBER_WORDS[s] !== undefined) return SIMPLE_NUMBER_WORDS[s];
 
-  // units before tens: vierentwintig, tweeenveertig, etc.
-  for (const [unitWord, unit] of Object.entries({
-    een: 1, twee: 2, drie: 3, vier: 4, vijf: 5, zes: 6, zeven: 7, acht: 8, negen: 9,
+  // tens standalone and units-before-tens: twintig, vierentwintig, tweeenveertig, etc.
+  for (const [tensWord, tens] of Object.entries({
+    twintig: 20, dertig: 30, veertig: 40, vijftig: 50,
+    zestig: 60, zeventig: 70, tachtig: 80, negentig: 90,
   })) {
-    for (const [tensWord, tens] of Object.entries({
-      twintig: 20, dertig: 30, veertig: 40, vijftig: 50,
-      zestig: 60, zeventig: 70, tachtig: 80, negentig: 90,
+    if (s === tensWord) return tens;
+    for (const [unitWord, unit] of Object.entries({
+      een: 1, twee: 2, drie: 3, vier: 4, vijf: 5, zes: 6, zeven: 7, acht: 8, negen: 9,
     })) {
       if (s === `${unitWord}en${tensWord}` || s === `${unitWord}${tensWord}`) {
         return unit + tens;
