@@ -48,13 +48,20 @@ function candidatesFromTokens(tokens: string[], rawText: string): string[] {
   const fragments = tokensToDigitFragments(tokens);
   if (fragments.length === 0) return [];
 
+  const digitStr = fragments.join("");
   const rawStrings = buildCandidateStrings(fragments);
   const normalized = normalizeCandidates(rawStrings);
 
+  // Tiebreaker: among equal-score/length candidates, prefer the one that
+  // appears later in the digit stream (later = more deliberate recitation).
   const scored = [...normalized]
     .map((value) => ({ value, score: scoreCandidate(value, rawText.toLowerCase()) }))
     .filter((x) => x.score > -999)
-    .sort((a, b) => b.score - a.score || a.value.length - b.value.length);
+    .sort((a, b) =>
+      b.score - a.score ||
+      a.value.length - b.value.length ||
+      digitStr.lastIndexOf(b.value) - digitStr.lastIndexOf(a.value)
+    );
 
   return [...new Set(scored.map((x) => x.value))];
 }
