@@ -262,14 +262,6 @@ function buildCandidateStrings(fragments: string[]): string[] {
     }
   }
 
-  // dedupe repeated exact halves
-  for (const v of [...out]) {
-    if (v.length % 2 === 0) {
-      const h = v.length / 2;
-      if (v.slice(0, h) === v.slice(h)) out.add(v.slice(0, h));
-    }
-  }
-
   return [...out];
 }
 
