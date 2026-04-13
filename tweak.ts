@@ -11,15 +11,48 @@ export function extractPhoneNLCandidates(text: string): string[] {
   if (!text) return [];
 
   const tokens = tokenize(text);
-  const fragments = tokensToDigitFragments(tokens);
 
+  // When a speaker repeats themselves ("ik herhaal", "nog een keer"),
+  // prefer the last recitation — it's usually the authoritative one.
+  const splitIdx = findLastRepetitionMarkerEnd(tokens);
+  if (splitIdx > 0) {
+    const tail = candidatesFromTokens(tokens.slice(splitIdx), text);
+    if (tail.length > 0) return tail;
+  }
+
+  return candidatesFromTokens(tokens, text);
+}
+
+const REPETITION_MARKERS = [
+  ["ik", "herhaal"],
+  ["nog", "een", "keer"],
+  ["nogmaals"],
+];
+
+function findLastRepetitionMarkerEnd(tokens: string[]): number {
+  let lastEnd = -1;
+  for (let i = 0; i < tokens.length; i++) {
+    for (const marker of REPETITION_MARKERS) {
+      if (i + marker.length <= tokens.length &&
+          marker.every((t, k) => tokens[i + k] === t)) {
+        let end = i + marker.length;
+        if (tokens[end] === "langzaam") end++;
+        if (end > lastEnd) lastEnd = end;
+      }
+    }
+  }
+  return lastEnd;
+}
+
+function candidatesFromTokens(tokens: string[], rawText: string): string[] {
+  const fragments = tokensToDigitFragments(tokens);
   if (fragments.length === 0) return [];
 
   const rawStrings = buildCandidateStrings(fragments);
   const normalized = normalizeCandidates(rawStrings);
 
   const scored = [...normalized]
-    .map((value) => ({ value, score: scoreCandidate(value, text.toLowerCase()) }))
+    .map((value) => ({ value, score: scoreCandidate(value, rawText.toLowerCase()) }))
     .filter((x) => x.score > -999)
     .sort((a, b) => b.score - a.score || a.value.length - b.value.length);
 
