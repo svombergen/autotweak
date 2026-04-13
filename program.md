@@ -1,17 +1,17 @@
 # autotweak
 
-This is an autotweak instruction to optimize a single function by running experiments.
+This is an autotweak instruction to optimize a single TypeScript function by running experiments.
 
 ## Setup
 
 To set up a new tweak session, work with the user to:
 
-1. **Agree on a run tag**: propose a tag based on today's date (e.g. `mar5`). The branch `autotweak/<tag>` must not already exist — this is a fresh run.
-2. **Create the branch**: `git checkout -b autotweak/<tag>` from current master.
+1. **Agree on a run tag**: propose a tag based on today's date (e.g. `apr13`). The branch `autotweak/<tag>` must not already exist — this is a fresh run.
+2. **Create the branch**: `git checkout -b autotweak/<tag>` from current main.
 3. **Read the in-scope files**: The repo is small. Read these files for full context:
    - `README.md` — repository context.
-   - `prepare.ts` — fixed constants, data loading, and evaluation harness. Not modified.
-   - `tweak.ts` — the single file the agent edits. Everything is fair game: tokenization, number word tables, scoring logic, candidate building, etc.
+   - `prepare.ts` — fixed CSV loading and evaluation harness. Do not modify.
+   - `tweak.ts` — the file you modify. Tokenization, number word tables, candidate building, scoring logic.
 4. **Initialize results.csv**: Create `results.csv` with just the header row. The baseline will be recorded after the first run.
 5. **Confirm and go**: Confirm setup looks good.
 
@@ -19,85 +19,73 @@ Once you get confirmation, kick off the experimentation.
 
 ## Experimentation
 
-Each experiment evaluates the function against the full dataset. You launch it as: `npx tsx prepare.ts`. 
+Each experiment evaluates the function against the full dataset. You launch it as: `npx tsx prepare.ts`.
 
 **What you CAN do:**
-- Modify `tweak.ts` — this is the only file you edit. Everything is fair game: model architecture, optimizer, hyperparameters, training loop, batch size, model size, etc.
+- Modify `tweak.ts` — this is the only file you edit. Everything is fair game: tokenization rules, regex patterns, number word tables, candidate building logic, scoring weights, normalization steps, etc.
 
 **What you CANNOT do:**
-- Modify `prepare.ts`. It is read-only. It contains the fixed evaluation, data loading, helpers, and training constants (time budget, sequence length, etc).
+- Modify `prepare.ts`. It is read-only. It contains the fixed CSV loader and evaluation harness.
 - Install new packages or add dependencies. You can only use what's already in `package.json`.
-- Modify the evaluation harness. The `evaluate` function in `prepare.ts` is the ground truth metric. 
 
-**The goal is simple: get the highest val_score.** Since the time budget is fixed, you don't need to worry about training time — it's always 5 minutes. Everything is fair game: change the architecture, the optimizer, the hyperparameters, the batch size, the model size. The only constraint is that the code runs without crashing and finishes within the time budget.
+**Objective**: maximize `val_score` (accuracy %), then minimize `lines_of_code`. val_score always trumps LoC. When val_score is equal, fewer lines wins. Deleting code and keeping the same score is a win. Adding 20 lines for a 0.1% gain is probably not.
 
-**Simplicity criterion**: All else being equal, simpler is better. A small improvement that adds ugly complexity is not worth it. Conversely, removing something and getting equal or better results is a great outcome — that's a simplification win. When evaluating whether to keep a change, weigh the complexity cost against the improvement magnitude. A 0.1% val_score improvement that adds 20 lines of hacky code? Probably not worth it. A 0.001 val_score improvement from deleting code? Definitely keep. An improvement of ~0 but much simpler code? Keep.
-
-**The first run**: Your very first run should always be to establish the baseline, so you will run the training script as is.
+**The first run**: Always establish the baseline first — run the evaluation script as-is before making any changes.
 
 ## Output format
 
-Once the script finishes it prints a summary like this:
-
 ```
 ---
-val_score:        77/100 (77%)
-total_seconds:    325.9
+val_score:        419/420 (99.76%)
+lines_of_code:    245
+total_seconds:    0.05
 ```
 
-Note that the script is configured to always stop after 5 minutes, so depending on the computing platform of this computer the numbers might look different. You can extract the key metric from the log file:
+Each run is fast (under a second). Extract both metrics from the log:
 
 ```
-grep "^val_score:" run.log
+grep "^val_score:\|^lines_of_code:" run.log
 ```
 
 ## Logging results
 
-When an experiment is done, log it to `results.csv` (tab-separated, NOT comma-separated — commas break in descriptions).
-
-The csv has a header row and 5 columns:
+Log each experiment to `results.csv` (tab-separated — commas break in descriptions).
 
 ```
-commit	val_score	memory_gb	status	description
+commit	val_score	loc	status	description
 ```
 
 1. git commit hash (short, 7 chars)
-2. val_score achieved (77%) — use 0% for crashes
-3. status: `keep`, `discard`, or `crash`
-4. short text description of what this experiment tried
+2. val_score (e.g. `99.76%`) — use `0%` for crashes
+3. lines_of_code count
+4. status: `keep`, `discard`, or `crash`
+5. short description of what this experiment tried
 
 Example:
 
 ```
-commit	val_score	status	description
-a1b2c3d	56%	    keep	baseline
-b2c3d4e	77%	    keep	change regex to include 0-9
-c3d4e5f	66%	    discard	removed case statements
-d4e5f6g	0%	    crash	reranked
+commit	val_score	loc	status	description
+a1b2c3d	97.38%	285	keep	baseline
+b2c3d4e	99.52%	301	keep	split on repetition markers
+c3d4e5f	99.52%	289	keep	simplify tokenizer
+d4e5f6g	0%	289	crash	reranked candidates
 ```
+
+NOTE: do not commit the results.csv file, leave it untracked by git.
 
 ## The experiment loop
 
-The experiment runs on a dedicated branch (e.g. `autotweak/mar5` ).
+The experiment runs on a dedicated branch (e.g. `autotweak/apr13`).
 
-LOOP FOREVER:
+LOOP FOR 10 ITERATIONS:
 
 1. Look at the git state: the current branch/commit we're on
 2. Tune `tweak.ts` with an experimental idea by directly hacking the code.
-3. git commit
+3. git commit — include val_score and loc in the message, e.g. `exp3: simplify tokenizer | 99.76% 241loc`
 4. Run the experiment: `npx tsx prepare.ts > run.log 2>&1` (redirect everything — do NOT use tee or let output flood your context)
-5. Read out the results: `grep "^val_score:" run.log`
-6. If the grep output is empty, the run crashed. Run `tail -n 50 run.log` to read the error stack trace and attempt a fix. If you can't get things to work after more than a few attempts, give up.
-7. Record the results in the csv (NOTE: do not commit the results.csv file, leave it untracked by git)
-8. If val_score improved (higher), you "advance" the branch, keeping the git commit
-9. If val_score is equal or worse, you git reset back to where you started
+5. Read out the results: `grep "^val_score:\|^lines_of_code:" run.log`
+6. If the grep output is empty, the run crashed. Run `tail -n 50 run.log` to read the error and attempt a fix. If you can't get things to work after more than a few attempts, give up.
+7. Record the results in the csv
+8. If val_score improved, keep the commit. If val_score is equal but loc is lower, keep the commit. Otherwise, `git reset --hard` back to where you started.
 
-The idea is that you are a completely autonomous researcher trying things out. If they work, keep. If they don't, discard. And you're advancing the branch so that you can iterate. If you feel like you're getting stuck in some way, you can rewind but you should probably do this very very sparingly (if ever).
-
-**Timeout**: Each experiment should take max 5 minutes total (+ a few seconds for startup and eval overhead). If a run exceeds 5 minutes, kill it and treat it as a failure (discard and revert).
-
-**Crashes**: If a run crashes (a bug, a missing import, etc.), use your judgment: If it's something dumb and easy to fix (e.g. a typo), fix it and re-run. If the idea itself is fundamentally broken, just skip it, log "crash" as the status in the csv, and move on.
-
-**NEVER STOP**: Once the experiment loop has begun (after the initial setup), do NOT pause to ask the human if you should continue. Do NOT ask "should I keep going?" or "is this a good stopping point?". The human might be asleep, or gone from a computer and expects you to continue working *indefinitely* until you are manually stopped. You are autonomous. If you run out of ideas, think harder — read papers referenced in the code, re-read the in-scope files for new angles, try combining previous near-misses, try more radical architectural changes. The loop runs until the human interrupts you, period.
-
-As an example use case, a user might leave you running while they sleep. Since each experiment takes only seconds, you can run hundreds of iterations overnight. The user then wakes up to experimental results, all completed by you while they slept!
+**Crashes**: If a run crashes (a bug, a missing import, etc.), use your judgment: If it's something dumb and easy to fix (e.g. a typo), fix it and re-run. If the idea itself is fundamentally broken, skip it, log `crash` in the csv, and move on.

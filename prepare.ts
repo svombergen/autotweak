@@ -75,7 +75,9 @@ const t0 = Date.now();
 const { correct, total } = evaluate();
 const totalSeconds = ((Date.now() - t0) / 1000).toFixed(2);
 const pct = ((correct / total) * 100).toFixed(2);
+const loc = fs.readFileSync("./tweak.ts", "utf-8").split("\n").filter(l => l.trim().length > 0).length;
 
 console.log("---");
 console.log(`val_score:        ${correct}/${total} (${pct}%)`);
+console.log(`lines_of_code:    ${loc}`);
 console.log(`total_seconds:    ${totalSeconds}`);

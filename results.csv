@@ -1,12 +1,12 @@
-commit	val_score	status	description
-913afe0	97.38%	keep	baseline
-65fa97a	99.52%	keep	split on ik herhaal / nog een keer, prefer last recitation
-3887038	99.76%	keep	tiebreak equal-score candidates by later position in digit stream
-4d8b3b9	99.52%	discard	removed e->1 (breaks case using e as digit literal)
-79ea0e1	99.76%	keep	tighten 001->0031 to exact 12-char match (safer, same score)
-147a2da	99.76%	keep	remove dead total/matched vars in parseDutchNumberWord
-24b4c38	99.76%	keep	remove redundant repeated-half dedup in buildCandidateStrings
-181fcc2	99.76%	keep	remove redundant repeated-half dedup in normalizeCandidates
-16a3470	99.76%	keep	add gsm to mobile-prefix detection
-8f342f4	99.76%	keep	simplify buildCandidateStrings - remove join/split round-trip
-78e38d6	99.76%	keep	remove dead tweeen special case in parseDutchNumberWord
+commit	val_score	loc	status	description
+913afe0	97.38%	-	keep	baseline
+65fa97a	99.52%	-	keep	split on ik herhaal / nog een keer, prefer last recitation
+3887038	99.76%	-	keep	tiebreak equal-score candidates by later position in digit stream
+4d8b3b9	99.52%	-	discard	removed e->1 (breaks case using e as digit literal)
+79ea0e1	99.76%	-	keep	tighten 001->0031 to exact 12-char match (safer, same score)
+147a2da	99.76%	-	keep	remove dead total/matched vars in parseDutchNumberWord
+24b4c38	99.76%	-	keep	remove redundant repeated-half dedup in buildCandidateStrings
+181fcc2	99.76%	-	keep	remove redundant repeated-half dedup in normalizeCandidates
+16a3470	99.76%	-	keep	add gsm to mobile-prefix detection
+8f342f4	99.76%	-	keep	simplify buildCandidateStrings - remove join/split round-trip
+78e38d6	99.76%	-	keep	remove dead tweeen special case in parseDutchNumberWord
