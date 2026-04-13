@@ -214,9 +214,6 @@ function parseDutchNumberWord(word: string): number | null {
   }
 
   // hundreds / thousands / millions
-  let total = 0;
-  let matched = false;
-
   const miljoenIdx = s.indexOf("miljoen");
   if (miljoenIdx >= 0) {
     const left = s.slice(0, miljoenIdx);
@@ -244,7 +241,7 @@ function parseDutchNumberWord(word: string): number | null {
     if (leftVal !== null && rightVal !== null) return leftVal * 100 + rightVal;
   }
 
-  return matched ? total : null;
+  return null;
 }
 
 function buildCandidateStrings(fragments: string[]): string[] {
