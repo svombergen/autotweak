@@ -244,29 +244,16 @@ function normalizeCandidates(values: string[]): string[] {
 }
 
 function scoreCandidate(value: string, rawText: string): number {
-  let score = 0;
-
-  if (/^\+31\d{9}$/.test(value)) score += 120;
-  else if (/^0031\d{9}$/.test(value)) score += 115;
-  else if (/^0\d{9}$/.test(value)) score += 110;
-  else return -1000;
-
-  // prefer plus if plus was spoken
+  let score = /^\+31\d{9}$/.test(value) ? 120 : /^0031\d{9}$/.test(value) ? 115 : /^0\d{9}$/.test(value) ? 110 : -1000;
+  if (score < 0) return score;
   if (rawText.includes("plus")) {
     if (value.startsWith("+31")) score += 20;
     if (value.startsWith("0031")) score -= 8;
     if (value.startsWith("0")) score -= 20;
-  } else {
-    if (value.startsWith("+31")) score -= 10;
-  }
-
-  // prefer mobile-like Dutch numbers if transcript mentions mobiel/gsm
-  if (rawText.includes("mobiele") || rawText.includes("mobiel") || rawText.includes("gsm")) {
+  } else if (value.startsWith("+31")) score -= 10;
+  if (rawText.includes("mobiel") || rawText.includes("gsm")) {
     if (/^(06|\+316|00316)/.test(value)) score += 10;
   }
-
-  // prefer candidates appearing earlier in raw digit stream shape
   if (/^0[1-9]/.test(value)) score += 3;
-
   return score;
 }
