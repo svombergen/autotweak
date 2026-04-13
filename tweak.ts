@@ -318,8 +318,8 @@ function scoreCandidate(value: string, rawText: string): number {
     if (value.startsWith("+31")) score -= 10;
   }
 
-  // prefer mobile-like Dutch numbers if transcript mentions mobiel
-  if (rawText.includes("mobiele") || rawText.includes("mobiel")) {
+  // prefer mobile-like Dutch numbers if transcript mentions mobiel/gsm
+  if (rawText.includes("mobiele") || rawText.includes("mobiel") || rawText.includes("gsm")) {
     if (/^(06|\+316|00316)/.test(value)) score += 10;
   }
 
