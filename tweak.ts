@@ -130,11 +130,7 @@ function tokensToDigitFragments(tokens: string[]): string[] {
 
     if (tok === "dubbel" && i + 1 < tokens.length) {
       const next = parseSingleTokenToDigits(tokens[i + 1]);
-      if (next && next.length === 1) {
-        out.push(next + next);
-        i++;
-        continue;
-      }
+      if (next?.length === 1) { out.push(next + next); i++; continue; }
     }
 
     const parsed = parseSingleTokenToDigits(tok);
@@ -148,26 +144,11 @@ function tokensToDigitFragments(tokens: string[]): string[] {
 
 function parseSingleTokenToDigits(tok: string): string | null {
   if (!tok) return null;
-
-  if (DIGIT_WORDS[tok] !== undefined) {
-    return DIGIT_WORDS[tok];
-  }
-
-  if (/^\d+$/.test(tok)) {
-    return tok;
-  }
-
-  // common Dutch country code phrase
+  if (DIGIT_WORDS[tok] !== undefined) return DIGIT_WORDS[tok];
+  if (/^\d+$/.test(tok)) return tok;
   if (tok === "eenendertig") return "31";
-
-  // parse concatenated number words like:
-  // negenhonderdtweeenveertig -> 942
-  // negenhonderdvierentwintigduizend -> 924000
-  // tweehonderd -> 200
   const n = parseDutchNumberWord(tok);
-  if (n !== null) return String(n);
-
-  return null;
+  return n !== null ? String(n) : null;
 }
 
 function parseDutchNumberWord(word: string): number | null {
