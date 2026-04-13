@@ -215,10 +215,6 @@ function buildCandidateStrings(fragments: string[]): string[] {
   const pieces = fragments.filter(Boolean);
   const out = new Set<string>();
 
-  // full joined
-  out.add(pieces.join(""));
-
-  // contiguous windows
   for (let i = 0; i < pieces.length; i++) {
     let acc = "";
     for (let j = i; j < pieces.length && j < i + 20; j++) {
@@ -289,7 +285,7 @@ function scoreCandidate(value: string, rawText: string): number {
   }
 
   // prefer candidates appearing earlier in raw digit stream shape
-  if (/^(06|07|01|02|03|04|05|08|09)/.test(value)) score += 3;
+  if (/^0[1-9]/.test(value)) score += 3;
 
   return score;
 }
