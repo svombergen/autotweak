@@ -100,16 +100,6 @@ const DIGIT_WORDS: Record<string, string> = {
 };
 
 const SIMPLE_NUMBER_WORDS: Record<string, number> = {
-  nul: 0,
-  een: 1,
-  twee: 2,
-  drie: 3,
-  vier: 4,
-  vijf: 5,
-  zes: 6,
-  zeven: 7,
-  acht: 8,
-  negen: 9,
   tien: 10,
   elf: 11,
   twaalf: 12,
