@@ -285,8 +285,8 @@ function normalizeCandidates(values: string[]): string[] {
     // keep plus only in front
     v = v.replace(/(?!^)\+/g, "");
 
-    // some STT says 001 when it likely meant 0031
-    if (v.startsWith("001") && v.length >= 12) {
+    // some STT says 001 when it likely meant 0031 (exactly 001 + 9 digits)
+    if (/^001\d{9}$/.test(v)) {
       out.add("0031" + v.slice(3));
     }
 
