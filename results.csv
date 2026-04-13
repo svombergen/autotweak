@@ -1,12 +1,8 @@
 commit	val_score	loc	status	description
-913afe0	97.38%	-	keep	baseline
-65fa97a	99.52%	-	keep	split on ik herhaal / nog een keer, prefer last recitation
-3887038	99.76%	-	keep	tiebreak equal-score candidates by later position in digit stream
-4d8b3b9	99.52%	-	discard	removed e->1 (breaks case using e as digit literal)
-79ea0e1	99.76%	-	keep	tighten 001->0031 to exact 12-char match (safer, same score)
-147a2da	99.76%	-	keep	remove dead total/matched vars in parseDutchNumberWord
-24b4c38	99.76%	-	keep	remove redundant repeated-half dedup in buildCandidateStrings
-181fcc2	99.76%	-	keep	remove redundant repeated-half dedup in normalizeCandidates
-16a3470	99.76%	-	keep	add gsm to mobile-prefix detection
-8f342f4	99.76%	-	keep	simplify buildCandidateStrings - remove join/split round-trip
-78e38d6	99.76%	-	keep	remove dead tweeen special case in parseDutchNumberWord
+3d208e0	99.76%	270	keep	baseline
+b472d45	99.76%	260	keep	remove dead 0-9 entries from SIMPLE_NUMBER_WORDS
+138a36c	99.76%	253	keep	move tens 20-90 inline, drop from SIMPLE_NUMBER_WORDS
+e3ba756	99.76%	242	keep	fold honderd/duizend/miljoen into loop
+3ed2e02	99.76%	239	keep	drop redundant pieces.join, simplify 0[1-9] regex
+52c14c8	99.76%	225	keep	compact parseSingleTokenToDigits and dubbel block
+99c38fc	99.76%	217	keep	compact scoreCandidate, drop redundant mobiele check

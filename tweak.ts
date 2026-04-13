@@ -2,6 +2,7 @@
 // Exports extractPhoneNL and extractPhoneNLCandidates.
 // Everything is fair game: regex, scoring logic, tokenization, number words, etc.
 
+
 export function extractPhoneNL(text: string): string | null {
   const candidates = extractPhoneNLCandidates(text);
   return candidates[0] ?? null;
@@ -12,8 +13,6 @@ export function extractPhoneNLCandidates(text: string): string[] {
 
   const tokens = tokenize(text);
 
-  // When a speaker repeats themselves ("ik herhaal", "nog een keer"),
-  // prefer the last recitation — it's usually the authoritative one.
   const splitIdx = findLastRepetitionMarkerEnd(tokens);
   if (splitIdx > 0) {
     const tail = candidatesFromTokens(tokens.slice(splitIdx), text);
@@ -52,8 +51,6 @@ function candidatesFromTokens(tokens: string[], rawText: string): string[] {
   const rawStrings = buildCandidateStrings(fragments);
   const normalized = normalizeCandidates(rawStrings);
 
-  // Tiebreaker: among equal-score/length candidates, prefer the one that
-  // appears later in the digit stream (later = more deliberate recitation).
   const scored = [...normalized]
     .map((value) => ({ value, score: scoreCandidate(value, rawText.toLowerCase()) }))
     .filter((x) => x.score > -999)

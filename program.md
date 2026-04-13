@@ -28,7 +28,7 @@ Each experiment evaluates the function against the full dataset. You launch it a
 - Modify `evaluate.ts`. It is read-only. It contains the fixed CSV loader and evaluation harness.
 - Install new packages or add dependencies. You can only use what's already in `package.json`.
 
-**Objective**: maximize `val_score` (accuracy %), then minimize `lines_of_code`. val_score always trumps LoC. When val_score is equal, fewer lines wins. Deleting code and keeping the same score is a win. Adding 20 lines for a 0.1% gain is probably not.
+**Objective**: maximize `val_score` (accuracy %). When val_score is equal, simpler code wins. Deleting parts of code and keeping the same val_score is a big win. Adding 20 lines for a 0.1% gain is probably not. Do not blindly take lines_of_code as a metric, removing comments or folding in function calls is not simplifying in the right way. Finding another angle that involves less code to get to the same results is.
 
 **The first run**: Always establish the baseline first — run the evaluation script as-is before making any changes.
 
