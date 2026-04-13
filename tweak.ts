@@ -194,31 +194,18 @@ function parseDutchNumberWord(word: string): number | null {
   }
 
   // hundreds / thousands / millions
-  const miljoenIdx = s.indexOf("miljoen");
-  if (miljoenIdx >= 0) {
-    const left = s.slice(0, miljoenIdx);
-    const right = s.slice(miljoenIdx + "miljoen".length);
-    const leftVal = parseDutchNumberWord(left);
+  for (const [word, mult, implicitOne] of [
+    ["miljoen", 1_000_000, false],
+    ["duizend", 1000, true],
+    ["honderd", 100, true],
+  ] as [string, number, boolean][]) {
+    const idx = s.indexOf(word);
+    if (idx < 0) continue;
+    const left = s.slice(0, idx);
+    const right = s.slice(idx + word.length);
+    const leftVal = left ? parseDutchNumberWord(left) : (implicitOne ? 1 : null);
     const rightVal = right ? parseDutchNumberWord(right) : 0;
-    if (leftVal !== null && rightVal !== null) return leftVal * 1_000_000 + rightVal;
-  }
-
-  const duizendIdx = s.indexOf("duizend");
-  if (duizendIdx >= 0) {
-    const left = s.slice(0, duizendIdx);
-    const right = s.slice(duizendIdx + "duizend".length);
-    const leftVal = left ? parseDutchNumberWord(left) : 1;
-    const rightVal = right ? parseDutchNumberWord(right) : 0;
-    if (leftVal !== null && rightVal !== null) return leftVal * 1000 + rightVal;
-  }
-
-  const honderdIdx = s.indexOf("honderd");
-  if (honderdIdx >= 0) {
-    const left = s.slice(0, honderdIdx);
-    const right = s.slice(honderdIdx + "honderd".length);
-    const leftVal = left ? parseDutchNumberWord(left) : 1;
-    const rightVal = right ? parseDutchNumberWord(right) : 0;
-    if (leftVal !== null && rightVal !== null) return leftVal * 100 + rightVal;
+    if (leftVal !== null && rightVal !== null) return leftVal * mult + rightVal;
   }
 
   return null;
