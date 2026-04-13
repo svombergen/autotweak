@@ -282,12 +282,6 @@ function normalizeCandidates(values: string[]): string[] {
     // raw
     out.add(v);
 
-    // repeated halves
-    if (v.length % 2 === 0) {
-      const h = v.length / 2;
-      if (v.slice(0, h) === v.slice(h)) out.add(v.slice(0, h));
-    }
-
     // keep possible substrings of target lengths
     for (let i = 0; i < v.length; i++) {
       const rem = v.slice(i);
