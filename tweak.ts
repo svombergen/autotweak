@@ -245,9 +245,7 @@ function parseDutchNumberWord(word: string): number | null {
 }
 
 function buildCandidateStrings(fragments: string[]): string[] {
-  const joined = fragments.join(" ");
-  const pieces = joined.split(/\s+/).filter(Boolean);
-
+  const pieces = fragments.filter(Boolean);
   const out = new Set<string>();
 
   // full joined
