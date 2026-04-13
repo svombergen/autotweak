@@ -1,0 +1,9 @@
+MISMATCH
+text      : mijn mobiele nummer is nul drie drie zes drie drie drie drie nul dat is m
+expected  : 0336333330
+predicted : null
+candidates: []
+---
+---
+val_score:        419/420 (99.76%)
+total_seconds:    0.05
