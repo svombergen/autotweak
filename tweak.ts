@@ -207,9 +207,6 @@ function parseDutchNumberWord(word: string): number | null {
       if (s === `${unitWord}en${tensWord}` || s === `${unitWord}${tensWord}`) {
         return unit + tens;
       }
-      if (unitWord === "twee" && (s === `tweeen${tensWord}` || s === `tweeen${tensWord}`)) {
-        return 2 + tens;
-      }
     }
   }
 
