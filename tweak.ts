@@ -91,10 +91,10 @@ export function parseEmail(input: string): string | null {
     if (tok === 'een' && i + 2 < tokens.length && tokens[i + 1] === 'de' && tokens[i + 2] === 'spoor') {
       result += '_'; i += 3; continue;
     }
-    // Multi-token: een between single letters → letter 'e' (not digit 1)
+    // Multi-token: een between single letters → letter 'n' (Dutch spelling of letter n as "en/een")
     if (tok === 'een' && i > 0 && i + 1 < tokens.length &&
         /^[a-z]$/.test(tokens[i - 1]) && /^[a-z]$/.test(tokens[i + 1])) {
-      result += 'e'; i++; continue;
+      result += 'n'; i++; continue;
     }
 
     // Multi-token: k meel / k mill → kpnmail (Deepgram merging)
