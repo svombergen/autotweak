@@ -1,8 +1,1 @@
 commit	val_score	loc	status	description
-3d208e0	99.76%	270	keep	baseline
-b472d45	99.76%	260	keep	remove dead 0-9 entries from SIMPLE_NUMBER_WORDS
-138a36c	99.76%	253	keep	move tens 20-90 inline, drop from SIMPLE_NUMBER_WORDS
-e3ba756	99.76%	242	keep	fold honderd/duizend/miljoen into loop
-3ed2e02	99.76%	239	keep	drop redundant pieces.join, simplify 0[1-9] regex
-52c14c8	99.76%	225	keep	compact parseSingleTokenToDigits and dubbel block
-99c38fc	99.76%	217	keep	compact scoreCandidate, drop redundant mobiele check

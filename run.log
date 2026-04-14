@@ -1,10 +1,2524 @@
 MISMATCH
-text      : mijn mobiele nummer is nul drie drie zes drie drie drie drie nul dat is m
-expected  : 0336333330
+text      : je mag mailen naar a tot l l d at gmail punt co m nee wacht ik zeg het opnieuw a n n a tot l l o y d gmail punt co m
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : noteer maar c o l e t t e underscore v a n d e r m e e r apenstaartje o u t l o o k dot c o m nee wacht ik zeg het opnieuw c o l e t t e underscore v a n d e r m e e r apenstaartje o u t l o o k dot c o m
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : voor de bevestiging graag naar griekse y v o n n e tot k u tot een negen acht acht apenstaartje i c l o u d tot c o m dus met apenstaartje n punt
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mailadres is w o u t e r min v a n l e e u w e n apenstaartje z i g g o punt n l
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : noteer maar q n t i n x plus w e r k apenstaartje p r o t o n punt me alstublieft
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : voor de bevestiging graag naar s a l e s dot n l apenstaartje punt co dot u k
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : dat is i n f o underscore b e z o r g i n g apenstaartje b e d r i j f punt b e dit dus met apenstaartje en punt
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : noteer maar a n n a a tot l l o y d ad l i v e tot n loco dus met apenstaartje en punt
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : u kunt mij bereiken via x a v i r laag streepje q apenstaartje t e s t dot e x a m p l e dot n loco ik herhaal x a v i e r laag streepje q apenstaartje t e s t dot e x a m p l e dot n l
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mailadres is m y b o o k i n g twee nul twee zes apenstaartje s t a r t u p punt i o nog een keer langzaam m y b o o k i n g twee nul twee zes apenstaartje s t a r t u p punt i o
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : u kunt mij bereiken via j a n n b l l e n punt a i nee niet tot maar punt ik zeg hem opnieuw j a n s e n b e l l e n punt a i
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : je mag mailen naar r e s e r v e r i n g vier zeven twee zeven apenstaartje proton dot me
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : je mag mailen naar x a v i e r l a u r a laag-één vier apenstaartje s t a r t u p dot i o
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : dat is i n f o apenstaartje l i v e dot n l alsjeblieft
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : je kunt me mailen op m a i l b o x apenstaartje h o t m a i l punt c o m dus met apenstaartje n punt
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mailadres is w e r k apenstaartje s u p e r c l u b g a m e dot com
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : stuur het maar naar t h u i s laag streepje f i n a n c e laag streepje acht nul a g e een c y dot e u nog een keer langzaam t h u i s laagstreet y f i n a n c e laagstreet acht nul a g e n c y dot e u
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn mail adres is t e a tot a m s t e r d a m apenstaartje h o t m a i l punt c o m nee wacht ik zeg het opnieuw t e a m tot a m s t e r d a m apenstaartje h o t m a i l punt c o m
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : je mag mailen naar c o n t a c t p u n t apenstaartje p r o t o n dat m e
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : d e b o e r a m s t e r d a m laag-drie zeven apenstaartje proton me
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : s u p p o r t i n f o k p n m a i l dot n l
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn mailadres is a m s a zes één nul acht apenstaartje mail punt namelijk negen acht ik zeg het opnieuw a m s t e r d a m zes één nul acht apenstaartje mail punt n l
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : u kunt mij bereiken via b r u s s e l min d e b o e r apenstaartje k p n m a i l punt n loco nee niet tot maar punt ik zeg hem opnieuw b r u s s e l min d e b o e r apenstaartje k p n m a i l punt n l
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : dat is r e v n g streepje s a l e s apenstaartje punt i o nee niet tot mijn punt ik zeg hem opnieuw r e s e r v e r i n g streepje s a l e s apenstaartje punt i o
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : je kunt me mailen op d e v r i e s drie zes ad z i g g o dot n l zonder spaties
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mail is i n f o k e u k e n apenstaartje b e d r i j f punt bi voor de bevestiging
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : voor de bevestiging graag naar s u p p o r t punt l i s a apenstaartje mail punt namelijk dus met apenstaartje en punt
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : noteer maar d s vijf acht apenstaartje p r dat m e dit ik herhaal d e v r i e s vijf acht apenstaartje p r o t o n dat m e
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : p l a n n i n g apenstaartje p r o t o n dat m e
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn mailadres is q e nat p r o t o nat m editiet ik herhaal q u e n t i nat p r o t o nat m e
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : 
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mail is z a k e l i j k streepje f i n a n c e at punt co punt uk nee wacht ik zeg het opnieuw z a k e l i j k streepje f i n a n c e apenstaartje punt co punt juke
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : dat is c o n t a c t p u n t apenstaartje k p n m a i l dot n l dat is hem
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : dat is c o nat l i v punt n locone niets tot maar punt ik zeg hem opnieuw c o n t a c t d a a n apenstaartje l i v e punt n l
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : voor de bevestiging graag naar m i y dood w i ad o u t l o o k dood c o nee wacht ik zeg het opnieuw m i l l y dood w i l l e m ad
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : stuur het maar naar t h u i s laag streepje j a n s e n acht zes acht p r o t o m m e voor de bevestiging
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : dat is s a e s punt n l at hotmail punt com ik herhaal s a l e s punt n l at hotmail punt com
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mailadres is b o e k i n g twee vijf een twee apenstaartje proton dot me nog een keer langzaam b o e k i n g twee vijf een twee apenstaartje protondot me
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : je mag mailen naar c o t a c t p u n t twee nul twee zes apenstaartje b e d r i j f d o a c u n nul zes apenstaartje b i j f d nog een keer langzaam c o n t a c t p u n t twee nul twee zes apenstaartje b e d r j f tot b e
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : je mag mailen naar f i n a n c e streepje b e ad i c l o u d dot c o n dus met apenstaartje n punt
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : voor de bevestiging graag naar p i e t plus w e r k outlook punt com nog een keer langzaam p i e t plus w e r k apenstaartje outlook punt com
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn mailadres is k u k e n vijf nul apenstaartje s t a u dot ik herhaal k e u k e n vijf nul apenstaartje s t a r t u p dot i o
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : dat is a n n a tot a n n a apenstaartje agency punt eu helemaal aan elkaar
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : noteer maar m l drie zeven vijf acht a b e l l e n tot a i ik herhaal m a i l drie zeven vijf acht a b e l l e n tot a i
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn mailadres is y v o apenstaartje proton punt me nog een keer langzaam y v o n n e apenstaartje proton punt me
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mail is c a t twee nul twee zes apenstaartje mail dot namelijk nee wacht ik zeg het opnieuw c o n t a c t p u n t twee nul twee zes apenstaartje mail dot n l
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : noteer maar l o y d tot l l o y d at y a punt c o m nee wacht ik zeg het opnieuw l l o y d tot l l o y d apenstaartje y a h o o punt c o m
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : stuur het maar naar b e o r i n g plus t e s t at n a i l punt c o m dot a u ik herhaal b e z o r g i n g plus t e s t ad n a i l punt c o m dot a u
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : voor de bevestiging graag naar j a n s e n laag streepje a n n a underscore één zes apenstaartje proton punt me dus met apenstaartje punt
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mailadres is d e v r i e s streepje r e s e r v e r i n g at examen punt n l
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : dat is d e v r i e s tot s m i t apenstaartje agency punt e u
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : voor de bevestiging graag naar z a k e l j k apenstaartje b i d r i j f punt b e
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : noteer maar g m a i t e s t twee nul twee zes apenstaartje e x a m p l e punt n loco ik herhaal g m a i l t e s t twee nul twee zes a m p l e punt n l
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn mailadres is n drie nul apenstaartje p r n punt m e dit nee niet tot maar punt ik zeg hem opnieuw n o a h drie nul apenstaartje p r o t o n punt m e
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mail is p l a n n i n g tot l i s h apenstaartje b l l e n dat a i
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : u kunt me mailen op e m m a e nul ad p r o t o n punt m e delict nee niet op mijn punt ik zeg hem opnieuw e m m a e nul ad p r o t o n punt m e
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : stuur het maar naar g m a i l t e s t nul één apenstaartje s u p e r c l u b g a m e dot com nee wacht ik zeg het opnieuw g m a i l t e s t nul één apenstaartje s u p e r c l u b g a m e dot com
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mail is ypsilon v o n n e underscore x a v i e r apenstaartje p r o t o n punt m e
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : voor de bevestiging graag naar c o n t a c t p u n t nul één proton me
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mail is v a n l e u dubbele v e n laag streepje c o n t a c t underscore zes twee at gmail punt com nog een keer langzaam v a n l e e u dubbele v e n laag streepje c o n t a c t zes twee at gmail punt com
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : je kunt me mailen op m u l d e r plus t e s t zeven een drie twee apenstaartje m a i l punt com punt o nee wacht ik zeg het opnieuw m u l d e r plus t e s t zeven een drie twee apenstaartje m a i l punt com punt o
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : je mag mailen naar l i s a r e s e r v e r i n g laagstreepte twee drie apenstaartje examen dot namelijk nee wacht ik zeg het opnieuw l i s a r e s e r v e r i n g laag streepje twee drie apenstaart examen dot nl
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mailadres is m a b o x apenstaartje p r o o n punt m e dity nee wacht ik zeg het opnieuw m a i l b o x apenstaartje p r o t o n punt m e
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn mailadres is i n w e r k negen vier nul één apenstaartje gmail punt com nee wacht ik zeg het opnieuw i o plus w e r k negen vier nul één apenstaartje gmail punt com
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : dat is t e a n b dot c o punt u k
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mailadres is a n n a punt a n n a apenstaartje s u p e r c l u b g a m e punt c o m ik herhaal a n n a punt a n n a apenstaartje s u p e r c l u b g a m e punt c o m
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mailadres is t h u i s tot b o e k i n g apenstaartje s u p e r c l u b g a m e dot com
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : p l a n n i n g min z a k e l i j k gmail punt com
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : peu dat is d e b o e r drie acht apenstaartje z i g g o punt n l
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : v i s s e r apenstaartje s u p e r c l u b g a m e dot com
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mailadres is p l a n n i n g meen k l a a s apenstaartje i c l o u d punt c o m dank je
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mailadres is m i l ypsilon punt dubbele v i l l e m at o u t l o o k tot c o m nee wacht ik zeg het opnieuw m i l l ypsilon punt dubbele v i l l e m apenstaartje o u t l o o k dot c o m
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mailadres is l i s a streepje s a n n e apenstaartje proton punt me ik herhaal l i s a streepje s a n n e apenstaartje proton punt me
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : voor de bevestiging graag naar d s apenstaartje kmail dot namelijk nog een keer langzaam d e v r i e s apenstaartje kmail dot n l
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : u kunt mij bereiken via r e s e r v e r i n g plus w e r k apenstaartje p r o t o n m e die niet nee wacht ik zeg het opnieuw r e s e r v e r i n g plus w e r k apenstaartje p r o t o n punt m e
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : noteer maar a m s t e r d a m min l a u r a apenstaartje proton me alsjeblieft
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : je mag mailen naar c o n t a c t punt e m m a a apenstaartje h o t m a i l punt com
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : stuur het maar naar n o streepje l n g at ziggo namelijk nee wacht ik zeg het opnieuw n o a h streepje p l a n n i n g apenstaartje ziggo punt n l
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : dat is s u t v i s s e r apenstaartje ziggo punt nl ik herhaal s u p p o r t v i s s e r apenstaartje ziggo punt nl
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : je mag mailen naar m a i l b o x nul een apenstaartje p r o t o n dat m e meer niet
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : voor de bevestiging graag naar i n drie acht een twee apenstaartje agency dot e u nee wacht ik zeg het opnieuw i n f o drie acht een twee apenstaartje agency dot e u
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : u mag mailen naar p l a n n i n g plus b o o k i n g apenstaartje icloud dot com nee niet tot maar punt ik zeg hem opnieuw p l a n n i n g plus b o o k i n g apenstaartje icloud dot com
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : u kunt mij bereiken via d e b o e r apenstaartje z i g g o punt n l ja
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : dat is m a i l b o x ad k p n m a i l punt n loco dus met apenstaartje een punt
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : noteer maar s u p p o t u t r e c h t apenstaartje l i v e dot n loco ik herhaal s u p p o r t min u t r e c h t apenstaartje l i v e dot n l
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : je kunt me mailen op d a a n underscore m u l d e r apenstaartje proton dot me dus met apenstaartje n punt
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mailadres is dubbele v e k apenstaartje s u p e r c l u b g a m e dot com nee wacht ik zeg het opnieuw dubbele v e r k apenstaartje s u p e r c l u b g a m e dot com
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : q u e n t i n negen acht apenstaartje proton dot me
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : noteer maar f i n a n c e min t e a m ad b e l l e n tot a i ik herhaal f i n a n c e min t e a m ad b e l l e n tot a i
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn mailadres is i n f o h a n n a c o m p a n y punt c o punt uk
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mailadres is c o n t a c t punt m u l d e r apenstaartje p r o t o n m e d it nee wacht ik zeg het opnieuw c o n t a c t punt m u l d e r apenstaartje p r o t o n m e
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : dat is e i n d h o v e n l l o y d laag streepje acht twee apenstaartje p r o t o n m e dit ik nee niet tot maar punt ik zeg hem opnieuw e i n d h o v e n l l o y d acht twee apenstaartje p r o t o m m e
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mail is p i t streepje a e apenstaartje punt mail punt nl nog een keer langzaam p i e t streepje s a l e s apenstaartje punt mail punt nl
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mailadres is l l o y d apenstaartje punt i o
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : stuur het maar naar l a a m punt co m nog een keer langzaam l a u r a h o t m a i l punt co m
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : je kunt me mailen op k u k e n apenstaartje s u p e r c l u b g a m e punt com nee wacht ik zeg het opnieuw k e u k e n apenstaartje s u p e r c l u b g a m e punt com
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : noteer maar e i n d h o v e n plus t e s t apenstaartje krumeel punt n l
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : voor de bevestiging graag naar l l o y d punt l l o griekse y d apenstaartje s u p e r c l u b g a m e punt com
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mail is l l o ypsilon d punt l l o ytsy d apenstaartje s t a r t u p punt i o dus met apenstaartje n punt
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : dat is t e a m streepje b e z o r g i n g a apenstaartje proton punt me nog een keer langzaam t e a m streepje b e z o r g i n g apenstaartje proton punt me
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : d e b o e r laag streepje p i e t k p n m a i l dot n l
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : stuur het maar naar h n a punt a n n a apenstaartje b e d r j f dot b editiet nog een keer langzaam h a n n a punt a n n a apenstaartje b e d r j f d o e
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : dat is dubbele v o u t e r min c o n t a c t apenstaartje proton dot me nog een keer langzaam dubbele v o u t e r min c o n t a c t apenstaartje proton dot me
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mail is c o n t a c t underscore d e b o e r a b e d r i j f punt p e
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mailadres is v i s s e r plus p r i v e apenstaartje startup punt i o
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : je mag mailen naar mail-r o e r a m apenstaartje agency dot e u nog een keer langzaam mail-r o t t e r d a m apenstaartje agency dot e u
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mail is p t laag streepje l d underscore zes vijf apenstaartje m a l dot c o m punt a u nog een keer langzaam p i e t laag streepje l l o ypsilon d underscore zes vijf apenstaartje m a i l dot c o m punt a u
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : voor de bevestiging graag naar s u p p o r t zes zes apenstaartje b e l l e n dot a i
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : noteer maar c o n t a c t laag streepje r o t t e r d a m ad b e l l e een punt a i alsjeblieft
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : dat is l l o y d tot a n n a a apenstaartje hotmail dot com nee niet tot maar punt ik zeg hem opnieuw l l o y d punt a n n a apenstaartje hotmail punt com
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mailadres is p l a n n i n g punt y v o n n e apenstaartje k0l dot n l
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : je mag mailen naar j a n apenstaartje proton me helemaal aan elkaar
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : u kunt mij bereiken via t e a m y v o n n e zeven zeven proton dot me dank je
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : stuur het maar naar s a p n m dot n loco ik herhaal s a n n e k p n m a i l dot n l
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : voor de bevestiging graag naar s u p p o r t b a k k i r apenstaartje proton dot me nee niet tot maar punt ik zeg hem opnieuw s u b p o r t b a k k e r apenstaartje proton punt me
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : voor de bevestiging graag naar c o n t a t underscore v i s s e r apenstaartje een mail dot namelijk nog een keer langzaam c o n t a c t underscore v i s s e r apenstaartje punt mail dot n l
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : stuur het maar naar r e s e r v e r i n g min c o n t a c t apenstaartje examenpunt namelijk ik herhaal r e s e r v e r i n g min c o n t a c t examenpunt nl
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : u kunt mij bereiken via t e m een drie zes zes apenstaartje z i g g o dot namelijk nee wacht ik zeg het opnieuw t e a m een drie zes zes apenstaartje z i g g o dat n l
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : je kunt me mailen op m a streepje apenstaartje z i g g o tot n lokoné niet tot maar punt ik zeg hem opnieuw m a i l streepje m u l d e r apenstaartje z i g g o tot
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : dat is s u p p o r t laagstreepte j a n laagstreepte vier vier apenstaartje p r o t o n punt m edit nee wacht ik zeg het opnieuw s u p p o r t laagstreepte j a n laagstreepte vier vier apenstaartje p r o t o n punt m e
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : stuur het maar naar c o n a c t een de spoor k l a a s apenstaartje hotmail punt com nee wacht ik zeg het opnieuw c o n t a c t een de spoor k l a a s apenstaartje hotmail punt com
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mailadres is h a n a punt l l o y d ad p r o t o n dot m editiet ik herhaal h a n n a punt l l o y d ad p r o t o n dot m e
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mailadres is b e z o r g i n g min b o e k i n g ad starter punt i o dus met apenstaartje en punt
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : stuur het maar naar a n a dot l l o griekse y d apenstaartje c o n p a n ypsilon dot c o dot u k nog een keer langzaam a n een a dot l l o griekse y d apenstaartje c o n p a n ypsilon dot c o dot u k
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : u kunt mij bereiken via s a l e s min b o e k i n g at gmail dot com dus met apenstaartje en punt
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : n o a h laag streepje s m i t een de zes acht apenstaartje tot i o
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : u kunt mij bereiken via j a n s e n a h o o punt c o m
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : u kunt mij bereiken via d e v r i e s acht vier hotmail punt com
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : noteer maar h a n n a punt a n n a ad s u p e r c l u b g a m e dot c o m ik herhaal h a n n a punt a n n a a ad s u p e r c l u b g a m e dot c o m
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : t e a m streepje b at outlook punt com
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : x a v i e r apenstaartje example dot n l
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn mailadres is e d h apenstaartje e x a e punt n loco nee niet tot maar punt ik zeg hem opnieuw e i n d h o v e n apenstaartje e x a m p l e punt n l
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : u kunt mij bereiken via s a l e s apenstaartje e x a m p l e punt n l dat is hem
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : noteer maar b a e plus t e t apenstaartje p r o t o n dot m e die ik nee wacht ik zeg het opnieuw b a k k e r plus t e s t apenstaartje p r o t o n dot m e
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mailadres is j a n s e n een despoor g e n t laag streepje acht negen apenstaartje p r o t o n punt m editiet dus met apenstaartje n punt
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : m a i l b o x nul één g m a i l dot c o m
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn mailadres is d a a n plus w e r k at proton punt me nee niet tot maar punt ik zeg hem opnieuw d a a n plus w e r k apenstaartje proton punt me
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : je kunt me mailen op l a plus p r i v e vijf zes zes zes apenstaartje punt dot co dot u nog een keer langzaam l i s a plus p r i v e vijf zes zes zes apenstaartje punt i dot co dot u k
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mail is m a nul één apenstaartje b e d punt b e dit ik herhaal m a l b o x nul één apenstaartje b e d r i j f punt b e
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : u kunt mij bereiken via g m a i l t e s t twee nul twee zes ad s u p e r c l u b g a m e dot com nee niet tot maar punt ik zeg hem opnieuw g m a i l t e s t twee nul twee zes apenstaartje s u p e r c l u b g a m e punt com
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : dat is h a n n a streepje z a k e l j k ad agency dot e u o k
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : je kunt me mailen op u t r e h t dot c o n t a c t apenstaartje b e d r i j f punt bi nee wacht ik zeg het opnieuw u t r e c h t dot c o n t a c t apenstaartje b e d r i j f punt bi
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : noteer maar t e a m plus t e s t z ziggo dot n l helemaal aan elkaar
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : dat is d o r ad s u p e r c l u g e punt co m nee wacht ik zeg het opnieuw d e b o e r apenstaartje s u p e r c l u b g a m e punt co m
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : noteer maar e d h o n plus d e t apenstaartje mail dot namelijk ik herhaal e i n d h o v e n plus d e s t apenstaartje mail dot nl
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : dat is b a k k e r underscore m u l d e r laag streepje een een acht m a i l punt c o m tot a u ja
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mailadres is s a n e streepje t e a m ad c o m p a n y punt c o dat u p ik herhaal s a n n e streepje t e a m c o m p a n y punt c o tot uk
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : je mag mailen naar g e n t laag streepje b r u s s e l laag streepje negen twee apenstaartje punt com punt u k
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : voor de bevestiging graag naar t m-g n t k p n m a punt n loconé wacht ik zeg het opnieuw t e a m-g e n t k p n m a i l punt n l
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : stuur het maar naar z a e i j k at punt co punt u k nee wacht ik zeg het opnieuw z a k e l i j k apenstaartje punt co punt u k
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : stuur het maar naar e streepje k a laag streepje vijf acht apenstaartje proton punt m editit nee niet tot maar punt ik zeg hem opnieuw e m m a laag streepje k l a a laag streepje vijf acht apenstaartje proton punt m e
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : voor de bevestiging graag naar b r u s s e l zeven zeven apenstaartje ziggo punt namelijk dus met apenstaartje n punt
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : stuur het maar naar p i e t vier vijf zes vijf apenstaartje outlook punt com
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : l a u r a d a a n ad s u b e r c l u b g a m e dot c o n
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mailadres is s u p p o r t streepje t h u i s apenstaartje hotmail punt com
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : dat is h a n n a punt w i l l e m apenstaartje proton punt me
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : dat is t h u i s u t r e c h t laagstreepte een acht apenstaartje p r o t o n punt m editiet nog een keer langzaam t h u i s underscore u t r e c h t laagstreepte een acht apenstaartje p r o t o n punt m e
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mail is p l a n n i n g punt r e s e r v a r i n g at proton dot me nee wacht ik zeg het opnieuw p l a n n i n g punt r e s e r v e r i n g apenstaartje proton dot me
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : je mag mailen naar g e n t punt s a l e s apenstaartje a g e n c y punt e u dus met apenstaartje en punt
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : je kunt me mailen op m a i l b o x twee nul twee zes apenstaartje o u t l o o k tot c o m alsjeblieft
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mailadres is l a u r a laag streepje i n f o underscore een vijf ziggo dot namelijk nog een keer langzaam l a u r a laag streepje i n f o één vijf ziggo dot nl
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : u kunt mij bereiken via l a u r a vijf een apenstaartje c o m p a n y punt c o punt u k
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : i n f o punt e i n d h o v e n ad b e l l e n punt a i
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : noteer maar d n plus p r i v e apenstaartje b i l e n dot a n nog een keer langzaam d a a n plus p r i v e apenstaartje b i l l e n dot a i
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mailadres is i n n n a apenstaartje proton dot me ik herhaal i n f o a n n a apenstaartje proton dot me
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : noteer maar i n f o laag streepje a m s t e r d a m underscore drie apenstaartje k p n m a i l dot n loco ik herhaal i n f o laag streepje a m s t e r d a m underscore drie apenstaartje k p n m a i l dot n l
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : dat is a a punt l d apenstaartje outlook punt com nog een keer langzaam a n een a punt l l o y d apenstaartje outlook punt com
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mail is c o n t a c t p u n t twee nul twee zes apenstaartje k p n m a i l dot n loco nee niet dot maar punt ik zeg hem opnieuw c o n t a c t p u n t twee nul twee zes k p n m a i l dot n l
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : stuur het maar naar m l apenstaartje mail dot com punt o nee wacht ik zeg het opnieuw m ai l b o x apenstaartje mail dot com punt o
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : noteer maar w o u t r underscore s m i t underscore vier drie ad p r o t o n punt m e ja
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mailadres is w u t r streepje m a i l apenstaartje c o n p a n ypsilon punt c o punt u k nog een keer langzaam w o u t r streepje m a i l apenstaartje c o n p a n ypsilon punt c o punt u k
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : je kunt me mailen op r e i n g at p r o t o n dot m editit nee niet tot maar punt ik zeg hem opnieuw r e s e r v e r i n g apenstaartje p r o t o n punt m e
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : stuur het maar naar v a n l e e u w e n laag streepje w e r k laag streepje één vijf apenstaartje s u p e r c l u b g a m e punt c o m ik herhaal v a n l e e u w e n laag streepje w e r k laagstreepte één vijf apenstaartje s u p e r c l u b g a m e punt c o m
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mail is n plus t e s t acht vijf zeven zeven at punt nl nog een keer langzaam n o a h plus t e s t acht vijf zeven zeven at ziggo punt nl
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : noteer maar m a nul één apenstaartje proton dot me nog een keer langzaam m a i l b o x nul één apenstaartje proton dot me
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : ui je mag mailen naar m i l l y punt l l o y d apenstaartje protondot me
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : r o t t e r d a m min s a n n e apenstaartje p r o t o n m e
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : noteer maar k l één vijf twee drie apenstaartje b i l i n punt a i nee wacht ik zeg het opnieuw k l a a s één vijf twee drie apenstaartje b i l l i n punt a i
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : je mag mailen naar t h u apenstaartje b e d r i j f dot b nee wacht ik zeg het opnieuw t h u i s apenstaartje b e d r i j f dot b
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mailadres is s u p p o r t y v o n n e at startup punt i o
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : stuur het maar naar r e s e r v e r i n g laag streepje n o a h ad m a i l dot com dot a u nee niet tot maar punt ik zeg hem opnieuw r e s e r v e r i n g laag streepje n o a h apenstaartje m a i l punt com punt a u
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : voor de bevestiging graag naar n o a h plus w e r k apenstaartje e x a m p l e punt n l
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : stuur het maar naar d a a n underscore d a a n apenstaartje e x a n p l e punt
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mailadres is m i plus w k apenstaartje l i v e punt namelijk nee niets op maar punt ik zeg hem opnieuw m i l a m plus w e r k apenstaartje l i v e punt n l
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn mailadres is n o min v a u dubbele v e nat l i v e punt n local nog een keer langzaam n o a h min v a n l e e u dubbele v e nat l i v e punt n l
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : je mag mailen naar g m a i l t e s t nul één apenstaartje s t a r t u p dot i o
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : dat is g m a i l t e s t twee nul twee zes apenstaartje i c l o u d punt c o m ik herhaal g m a i l t e s t twee nul twee zes apenstaartje i c l o u d punt c o m
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : r e s e r v e r i n g j h n ad m a i l dat koor
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : noteer maar z a e l i j k underscore a n n a laag streepje vijf acht at yahoo punt com nog een keer langzaam z a k e l i j k underscore a n n a laag streepje vijf acht at yahoo punt com
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : dat is d r-b o e k i n g z i g g o punt namelijk nee wacht ik zeg het opnieuw d e b o e r b o e k i n g z i g g o punt n l
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : u kunt me mailen op s a l e s a m s t r d a m apenstaartje outlook punt com ja
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : 
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : u kunt mij bereiken via c o n a c t u n t apenstaartje i c l o u d punt com nee niet tot maar punt ik zeg hem opnieuw c o n t a c t p u n t apenstaartje i c l o u d punt com
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : je mag mailen naar l a min r apenstaartje ziggo punt namelijk nog een keer langzaam l a u r a min d e b o i r apenstaartje ziggo punt nl
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mailadres is f i n a n c e underscore b a k k e r laag-zeven vier apenstaartje b e d r i j f punt b e zonder spaties
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : noteer maar b a k e plus t e s t twee drie zeven twee apenstaartje dot i o ik herhaal b a k k e r plus t e s t twee drie zeven twee apenstaartje dot i o
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : u kunt mij bereiken via s a n a mail punt com punt o nee niet tot maar punt ik zeg hem opnieuw s a n n e min a n n a a bestaat mail punt com punt o
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : l l o y d punt a n n a apenstaartje m a i l punt c o m punt a u
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn mailadres is r e s e r n g vijf acht drie apenstaartje s t a r u dot i o nee wacht ik zeg het opnieuw r e s r v e r i n g vijf acht drie apenstaartje s t a r t u p dot i o
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn mailadres is k e u k e n een twee at k mill punt n l
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : noteer maar u t r e c h t dot v a n l e e u w e n apenstaartje s t a r t u p dot i o voor de bevestiging
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : noteer maar h e l l o punt r o t t e r d a m mat k p n m a i l punt n l
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : stuur het maar naar s m i t streepje a n n a a a a e n c ypsilon punt e u nog een keer langzaam s m i t streepje a n n a a a e n c ypsilon punt e u
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : j a n s e n drie één apenstaartje s u p e r c l u b g a m e dot com
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : u kunt mij bereiken via w e m tot w at e r j f tot b e d ik nee wacht ik zeg het opnieuw w i l l e m tot w i l l e m at b e d r j f tot b e
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : noteer maar dubbele v i l l e m punt a n n a apenstaartje p r o t o n dot m e alsjeblieft
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : dat is m a b o x at proton me nee niet tot maar punt ik zeg hem opnieuw m a i l b o x apenstaartje proton me
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mailadres is w i l l e m punt a n n a apenstaartje p r o t o n punt m e meer niet
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : voor de bevestiging graag naar h a zeven zes apenstaartje mail dot namelijk ik herhaal h a n n a zeven zes apenstaartje mail dot nl
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : dat is l l o y d plus w e r k zes drie vijf vier apenstaartje l i v e punt n l
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : stuur het maar naar m i l l ypsilon dot a n n a apenstaartje z i g g o dot n loco dus met apenstaartje en punt
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : u kunt mij bereiken via p l a n n i n g tot v i s s e r apenstaartje examenpunt namelijk dus met apenstaartje n punt
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : g m a i l t e s t apenstaartje l i v e dot n l
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : noteer maar m a l b o x apenstaartje l i v e punt l locone wacht ik zeg het opnieuw m a i l b o x apenstaartje l i v e punt n l
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mailadres is t e a m dat r o t t e r d a m aapenstaar yahu dat com nee niet tot maar punt ik zeg hem opnieuw t e a m punt r o t t e r d a m apenstaartje yahoo punt com
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : noteer maar s mit plus dubbele k apenstaartje b e e n dot a i nee wacht ik zeg het opnieuw s mit plus dubbele v e r k apenstaartje b e l l e n dot a i
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : t e a m laag streepje s u b p o r t laag streepje vier negen apenstaartje outlook punt com
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : c o n t a c t plus p r i v e zes vijf een nul apenstaartje i c l o u d dot c o m
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : je mag mailen naar s a l plus t e s t apenstaartje l i e dot n loco ik herhaal s a l e s plus t e s t apenstaartje l i v e dot n l
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : dat is t e streepje a m s t e r d a m ziggo dot namelijk ik herhaal t e a m streepje a m s t e r d a m ziggo dot n l
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : voor de bevestiging graag naar m a b o x twee nul twee zes at coopand youké nee wacht ik zeg het opnieuw m a i l b o x twee nul twee zes apenstaartje coopand youké
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : 
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : dat is c o n t a c t underscore n o a h ad e x a m p l e punt n loco dus met apenstaartje en punt
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : dat is t e a m punt r o t t e r d h m apenstaartje outlook punt com dus met apenstaartje een punt
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mail is a n n a a min s a l e s apenstaartje s t a r t u p dot i o
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : x a v i e r vier acht nul zeven apenstaartje mail dot n l
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mailadres is g m a i l t e s t nul een ad o u t l o o k dot c o m nee niet tot maar punt ik zeg hem opnieuw g m a i l t e s t nul een apenstaartje o u t l o o k punt c o m
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : stuur het maar naar m a i l streepje b o e k i n g apenstaartje p r o t o n dat m edit ik herhaal m a i l streepje b o e k i n g apenstaartje p r o t o n dat m e
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : je mag mailen naar t e a m laag-j a n vier negen acht e x a m p l e punt n locone wacht ik zeg het opnieuw t e a m laag-j a n vier negen ad e x a m p l e punt n l
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : 
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mailadres is w e r k plus p r i v e apenstaartje kuntpe die punt koop punt u k dus met apenstaartje n punt
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mail is i o negen nul apenstaartje b e l e n dat ik herhaal i n f o negen nul apenstaartje b e l l e n dat a i
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : je mag mailen naar b r u s s e l j a n undascore e l f tot b ik herhaal b r u s s e l j a n undéén drie apenstaartje b e d r i j f tot b
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : u kunt me mailen op c o n a c t p u n t twee nul twee zes apenstaartje z i g g o dot n loco ik herhaal c o n t a c t p u n t twee nul twee zes apenstaartje z i g g o dot n l
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn mailadres is m i l l y tot l l o y d apenstaartje nul dot n loco ik herhaal m i l l y d apenstaartje nul nul nul
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : noteer maar a n n a a a a g e n c ypsilon punt e u alsjeblieft
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mailadres is g m a e d apenstaartje agency dot e u nee niet op mijn punt ik zeg hem opnieuw g m a l t e s d apenstaartje agency punt e u
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mailadres is h a n n a b o e k i n g apenstaartje m a i l tot c o m tot a u dank je
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mailadres is t e a m streepje r o t t e r d a m apenstaartje agency punt e u
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : noteer maar p i e d underscore k u u e n t i n underscore twee negen apenstaartje z i g g o dot n loco dus met apenstaartje een punt
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : t e a m r o t t e r d a m apenstaartje protondot me
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mailadres is e m m a apenstaartje nul nul dot n l ja
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : stuur het maar naar s u p p o r t underscore d e b o e r apenstaartje z i g g o tot n loco dus met apenstaartje n punt
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : je mag mailen naar g m a i l t e s t nul een apenstaartje m a i l dat kon dat a u dank je
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mail is m y punt w i l l e m apenstaartje startup dot i o nee wacht ik zeg het opnieuw m i l l y punt w i l l e m apenstaartje startup dot i o
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : b i n d h o v e n zes negen vier apenstaartje p r o t o n punt m e
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : noteer maar j a n plus w e r k drie zeven negen nul apenstaartje p r o t o n dot m e
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mailadres is r e s e r v e r i n g underscore k e u k e n a proton punt me nee niets dat maar punt ik zeg hem opnieuw r e s e r v e r i n g underscore k e u k e n apenstaartje proton punt me
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : c o n t a c t laag streepje p l a n een i n g drie vier apenstaartje b e d r i j f punt b
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : noteer maar s a l e s dot n l apenstaartje z i g g o dot n loco dus met apenstaartje n punt
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mail is s a l e s punt d e v r i e s ad k p n m a i l dot n loco nog een keer langzaam s a l e s punt d e v r i e s ad k p n m a i l dot n l
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn mailadres is h o punt b e b e d r i j f punt b nee niet tot maar punt ik zeg hem opnieuw h e l l o punt b e apenstaartje b e d r i j f punt b
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : noteer maar j a plus t t een zes negen vier at p r n punt m editiet nee niet doet maar punt ik zeg hem opnieuw j a m plus t e s t een zes negen vier apenstaartje p r o t o n punt m e
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : stuur het maar naar h a n n a tot a n n a apenstaartje punt c o tot u k
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mailadres is f i n a n c e streepje b apenstaartje l i v e dot n l
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : p l a n n i n g dot r o t t e r d a m apenstaartje e x a m p l e dot n l
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : je kunt me mailen op g m a i t e s t twee nul twee zes apenstaartje c o m p a een griekse y tot c o tot u k nee wacht ik zeg het opnieuw g m a i l t e s t twee nul twee zes apenstaartje c o m p a een griekse y tot c o tot u k
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : je kunt me mailen op s a l e min s a n n e apenstaartje c o m p a n y punt c o tot u k
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : w o u t e r laag streepje a m s t e r d a m underscore drie vijf apenstaartje z i g g o dot n l
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : voor de bevestiging graag naar s n n streepje m r apenstaartje ziggo dot namelijk nee niet op mijn punt ik zeg hem opnieuw s a n n e streepje m u l d e r apenstaartje ziggo punt n l
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : noteer maar h i l l o punt r o t t i r d a m apenstaartje yahoe punt c o m
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : je mag mailen naar v a u w e n drie negen k meel dot namelijk ik herhaal v a n l e e u w e n drie negen k meel dot n l
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : u kunt mij bereiken via i n f o plus p r i v e twee twee zeven zeven apenstaartje s u p e r c l u b g a m e dot com oké
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : voor de bevestiging graag naar c o n a u n twee nul twee zes apenstaartje proton dot me nog een keer langzaam c o n t a c t p u n t twee nul twee zes apenstaartje proton dot me
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : g e n t streepje l l o ypsilon d k p n m a i l d o ypsilon
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mail is p i e t plus w e r k twee een vier vijf apenstaartje s u p e r c l u b g a m e punt com helemaal aan elkaar
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : u kunt mij bereiken via y v o n e underscore q u e n t i n laag streepje vier acht apenstaartje k p n m a i l punt n loco ik herhaal y v o n n e underscore q u e n t i n laag streepje vier acht apenstaart k p n m a i l punt n l
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : t e a m r o t t r d a m apenstaartje i c l o u d punt c o m
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mail is d a a n laag streepje f i n a n c e apenstaartje s u p e r c l u b g a m e dot com ik herhaal d a a n laag streepje f i n a n c e apenstaartje s u p e r c l u b g a m e dot com
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mailadres is p l n g underscore s n i had examen tot namelijk nee wacht ik zeg het opnieuw p l a n i n g underscore s n i t apenstaartje examen tot n l
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mail is w e r k laag streepje m i l a een laag streepje drie nul apenstaartje agency punt e u
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : voor de bevestiging graag naar c o n t a c t streepje d a a n apenstaartje k p n m a i l tot n loco nul nul nul nul nul nul nul nul nul
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : u kunt mij bereiken via i n f o l i s a laag-zeven vijf z i g g o punt n l
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mailadres is r e s e r v e r i n g laag-streepte v a n l e e u dubbele v e n apenstaartje l i v e dot n l
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : u kunt mij bereiken via a m s t e r d a m plus b o o k i n g ad b e d r i j f punt bi
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : dat is p i e t plus b o k i n g een acht vier vijf at ziggo dot namelijk nee niet op maar punt ik zeg hem opnieuw p i e t plus b o o k i n g een acht vier vijf apenstaartje ziggo punt n l
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mail is m i l l y tot w i l l e m op kamil punt n l
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : dat is f i a c e r o t t e r a m apenstaartje yahoo punt com nog een keer langzaam f i n a n c e r o t t e r d a m apenstaartje yahoo punt com
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mail is s a l e s streepje a m s t e r d a m apenstaartje b e d r i j f punt b meer niet
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mailadres is q u e n t i n min y v o n n e apenstaartje o u t l o o k punt c o m
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : stuur het maar naar k e u k n zes twee drie twee apenstaartje proton punt m e die ik nee wacht ik zeg het opnieuw k u k e n zes twee drie twee apenstaartje proton punt m e
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mail is p l a n n i n g negen een zeven zes apenstaartje b e d r i j f punt bi dus met apenstaartje n punt
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : e n f o plus dubbele v e r k apenstaartje m a i l tot c o m tot a u
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn mailadres is m i y punt w i l l e m at ik mail dot namelijk nee wacht ik zeg het opnieuw m i l l y punt w i l l e m apenstaartje mail dot n l
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : dat is s u p p o r t streepje a m s t e r d a m apenstaard s u p e r c l u b g a m e punt com nog een keer langzaam s u p p o r t streepje a m s t e r d a m apenstaartje s u p e r c l u b g a m e punt com
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : voor de bevestiging graag naar y n i min s a n n apenstaartje mail punt com dot o nog een keer langzaam y v o n n e min s a n n e apenstaartje mail punt com dot o
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : u kunt mij bereiken via d a a n punt v e r k apenstaartje i c l o u d dot c o m
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : noteer maar g e plus w e r k negen vier drie drie hotmail punt com ik herhaal g e n t plus w e r k negen vier drie drie hotmail punt com
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mailadres is y v o n n e punt n o a h apenstaartje proton punt me
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : dat is a n tot a n n a apenstaartje b e l e n punt y ik herhaal a n n a tot a n n a apenstaartje b e l l e n punt y
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : u kunt mij bereiken via g m a i l t e s t nul één apenstaartje a g e n c y dot e u dus met apenstaartje en punt
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : dat is m a i l b o x nul een apenstaartje p r o t o n dat m e alsjeblieft
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : noteer maar z a k i l i j k apenstaartje ziggo punt nl
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : s u p p o r t streepje w o u t e r a ziggo punt nl
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : voor de bevestiging graag naar a m s t e r d a m apenstaartje icloud punt com ik herhaal a m s t e r d a m apenstaartje icloud punt com
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : je kunt me mailen op f i n a n c e streepje r o t t r d a m apenstaartje i c l o u d d tot c o m o k
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : stuur het maar naar a m s t e r a m b o e i n g ziggo punt nl
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : b e z o r g i n g min d h een at examen punt n l
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : je kunt me mailen op d e v r i e s underscore d e b o e r apenstaartje protondot me nog een keer langzaam d e v r i e s underscore d e b o e r apenstaartje protondot me
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : je mag mailen naar d e v r i e s plus w e r k m a i l punt co m dot a u dus met apenstaartje en punt
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : je kunt me mailen op e m m a acht één drie apenstaartje proton me helemaal aan elkaar
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mail is s m i t negen acht vier een apenstraat z i g g o dot n loco ik herhaal s m i t negen acht vier een z i g g o dot n l
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : stuur het maar naar l a u r a plus w e r k twee nul zeven zes apenstaartje b e d r j f dot b e
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : stuur het maar naar i n f o d e b o e r zes vijf at ziggo dan l
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : stuur het maar naar s a n n e laag streepje b o e k i n g drie drie apenstaartje p r o t o n dat m e
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mail is r o t t e r d a m plus b o o k i n g zes twee zeven vier apenstaartje proton punt me
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : u kunt mij bereiken via p l a n n i n g underscore c o n t a c t ad p r o t o n punt m e
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn mailadres is g m a i l t e s t twee nul twee zes apenstaartje e x a m p l e dot n l dat is hem
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : je mag mailen naar m i l l y punt l l o griekse y d apenstaartje b e l l e n punt a n nog een keer langzaam m i l l y punt l l o griekse y d apenstaartje b e l l e n punt a i
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mail is m a i l b o x twee nul twee zes apenstaartje yahoo dot com
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : noteer maar t e a n-r o t t e r d a m apenstaartje s u p e r c l u b g a m e punt com ik herhaal t e a m min r o t t e r d a m apenstaartje s u p e r c l u b g a m e punt com
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mailadres is g e n t plus p r i v e vier acht vier zes apenstaartje b e d r i j f punt b e
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn mailadres is w negen een ad z i o punt n lokone niet tot maar punt ik zeg hem opnieuw w e r k negen een ad z i g g o punt n l
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : dat is d a a l laag streepje p i e t vijf drie startup punt i o
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : je mag mailen naar f i n a n c e laag streepje n o a h apenstaartje nul punt namelijk ik herhaal f i n a n c e laag streepje n o a h apenstaartje q-mail punt nl
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn mailadres is y v o n e streepje f i n a n c e apenstaartje s u p e r c l u b g a m e tot c o n n i n a ik zeg hem opnieuw y v o n n e streepje f i n a n c e apenstaartje s u p e r c l u b g a m e punt c o m
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : je kunt me mailen op g m a i l t e s t twee nul twee zes apenstaartje nul dot com dot o dus met apenstaartje n punt
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : voor de bevestiging graag naar d v r s azige punt nl nog een keer langzaam d e v r i e s azige punt nl
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : je mag mailen naar h e l l o d r o h m apenstaartje b e l l e n d a i
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn mailadres is m i a n plus b o o k i n g vier acht nul vijf apenstaartje s u p e r c l u b g a m e punt com ik herhaal m i l a n plus b o o k i n g vier acht nul vijf apenstaartje s u p e r c l u b g a m e punt com
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : dat is s a n n e plus w e r k at proton me
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : je mag mailen naar m a i l b o x twee nul twee zes ad s u p e r c l u b g a m e dot com nee niet tot maar punt ik zeg hem opnieuw m a i l b o x twee nul twee zes apenstaartje s u p e r c l u b g a m e punt com
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : je mag mailen naar e m m a plus t e s d apenstaartje proton dot me dus met apenstaartje n punt
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : u kunt mij bereiken via r e s e r v e r i n g min b e z o r g i n g azige dot n l helemaal aan elkaar
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mailadres is p l a n i n g underscore p i e t ad p r o t o n dat m editiet nog een keer langzaam p l a n n i n g underscore p i e t ad p r o t o n tot m e
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : c o n t a c t punt dubbele v a r k apenstaartje s u p e r c l u b g a m e dot com
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mailadres is c o n t a c t laag streepje m i l a n apenstaartje hotmail punt com dus met apenstaartje n punt
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : we mijn mailadres is s u p p o r t één zeven apenstaartje proton dot me
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : voor de bevestiging graag naar c o t a c t streepje b o e k i n g apenstaartje ziggo punt namelijk nog een keer langzaam c o n t a c t streepje b o e k i n g apenstaart ziggo punt nl
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn mailadres is s u p p o r t plus w e r k acht zeven zes acht apenstaartje s u p r c l u b g a m e punt co m
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mail is a n n a punt a n n a ad l i v e dot namelijk nee wacht ik zeg het opnieuw a n n a punt a n n a apenstaartje l i v e dot n l
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mail is b r u s s e l min j a n apenstaartje k p n m a i l punt n loco nee niet tot maar punt ik zeg hem opnieuw b r u s s e l min j a n apenstaartje k p n m a i l punt n l
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mailadres is u t r e c h t streepje e m m a apenstaartje punt code toeké nee wacht ik zeg het opnieuw u t r e c h t streepje e m m a punt code toe k
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mailadres is s u p p o r t punt p i e t apenstaartje b e l l e n punt a i nee wacht ik zeg het opnieuw s u p p o r t punt p i e t apenstaartje b e l l e n punt a i
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : voor de bevestiging graag naar p i e t plus w e r k at c o m p a n y punt c o punt u k
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : u mag mailen naar s i t plus p r i v e apenstaartje p r o o n punt m e delict nee niet op haar punt ik zeg hem opnieuw s m i t plus p r i v e apenstaartje p r o t o n punt m e
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : je mag mailen naar j a n plus t e s t apenstaartje h o t m a i l punt c o m
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : u kunt mij bereiken via m a i l b o x twee nul twee zes ad a g e n c y punt e u o k
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : je kunt me mailen op p i e t plus b o o k i n g ad p r o t o n m e
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : dat is p l a n n i n g t a m apenstaartje proton punt me
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn mailadres is griekse y o n e plus p r i v e zeven drie vijf één apenstaartje gmail punt com nee niet tot naar punt ik zeg hem opnieuw griekse y v o n n e plus p r i v e zeven drie vijf één apenstaartje gmail punt com
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : je mag mailen naar l l ypsilon d at mail punt com punt o nee niet tot maar punt ik zeg hem opnieuw l l o ypsilon d at mail punt com punt o
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mailadres is z a k e l i j k streepje x a v i e r apenstaartje e x a m p l e punt n loco nog een keer langzaam z a k e l i j k streepje x a v i e r apenstaartje e x a m p l e punt n l
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn mailadres is f i n a n c een l apenstaartje p r o t o n dot me nee niet op mijn punt ik zeg hem opnieuw f i n a n c n l apenstaartje p r o t o n punt me
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn mailadres is t i t a m apenstaartje mail punt com dot o nog een keer langzaam t i a m r o t t r d a m apenstaartje mail punt com dot o
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mail is f i n a n c e streepje b apenstaartje ziggo punt n l
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : je kunt me mailen op g m e s t nul één at outlook punt c o n nog een keer langzaam g m a i l t e s t nul één at outlook punt c o n
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mailadres is s m i t zes twee apenstaartje z i g g o dot n l
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : dat is l a u r a streepje t h u i s apenstaartje proton mee meer niet
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mailadres is s m it l a u r a laag-streepje een acht apenstaartje c o n p a een y dot c o dot u k
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : u kunt mij bereiken via w i l e n tot w i l m zico dot namelijk nee wacht ik zeg het opnieuw w i l l e n tot w i l l e m zico dot n l
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : stuur het maar naar s m i t q e n t i n vier at gmail dot c o m
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : je kunt mailen op z a k e l i j k streepje s u p p o r t ad o u t l o o k punt c o m
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mail is s u p p o r t underscore u t r e c h t at s t a r t u p tot i o nee niet tot maar punt ik zeg hem opnieuw s u p p o r t underscore u t r e c h t ad s t a r t u p tot i o
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : je kunt u mailen op i min b e z o r i n g apenstaartje proton dot me nog een keer langzaam i n f o min b e z o r g i n g apenstaartje proton dot me
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : m i l a n plus w e r k vier twee acht een apenstaartje punt n l
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : je mag mailen naar mail apenstaartje ziggo punt namelijk dus met apenstaartje en punt
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn mailadres is w o u t e r underscore p l a n n i n g underscore negen negen apenstaartje example dot n l
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : dat is m a i l b o x ad b e l l e n punt a i
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : u kunt mij bereiken via u t r e c h t apenstaartje punt nul dot nl
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : je mag mailen naar a n a zeven negen apenstaartje z i g g o punt n loco nog een keer langzaam a n n a zeven negen apenstaartje z i g g o punt n l
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mailadres is k u u e n t i n apenstaartje mail dot com punt o ja
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mail is c o n t a c t p u n t apenstaartje yahoo punt com zonder spaties
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : voor de bevestiging graag naar b a k k i r streepje s a l e s apenstaartje example dot n l
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : noteer maar n o a h streepje b r u s s e l apenstaartje c o n p a n y punt c o dat uk nee niet tot maar punt ik zeg hem opnieuw n o a h streepje b r u s s e l apenstaartje c o m b a n y punt c o punt uk
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mailadres is v i s s e r streepje v a n l e e u dubbele v e n ad p r o t o n punt m editiet dus met apenstaartje en punt
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mail is r e s e r v e r i n g dot b e z o r g i n g ad z i g g o dot n l
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : u kunt mij bereiken via p l n n i n e n t apenstaartje z i g g punt n locone niet tot maar punt ik zeg hem opnieuw p l a n g g e n t apenstaartje z i g g o punt n l
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : je mag mailen naar c o n t a c t p u n t twee nul twee zes apenstaartje o u t l o o k punt c o m dus met apenstaartje en punt
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : voor de bevestiging graag naar s a mail punt com dot o ik herhaal s a n n e mail punt com dot o
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : stuur het maar naar w o u t e r apenstaartje h o t m a i l dot c o m meer niet
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : je kunt me mailen op l l o y d punt w i l l e m proton punt m e
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : stuur het maar naar s u p p o r t apenstaartje p r o t o n tot m editiet dus met apenstaartje m
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : je mag mailen naar t h u is c o n t a c t underscore vijf apenstaartje z i g g o dot een l oké
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : stuur het maar naar b a k k e r apenstaart s t a r t u p dot i o dus met apenstaart m punt
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : je kunt me mailen op m a nul één apenstaartje proton punt me nee niet tot maar punt ik zeg hem opnieuw m a l b o x nul één apenstaartje proton punt me
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : stuur het maar naar f i n a n c e a m s t e r d a m apenstaartje startup d a o nee niet tot maar punt ik zeg hem opnieuw f i n a n c e a m s t e r d a m a a starten punt i o
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : dubbele v o u t r apenstaartje l i v e punt een l
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : k e u k e n acht een een vier at punt koop punt uw k
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn mailadres is d a a plus w e r k negen twee acht acht apenstaartje dot namelijk nee wacht ik zeg het opnieuw d a a m plus w e r k negen twee acht acht apenstaartje ziggo dot n l
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : voor de bevestiging graag naar h a n n a punt twee i l l e m apenstaartje s u p e r c l u b g a m e dot com nee niet tot naar punt ik zeg hem opnieuw h a n n a punt w i l l e m apenstaartje s u p e r c l u b g a m e punt com
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : r o t t e r d a m min b e z o r g i n g apenstaart s t a r t u p d o i o
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : stuur het maar naar j a n s e n l r l r vijf e a e r vijf a apenstaartje mail dot com dot o dus met apenstaartje en punt
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : noteer maar p a i g streep a x a r apenstaartje e x a n p l e punt l locone wacht ik zeg het opnieuw p l a n n i n g streep a x a v i e r apenstaartje e x a m p l e punt n l
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : dat is a streepje s m i t underscore vier negen apenstaartje proton punt me nog een keer langzaam a nna laag streepje s m i t underscore vier negen apenstaartje proton punt me
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mail is c a c t streepje k e u k n apenstaartje z i g g o punt n loco ik herhaal c o n t a c t streepje k e u k e n apenstaartje z i g g o punt n l
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : u kunt mij bereiken via i n f o vier vijf apenstaartje e x a n p l e dot n l
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mail is l o d punt w i apenstaartje z i punt n locone niet op maar punt ik zeg hem opnieuw l l o y d punt w i l l e m apenstaartje z i g g o punt n l
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : u kunt mij bereiken via r e s e r v e r i n g j a n s e n adcomail dot n loco ik herhaal r e s e r v e r i n g j a n s e n n l
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : dat is m u l d e r min a n n a apenstaartje p r o t o n punt m e helemaal aan elkaar
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mailadres is c t streepje apenstaartje g m a l tot c o m ik herhaal c o n t a c t streepje p i e t apenstaartje g m a i l tot c o m
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : h a n n a tot w een l l e m a a l dat n l
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : u kunt mij bereiken via d e v r i e s laag-zevenenzestig a k e l i k laag-vier zes at yahoo dot c o m voor de bevestiging
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : u kunt mij bereiken via mail proton dot me nee wacht ik zeg het opnieuw mail apenstaartje proton dot me
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mail is a n n a punt a n n a apenstaartje mail dot com punt o
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : dat is b o e k i n g acht e nul nul a een dus met apenstaart n punt
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mailadres is s a n n e p l a n n i n g een ad b e l l e n punt i
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : noteer maar d a a nat p r o t o n dat m e
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : noteer maar l s a a apenstaartje proton punt nee wacht ik zeg het opnieuw l i s a a apenstaartje proton punt me
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : je kunt me mailen op d e v r i e s streepje q u e n t i n apenstaartje b e l l e n punt a i
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mailadres is b r u s s e l laag streepje b e z o r g i n g underscore negen vijf apenstaartje outlook dot c o m ik herhaal b r u s s e l laag streepje b e z o r g i n g underscore negen vijf apenstaartje outlook dot c o m
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : je kunt me mailen op p i zeven zes ad a punt e u nee niet tot maar punt ik zeg hem opnieuw p i e t zeven zes ad a g e n c y punt e u
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : stuur het maar naar m a l b o x twee nul twee zes a b e d r i j f tot b nee wacht ik zeg het opnieuw m a i l b o x twee nul twee zes apenstaartje b e d r i j f tot b
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn mailadres is mail apenstaartje l i v e punt n l meer niet
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : n o a h laag streepje g e n t laag streepje vijf acht apenstaartje ziggo punt nl
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : h e l l o min b e apenstaartje p r o t o n punt m e
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : stuur het maar naar s a l e streepje r t e r a m apenstaartje r t t e r d m m apenstaartje r d a m apenstaartje d r a
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : u kunt mailen op t h u i s zeven drie zeven een ad s t a r t u p dot i o o k
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : voor de bevestiging graag naar a n a punt l l o ypsilon d apenstaartje m a i l punt c o m punt a u nee wacht ik zeg het opnieuw a n n a punt l l o ypsilon d apenstaartje m a i l punt c o m punt a u
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : s a l e s punt nl at p r o t o n dot m e
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mail is f streepje n l apenstaartje b e l l e n punt a i nog een keer langzaam f i n a n c e streepje n l apenstaartje b e l l e n punt a i
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mailadres is d e v r i e s drie drie at proton dot me
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : je kunt me mailen op t e a a s t e r a m apenstaartje z i g g o punt l loco nog een keer langzaam t e a m a m s t e r d a m apenstaartje z i g g o punt n l
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : je mag mailen naar h a n n a tot w i l l e m apenstaartje mail punt com dot o nee niet tot maar punt ik zeg hem opnieuw h a n n a punt w i l l e m apenstaartje mail punt com punt o
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : noteer maar mail laag streepje v i s e r laag streepje drie zes apenstaartje s u p e r c l u b g a m e punt com ik herhaal mail laag streepje v i s s e r laag streepje drie zes apenstaartje s u p e r c l u b g a m e punt com
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mail is m a i l b o x twee nul twee zes apenstaartje gmail punt com voor de bevestiging
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : noteer maar s i t apenstaartje b e l n punt i nee wacht ik zeg het opnieuw s m i t apenstaartje b e l l e n punt i
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : je mag mailen naar c o n t a c t streepje t e a m ad i c l o u d dot com nog een keer langzaam c o n t a c t streepje t e a m ad i c l o u d dot com
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : mijn e-mailadres is c o n t a c t f i n a n c e apenstaartje z i g g o dot n l
+expected  : undefined
+predicted : null
+candidates: null
+---
+MISMATCH
+text      : ui stuur het maar naar f i n a n c e min s u p p o r t apenstaartje c o n p a een griekse y dot c o punt u k
+expected  : undefined
 predicted : null
 candidates: null
 ---
 ---
-val_score:        419/420 (99.76%)
-lines_of_code:    216
-total_seconds:    0.05
+val_score:        0/420 (0.00%)
+lines_of_code:    9
+total_seconds:    0.06
