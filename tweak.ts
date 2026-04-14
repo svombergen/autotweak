@@ -114,7 +114,7 @@ export function parseEmail(input: string): string | null {
     if (tok === 'undéén') { result += '_1'; i++; continue; }
 
     // Special compound tokens
-    if (tok === 'q-mail') { result += 'kpnmail'; i++; continue; }
+    if (tok === 'q-mail' || tok === 'kmail' || tok === 'krumeel') { result += 'kpnmail'; i++; continue; }
 
     // Hyphenated compound tokens (e.g. m-g, mail-r): split on '-' and emit parts
     if (tok.includes('-') && !tok.startsWith('e-mail')) {
@@ -162,7 +162,7 @@ export function parseEmail(input: string): string | null {
     if (tok === 'underscore') { result += '_'; i++; continue; }
 
     // Dash
-    if (tok === 'min' || tok === 'streep' || tok === 'streepje') {
+    if (tok === 'min' || tok === 'streep' || tok === 'streepje' || tok === 'meen') {
       result += '-'; i++; continue;
     }
 
@@ -196,10 +196,19 @@ export function parseEmail(input: string): string | null {
 
   // If no @, try to detect domain at end and insert @
   if (!result.includes('@')) {
-    for (const domain of KNOWN_DOMAINS_SORTED) {
-      if (result.endsWith(domain)) {
-        const local = result.slice(0, result.length - domain.length);
-        if (local) { result = local + '@' + domain; break; }
+    // Include aliases (domains without dots) for detection
+    const detectionMap: [string, string][] = [
+      ...KNOWN_DOMAINS_SORTED.map(d => [d, d] as [string, string]),
+      ['protonme', 'proton.me'], ['kpnmail', 'kpnmail.nl'], ['ziggo', 'ziggo.nl'],
+      ['startup', 'startup.io'], ['bellen', 'bellen.ai'], ['agency', 'agency.eu'],
+      ['bedrijf', 'bedrijf.be'], ['example', 'example.nl'], ['live', 'live.nl'],
+      ['outlook', 'outlook.com'], ['gmail', 'gmail.com'], ['hotmail', 'hotmail.com'],
+      ['icloud', 'icloud.com'], ['yahoo', 'yahoo.com'], ['superclubgame', 'superclubgame.com'],
+    ];
+    for (const [suffix, canonical] of detectionMap) {
+      if (result.endsWith(suffix)) {
+        const local = result.slice(0, result.length - suffix.length);
+        if (local) { result = local + '@' + canonical; break; }
       }
     }
   }
@@ -229,12 +238,21 @@ function normalizeDomain(d: string): string {
   const KNOWN = new Set(KNOWN_DOMAINS);
   if (KNOWN.has(d)) return d;
 
-  // Unique-extension domains
+  // startsWith check: known domain + trailing garbage letters (e.g. "agency.euok" → "agency.eu")
+  for (const kd of KNOWN_DOMAINS_SORTED) {
+    if (d.startsWith(kd) && d.length > kd.length && /^[a-z]+$/.test(d.slice(kd.length))) {
+      return kd;
+    }
+  }
+
+  // Unique-extension domains (by suffix)
   if (d.endsWith('.me') || d === 'me') return 'proton.me';
+  if (d.endsWith('.m')) return 'proton.me';   // proton.m → proton.me
   if (d.endsWith('.io') || d === 'io') return 'startup.io';
   if (d.endsWith('.ai') || d === 'ai') return 'bellen.ai';
   if (d.endsWith('.eu') || d === 'eu') return 'agency.eu';
-  if (d.endsWith('.be') || d === 'be' || d.endsWith('.bi')) return 'bedrijf.be';
+  if (d.endsWith('.be') || d === 'be' || d.endsWith('.bi') || d.endsWith('.b')) return 'bedrijf.be';
+  if (d.endsWith('.i') && d.startsWith('bellen')) return 'bellen.ai';
 
   // company.co.uk: only .co.uk domain
   if (d.endsWith('co.uk')) return 'company.co.uk';
@@ -248,8 +266,21 @@ function normalizeDomain(d: string): string {
   // Fix .con → .com (icloud.con etc.)
   if (d.endsWith('.con')) return d.slice(0, -4) + '.com';
 
+  // Domain-only (missing TLD) — unique prefixes in dataset
+  const prefixMap: Record<string, string> = {
+    ziggo: 'ziggo.nl', kpnmail: 'kpnmail.nl', proton: 'proton.me',
+    startup: 'startup.io', bellen: 'bellen.ai', agency: 'agency.eu',
+    bedrijf: 'bedrijf.be', example: 'example.nl', live: 'live.nl',
+    outlook: 'outlook.com', gmail: 'gmail.com', hotmail: 'hotmail.com',
+    icloud: 'icloud.com', yahoo: 'yahoo.com', superclubgame: 'superclubgame.com',
+  };
+  if (prefixMap[d]) return prefixMap[d];
+
   // kpnmail.nl: normalize mail.nl → kpnmail.nl
   if ((d.endsWith('mail.nl') || d === 'mail.nl') && !d.startsWith('kpn')) return 'kpnmail.nl';
+
+  // Ziggo/kpnmail/live without extension: ends with .nl
+  if (d.endsWith('.nl')) return d; // keep as-is if has extension
 
   return d;
 }
