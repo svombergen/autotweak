@@ -2,9 +2,9 @@ MISMATCH
 text      : mijn mobiele nummer is nul drie drie zes drie drie drie drie nul dat is m
 expected  : 0336333330
 predicted : null
-candidates: []
+candidates: null
 ---
 ---
 val_score:        419/420 (99.76%)
-lines_of_code:    217
+lines_of_code:    216
 total_seconds:    0.05

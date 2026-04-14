@@ -10,8 +10,8 @@ To set up a new tweak session, work with the user to:
 2. **Create the branch**: `git checkout -b autotweak/<tag>` from current main.
 3. **Read the in-scope files**: The repo is small. Read these files for full context:
    - `README.md` — repository context.
-   - `evaluate.ts` — fixed CSV loading and evaluation harness. Do not modify.
-   - `tweak.ts` — the file you modify. Tokenization, number word tables, candidate building, scoring logic.
+   - `evaluate.ts` — fixed CSV loading and evaluation harness. Do not modify. It imports `transform` from `tweak.ts` — that is the generic entry point it always calls.
+   - `tweak.ts` — the file you modify. It exports `transform(input)` at the top, which delegates to the domain-specific function below. To tweak a new function: point `transform` at it and replace the implementation below.
 4. **Initialize results.csv**: Create `results.csv` with just the header row. The baseline will be recorded after the first run.
 5. **Confirm and go**: Confirm setup looks good.
 

@@ -3,6 +3,10 @@
 // Everything is fair game: regex, scoring logic, tokenization, number words, etc.
 
 
+export function transform(input: string): string | null {
+  return extractPhoneNLCandidates(input)[0] ?? null;
+}
+
 export function extractPhoneNL(text: string): string | null {
   const candidates = extractPhoneNLCandidates(text);
   return candidates[0] ?? null;

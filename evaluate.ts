@@ -4,7 +4,7 @@
 
 import * as fs from "fs";
 import * as path from "path";
-import { extractPhoneNLCandidates } from "./tweak";
+import { transform } from "./tweak";
 
 function parseCSV(file: string): Record<string, string>[] {
   const content = fs.readFileSync(file, "utf-8");
@@ -50,8 +50,7 @@ function evaluate(): { correct: number; total: number } {
     const input = r["deepgram_transcript"];
     const expected = r["normalized_phone_number"];
 
-    const candidates = extractPhoneNLCandidates(input);
-    const predicted = candidates[0] ?? null;
+    const predicted = transform(input);
 
     const ok = predicted === expected;
 
@@ -63,7 +62,7 @@ function evaluate(): { correct: number; total: number } {
       console.log("text      :", input);
       console.log("expected  :", expected);
       console.log("predicted :", predicted);
-      console.log("candidates:", candidates.slice(0, 5));
+      console.log("candidates:", predicted);
       console.log("---");
     }
   }
