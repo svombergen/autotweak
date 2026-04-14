@@ -141,6 +141,11 @@ export function parseEmail(input: string): string | null {
 
     // Special compound tokens
     if (tok === 'q-mail' || tok === 'kmail' || tok === 'krumeel' || tok === 'kamil') { result += 'kpnmail'; i++; continue; }
+    if (tok === 'woutr') { result += 'wouter'; i++; continue; }
+    if (tok === 'milam') { result += 'milan'; i++; continue; }
+    if (tok === 'jhn') { result += 'jan'; i++; continue; }
+    if (tok === 'zakeljk') { result += 'zakelijk'; i++; continue; }
+    if (tok === 'amstrdam') { result += 'amsterdam'; i++; continue; }
     if (tok === 'coopand') { result += 'company'; i++; continue; }
 
     // azige/zico → @ziggo (Deepgram mishearings)
@@ -283,6 +288,9 @@ export function parseEmail(input: string): string | null {
     .replace(/^zakeljk$/, 'zakelijk')
     .replace(/^subport/, 'support')
     .replace(/^malbox/, 'mailbox')
+    .replace(/^woutr/, 'wouter')
+    .replace(/^milam/, 'milan')
+    .replace(/^jhn/, 'jan')
     .replace(/llod/, 'lloyd')
     .replace(/lish$/, 'lisa')
     .replace(/dest$/, 'test')
