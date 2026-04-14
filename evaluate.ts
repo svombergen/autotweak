@@ -48,7 +48,7 @@ function evaluate(): { correct: number; total: number } {
 
   for (const r of rows) {
     const input = r["deepgram_transcript"];
-    const expected = r["normalized_phone_number"];
+    const expected = r["normalized_email"];
 
     const predicted = transform(input);
 
