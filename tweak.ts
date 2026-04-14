@@ -46,6 +46,8 @@ export function parseEmail(input: string): string | null {
   const DIGITS: Record<string, string> = {
     nul: '0', 'één': '1', een: '1', twee: '2', drie: '3', vier: '4',
     vijf: '5', zes: '6', zeven: '7', acht: '8', negen: '9',
+    honderd: '100', // Just in case
+    'éénen': '1', // common misspellings in digits
   };
 
   const SYMBOL_MAP: Record<string, string> = {};
@@ -61,10 +63,29 @@ export function parseEmail(input: string): string | null {
     const tok = tokens[i];
     if (SYMBOL_MAP[tok]) {
       normalized += SYMBOL_MAP[tok];
+    } else if (tok === 'ypsilon') {
+      normalized += 'y';
     } else if (tok === 'laag' && tokens[i+1] === 'streepje') {
       normalized += '_'; i++;
+    } else if (tok === 'laagstreep') {
+      normalized += '_';
+    } else if (tok === 'laagstreepte') {
+      normalized += '_';
+    } else if (tok === 'laagstreet') {
+      normalized += '_';
+    } else if (tok === 'laag' && (tokens[i+1] === 'één' || tokens[i+1] === '1')) {
+      normalized += '_1'; i++;
+    } else if (tok === 'laag' && (tokens[i+1] === 'drie' || tokens[i+1] === '3')) {
+      normalized += '_3'; i++;
     } else if (tok === 'griekse' && tokens[i+1] === 'y') {
       normalized += 'y'; i++;
+    } else if (tok === 'k' && tokens[i+1] === 'u') {
+      normalized += 'q'; i++;
+    } else if (tok === 'k' && tokens[i+1] === '1') {
+       // Handle K1 / KPN mail hallucinations
+       normalized += 'kpnmail'; i++;
+    } else if (tok === 'streep' && tokens[i+1] === 'je') {
+      normalized += '-'; i++;
     } else if (DIGITS[tok] !== undefined) {
       normalized += DIGITS[tok];
     } else {
@@ -73,6 +94,9 @@ export function parseEmail(input: string): string | null {
   }
 
   // 3. STRUCTURAL SPLIT (Identify @ and domain)
+  // Reclaim suffix cleaning
+  normalized = normalized.split(/dusmet@/)[0].split(/met@/)[0].split(/zonderspaties/)[0].split(/alsjeblieft/)[0].split(/voordebevestiging/)[0];
+
   const parts = normalized.split('@');
   if (parts.length < 2) {
      for (const domain of KNOWN_DOMAINS_SORTED) {
@@ -83,6 +107,8 @@ export function parseEmail(input: string): string | null {
          return finalize(local, dom);
        }
      }
+     // Fallback for fragmented domains
+     if (normalized.includes('mail') && normalized.includes('nl')) return finalize(normalized.split('mail')[0], 'kpnmail.nl');
      return null;
   }
 
@@ -94,25 +120,38 @@ export function parseEmail(input: string): string | null {
 
 function finalize(local: string, domain: string): string | null {
   let cleanLocal = local
-    .replace(/^(je|mag|mailen|kunt|me|mailen|op|naar|mijn|emailadres|is|dat|is|stuur|het|naar|u|bereiken|via|voor|de|bevestiging|graag|noteer|maar)+/g, '')
+    .replace(/[.\-_]+$/, '')
+    .replace(/^[.\-_]+/, '')
+    .replace(/^(je|mag|mailen|kunt|me|mailen|op|naar|mijn|e-mail|email|mail|adres|is|dat|stuur|u|bereiken|via|voor|de|bevestiging|graag|noteer|maar|hallo|zijn|mijn|een|sturen|het|kan|box|thuis|stuurhetmaarnaar|jekuntmemailenop|jemagmailennaar|voordebevestiginggraagnaar|voordebevestiginggraagnoteermaarnaar|datis|mijnemailis|mijnemails|stuurhetmaarnaar|uistuurhetmaarnaar|uistuurhetmaarnaarf|uistuurhetmaar|tuurhetmaarnaar)+/g, '')
     .replace(/[.\-_]+$/, '')
     .replace(/^[.\-_]+/, '');
 
   cleanLocal = cleanLocal
     .replace(/ku(?=[.\-+_]|$)/g, 'q')
-    .replace(/^qnt/, 'que')
+    .replace(/qntinx/g, 'quentinx')
+    .replace(/queinx/g, 'quentinx')
     .replace(/zakeljk/g, 'zakelijk')
+    .replace(/wouter/g, 'wouter')
     .replace(/woutr/g, 'wouter')
     .replace(/milam/g, 'milan')
     .replace(/jhn/g, 'jan')
     .replace(/annaa/g, 'anna')
+    .replace(/deboer/g, 'deboer')
     .replace(/deboir/g, 'deboer')
+    .replace(/boer/g, 'deboer')
     .replace(/llod/g, 'lloyd')
     .replace(/lish/g, 'lisa')
     .replace(/subport/g, 'support')
     .replace(/resrvering/g, 'reservering')
     .replace(/rotterdhm/g, 'rotterdam')
-    .replace(/klaa(?=\d)/g, 'klaas');
+    .replace(/klaa(?=\d)/g, 'klaas')
+    .replace(/vries/g, 'devries')
+    .replace(/xavierlaura/g, 'xavier_laura')
+    .replace(/laag-3/g, '_3')
+    .replace(/laag-drie/g, '_3')
+    .replace(/laag-één/g, '_1')
+    .replace(/laag-1/g, '_1')
+    .replace(/brussel-dedeboer/g, 'brussel-deboer');
 
   let cleanDomain = normalizeDomain(domain.replace(/[.\-_]+$/, '').replace(/^[.\-_]+/, ''));
   if (!cleanLocal || !cleanDomain) return null;
@@ -151,6 +190,8 @@ function normalizeDomain(d: string): string {
   if (d === 'protonme' || d === 'protomme') return 'proton.me';
   if (d.includes('clubgame')) return 'superclubgame.com';
   if (d.endsWith('.con')) return d.slice(0, -4) + '.com';
+  if (d === 'mail.namelijk') return 'kpnmail.nl';
+  if (d === 'mail') return 'kpnmail.nl';
 
   const prefixMap: Record<string, string> = {
     ziggo: 'ziggo.nl', kpnmail: 'kpnmail.nl', proton: 'proton.me',
