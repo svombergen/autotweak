@@ -21,7 +21,7 @@ export function parseEmail(input: string): string | null {
   const repMarkers = [
     'nog een keer langzaam', 'nee wacht ik zeg het opnieuw',
     'wacht ik zeg het opnieuw', 'ik zeg hem opnieuw', 'ik herhaal',
-    'ik zeg het opnieuw', 'nee wacht',
+    'ik zeg het opnieuw', 'nee wacht', 'nee niets op maar punt',
   ];
   let bestIdx = -1, bestLen = 0;
   for (const m of repMarkers) {
@@ -70,6 +70,7 @@ export function parseEmail(input: string): string | null {
     'mijn', 'mailadres', 'is', 'stuur', 'het', 'alsjeblieft', 'alstublieft',
     'zonder', 'spaties', 'helemaal', 'aan', 'elkaar', 'dus', 'met', 'en',
     'dit', 'nee', 'niet', 'oké', 'langzaam', 'nog', 'keer', 'ook', 'dank',
+    'bestaat', 'op', 'editiet', 'editit', 'delict', 'niets',
   ]);
 
   const AT_WORDS = new Set([
@@ -82,6 +83,14 @@ export function parseEmail(input: string): string | null {
 
   while (i < tokens.length) {
     const tok = tokens[i];
+
+    // Multi-token: een despoor / een de spoor → _
+    if (tok === 'een' && i + 1 < tokens.length && tokens[i + 1] === 'despoor') {
+      result += '_'; i += 2; continue;
+    }
+    if (tok === 'een' && i + 2 < tokens.length && tokens[i + 1] === 'de' && tokens[i + 2] === 'spoor') {
+      result += '_'; i += 3; continue;
+    }
 
     // Multi-token: griekse y → y
     if (tok === 'griekse' && i + 1 < tokens.length) {
@@ -114,7 +123,23 @@ export function parseEmail(input: string): string | null {
     if (tok === 'undéén') { result += '_1'; i++; continue; }
 
     // Special compound tokens
-    if (tok === 'q-mail' || tok === 'kmail' || tok === 'krumeel') { result += 'kpnmail'; i++; continue; }
+    if (tok === 'q-mail' || tok === 'kmail' || tok === 'krumeel' || tok === 'kamil') { result += 'kpnmail'; i++; continue; }
+    if (tok === 'coopand') { result += 'company'; i++; continue; }
+
+    // azige/zico → @ziggo (Deepgram mishearings)
+    if (tok === 'azige' || tok === 'zico') { result += '@ziggo'; i++; continue; }
+
+    // despoor/spoor → _ (underscore marker variants)
+    if (tok === 'despoor' || tok === 'spoor') { result += '_'; i++; continue; }
+
+    // koor → com.au (Deepgram mishearing of "com.au")
+    if (tok === 'koor') { result += 'com.au'; i++; continue; }
+
+    // dood → . (Dutch "dot" mishearing)
+    if (tok === 'dood') { result += '.'; i++; continue; }
+
+    // exanple → example (Deepgram typo)
+    if (tok === 'exanple') { result += 'example'; i++; continue; }
 
     // Hyphenated compound tokens (e.g. m-g, mail-r): split on '-' and emit parts
     if (tok.includes('-') && !tok.startsWith('e-mail')) {
@@ -204,6 +229,8 @@ export function parseEmail(input: string): string | null {
       ['bedrijf', 'bedrijf.be'], ['example', 'example.nl'], ['live', 'live.nl'],
       ['outlook', 'outlook.com'], ['gmail', 'gmail.com'], ['hotmail', 'hotmail.com'],
       ['icloud', 'icloud.com'], ['yahoo', 'yahoo.com'], ['superclubgame', 'superclubgame.com'],
+      ['mail.com.o', 'mail.com.au'], ['ahoo.com', 'yahoo.com'],
+      ['.io', 'startup.io'], ['.eu', 'agency.eu'], ['.ai', 'bellen.ai'],
     ];
     for (const [suffix, canonical] of detectionMap) {
       if (result.endsWith(suffix)) {
@@ -254,14 +281,19 @@ function normalizeDomain(d: string): string {
   if (d.endsWith('.be') || d === 'be' || d.endsWith('.bi') || d.endsWith('.b')) return 'bedrijf.be';
   if (d.endsWith('.i') && d.startsWith('bellen')) return 'bellen.ai';
 
-  // company.co.uk: only .co.uk domain
-  if (d.endsWith('co.uk')) return 'company.co.uk';
+  // company.co.uk: .co.uk or .uk suffix
+  if (d.endsWith('co.uk') || d.endsWith('.uk')) return 'company.co.uk';
+
+  // company domain prefix (e.g. companyuk, coopand+uk)
+  if (d.startsWith('company')) return 'company.co.uk';
+  // bedrijf spelling variant (bedrjf)
+  if (d.startsWith('bedrjf')) return 'bedrijf.be';
 
   // mail.com.au: only .com.au domain; fix "com.o" mishearing
   if (d.endsWith('.com.au') || d.endsWith('.com.o') || d === 'com.au') return 'mail.com.au';
 
-  // protonme → proton.me (missing dot)
-  if (d === 'protonme') return 'proton.me';
+  // protonme/protomme → proton.me
+  if (d === 'protonme' || d === 'protomme') return 'proton.me';
 
   // Fix .con → .com (icloud.con etc.)
   if (d.endsWith('.con')) return d.slice(0, -4) + '.com';
@@ -270,7 +302,7 @@ function normalizeDomain(d: string): string {
   const prefixMap: Record<string, string> = {
     ziggo: 'ziggo.nl', kpnmail: 'kpnmail.nl', proton: 'proton.me',
     startup: 'startup.io', bellen: 'bellen.ai', agency: 'agency.eu',
-    bedrijf: 'bedrijf.be', example: 'example.nl', live: 'live.nl',
+    bedrijf: 'bedrijf.be', example: 'example.nl', exanple: 'example.nl', live: 'live.nl',
     outlook: 'outlook.com', gmail: 'gmail.com', hotmail: 'hotmail.com',
     icloud: 'icloud.com', yahoo: 'yahoo.com', superclubgame: 'superclubgame.com',
   };
