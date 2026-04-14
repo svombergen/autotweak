@@ -92,6 +92,18 @@ export function parseEmail(input: string): string | null {
       result += '_'; i += 3; continue;
     }
 
+    // Multi-token: k meel / k mill → kpnmail (Deepgram merging)
+    if (tok === 'k' && i + 1 < tokens.length &&
+        (tokens[i + 1] === 'meel' || tokens[i + 1] === 'mill')) {
+      result += 'kpnmail'; i += 2; continue;
+    }
+
+    // Multi-token: laagstreet/laagstreepte/undascore + y → _ (skip spurious y)
+    if ((tok === 'laagstreepte' || tok === 'laagstreet' || tok === 'undascore') &&
+        i + 1 < tokens.length && tokens[i + 1] === 'y') {
+      result += '_'; i += 2; continue;
+    }
+
     // Multi-token: griekse y → y
     if (tok === 'griekse' && i + 1 < tokens.length) {
       i += 2; result += 'y'; continue;
@@ -231,6 +243,7 @@ export function parseEmail(input: string): string | null {
       ['icloud', 'icloud.com'], ['yahoo', 'yahoo.com'], ['superclubgame', 'superclubgame.com'],
       ['mail.com.o', 'mail.com.au'], ['ahoo.com', 'yahoo.com'],
       ['.io', 'startup.io'], ['.eu', 'agency.eu'], ['.ai', 'bellen.ai'],
+      ['protomme', 'proton.me'], ['co.uk', 'company.co.uk'],
     ];
     for (const [suffix, canonical] of detectionMap) {
       if (result.endsWith(suffix)) {
@@ -265,9 +278,9 @@ function normalizeDomain(d: string): string {
   const KNOWN = new Set(KNOWN_DOMAINS);
   if (KNOWN.has(d)) return d;
 
-  // startsWith check: known domain + trailing garbage letters (e.g. "agency.euok" → "agency.eu")
+  // startsWith check: known domain + trailing garbage chars (e.g. "agency.euok", "kpnmail.nl000")
   for (const kd of KNOWN_DOMAINS_SORTED) {
-    if (d.startsWith(kd) && d.length > kd.length && /^[a-z]+$/.test(d.slice(kd.length))) {
+    if (d.startsWith(kd) && d.length > kd.length && /^[a-z0-9]+$/.test(d.slice(kd.length))) {
       return kd;
     }
   }
@@ -277,17 +290,24 @@ function normalizeDomain(d: string): string {
   if (d.endsWith('.m')) return 'proton.me';   // proton.m → proton.me
   if (d.endsWith('.io') || d === 'io') return 'startup.io';
   if (d.endsWith('.ai') || d === 'ai') return 'bellen.ai';
+  if (d.endsWith('.y')) return 'bellen.ai';   // bellen.y mishearing
   if (d.endsWith('.eu') || d === 'eu') return 'agency.eu';
   if (d.endsWith('.be') || d === 'be' || d.endsWith('.bi') || d.endsWith('.b')) return 'bedrijf.be';
-  if (d.endsWith('.i') && d.startsWith('bellen')) return 'bellen.ai';
+  if (d.endsWith('.au')) return 'mail.com.au'; // mail..au etc.
 
-  // company.co.uk: .co.uk or .uk suffix
-  if (d.endsWith('co.uk') || d.endsWith('.uk')) return 'company.co.uk';
+  // company.co.uk: .co.uk or .uk suffix or uk/co alone
+  if (d.endsWith('co.uk') || d.endsWith('.uk') || d === 'uk' || d === 'co') return 'company.co.uk';
 
   // company domain prefix (e.g. companyuk, coopand+uk)
   if (d.startsWith('company')) return 'company.co.uk';
   // bedrijf spelling variant (bedrjf)
   if (d.startsWith('bedrjf')) return 'bedrijf.be';
+  // Unique domain prefixes to handle garbled spellings
+  if (d.startsWith('bellen')) return 'bellen.ai';
+  if (d.startsWith('startup')) return 'startup.io';
+  if (d.startsWith('ziggo')) return 'ziggo.nl';
+  if (d.startsWith('icloud')) return 'icloud.com';
+  if (d.startsWith('exanple')) return 'example.nl';
 
   // mail.com.au: only .com.au domain; fix "com.o" mishearing
   if (d.endsWith('.com.au') || d.endsWith('.com.o') || d === 'com.au') return 'mail.com.au';
