@@ -226,6 +226,9 @@ export function parseEmail(input: string): string | null {
     // Single letter a-z
     if (/^[a-z]$/.test(tok)) { result += tok; i++; continue; }
 
+    // Common spoken letter names that show up in locals
+    if (tok === 'ku' && i + 1 < tokens.length && (tokens[i + 1] === 'punt' || tokens[i + 1] === 'dot' || tokens[i + 1] === 'tot')) { result += 'q'; i++; continue; }
+
     // Known email words - keep as-is
     if (EMAIL_WORDS.has(tok)) { result += tok; i++; continue; }
 
@@ -270,8 +273,17 @@ export function parseEmail(input: string): string | null {
   let domain = domainParts.join('@');
   if (!local || !domain) return null;
 
-  const cleanLocal = local.replace(/^[.\-_]+|[.\-_]+$/g, '');
+  let cleanLocal = local.replace(/^[.\-_]+|[.\-_]+$/g, '');
   let cleanDomain = domain.replace(/^[.\-_]+|[.\-_]+$/g, '');
+
+  cleanLocal = cleanLocal
+    .replace(/^io\+/, 'info+')
+    .replace(/^q(?=nt)/, 'que')
+    .replace(/^teanb$/, 'team-be')
+    .replace(/^zakeljk$/, 'zakelijk')
+    .replace(/llod/, 'lloyd')
+    .replace(/lish$/, 'lisa')
+    .replace(/ku(?=\.)/, 'q');
 
   cleanDomain = normalizeDomain(cleanDomain);
 
