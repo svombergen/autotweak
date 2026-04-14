@@ -44,7 +44,7 @@ export function parseEmail(input: string): string | null {
   // Strip leading filler phrases
   const startFillers = [
     'je mag mailen naar ', 'je kunt me mailen op ', 'u kunt mij bereiken via ',
-    'u kunt mailen op ', 'mijn e-mailadres is ', 'mijn mailadres is ',
+    'u kunt mailen op ', 'u kunt me mailen op ', 'mijn e-mailadres is ', 'mijn mailadres is ',
     'mijn e-mail is ', 'noteer maar ', 'voor de bevestiging graag naar ',
     'dat is ', 'stuur het maar naar ', 'voor de bevestiging ',
   ];
@@ -90,6 +90,11 @@ export function parseEmail(input: string): string | null {
     }
     if (tok === 'een' && i + 2 < tokens.length && tokens[i + 1] === 'de' && tokens[i + 2] === 'spoor') {
       result += '_'; i += 3; continue;
+    }
+    // Multi-token: een between single letters → letter 'e' (not digit 1)
+    if (tok === 'een' && i > 0 && i + 1 < tokens.length &&
+        /^[a-z]$/.test(tokens[i - 1]) && /^[a-z]$/.test(tokens[i + 1])) {
+      result += 'e'; i++; continue;
     }
 
     // Multi-token: k meel / k mill → kpnmail (Deepgram merging)
@@ -314,6 +319,9 @@ function normalizeDomain(d: string): string {
 
   // protonme/protomme → proton.me
   if (d === 'protonme' || d === 'protomme') return 'proton.me';
+
+  // superclubgame: handle misspellings with "clubgame"
+  if (d.includes('clubgame')) return 'superclubgame.com';
 
   // Fix .con → .com (icloud.con etc.)
   if (d.endsWith('.con')) return d.slice(0, -4) + '.com';
