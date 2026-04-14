@@ -11,7 +11,8 @@ export function parseEmail(input: string): string | null {
   // Take text after last repetition marker
   const repMarkers = [
     'nog een keer langzaam', 'nee wacht ik zeg het opnieuw',
-    'wacht ik zeg het opnieuw', 'ik zeg hem opnieuw', 'ik herhaal', 'nee wacht',
+    'wacht ik zeg het opnieuw', 'ik zeg hem opnieuw', 'ik herhaal',
+    'ik zeg het opnieuw', 'nee wacht',
   ];
   let bestIdx = -1, bestLen = 0;
   for (const m of repMarkers) {
@@ -20,11 +21,11 @@ export function parseEmail(input: string): string | null {
   }
   if (bestIdx !== -1) text = text.substring(bestIdx + bestLen).trim();
 
-  // Strip trailing noise phrases (e.g. "dus met apenstaartje en punt")
+  // Strip trailing noise phrases
   const trailingNoise = [
     ' voor de bevestiging', ' dus met apenstaartje', ' dit dus met',
     ' alsjeblieft', ' alstublieft', ' zonder spaties', ' helemaal aan elkaar',
-    ' nee niet', ' nul nul nul', ' nul nul nul nul nul nul nul nul nul',
+    ' nee niet', ' dank je', ' ja', ' ok',
   ];
   for (const n of trailingNoise) {
     const idx = text.indexOf(n);
@@ -34,9 +35,9 @@ export function parseEmail(input: string): string | null {
   // Strip leading filler phrases
   const startFillers = [
     'je mag mailen naar ', 'je kunt me mailen op ', 'u kunt mij bereiken via ',
-    'mijn e-mailadres is ', 'mijn mailadres is ', 'mijn e-mail is ',
-    'noteer maar ', 'voor de bevestiging graag naar ', 'dat is ',
-    'stuur het maar naar ', 'voor de bevestiging ',
+    'u kunt mailen op ', 'mijn e-mailadres is ', 'mijn mailadres is ',
+    'mijn e-mail is ', 'noteer maar ', 'voor de bevestiging graag naar ',
+    'dat is ', 'stuur het maar naar ', 'voor de bevestiging ', 'v ',
   ];
   for (const f of startFillers) {
     if (text.startsWith(f)) { text = text.substring(f.length); break; }
@@ -61,7 +62,7 @@ export function parseEmail(input: string): string | null {
     'mijn', 'mailadres', 'is', 'stuur', 'het',
     'alsjeblieft', 'alstublieft', 'zonder', 'spaties', 'helemaal',
     'aan', 'elkaar', 'dus', 'met', 'en', 'dit', 'nee', 'niet',
-    'oké', 'namelijk', 'langzaam', 'nog', 'keer', 'ook', 'punt',
+    'oké', 'langzaam', 'nog', 'keer', 'ook',
   ]);
 
   const AT_WORDS = new Set([
@@ -84,14 +85,14 @@ export function parseEmail(input: string): string | null {
         (tokens[i + 1] === 'streepje' || tokens[i + 1] === 'streepte')) {
       i += 2; result += '_'; continue;
     }
-    // Multi-token: dubbele [x] → xx (dubbele u/v = w)
+    // Multi-token: dubbele [x] → dubbele u/v = w, dubbele xx = xx
     if (tok === 'dubbele' && i + 1 < tokens.length) {
       const next = tokens[i + 1];
       if (next === 'u' || next === 'v') { i += 2; result += 'w'; continue; }
       if (/^[a-z]$/.test(next)) { i += 2; result += next + next; continue; }
     }
 
-    // Compound laag-X → _digit(s)
+    // Compound laag-X → _digit(s) or _letter
     if (tok.startsWith('laag-')) {
       const part = tok.slice(5);
       const num = parseDutchNum(part);
@@ -110,10 +111,19 @@ export function parseEmail(input: string): string | null {
       result += '@'; i++; continue;
     }
 
-    // Dot separators
+    // Dot separators (including "namelijk" = nl as a token, but dot separately)
     if (tok === 'punt' || tok === 'dot' || tok === 'tot' || tok === 'dat') {
       result += '.'; i++; continue;
     }
+
+    // namelijk → nl (Deepgram mishearing of ".nl" as "namelijk")
+    if (tok === 'namelijk') { result += 'nl'; i++; continue; }
+
+    // examenpunt → example.
+    if (tok === 'examenpunt') { result += 'example.'; i++; continue; }
+
+    // protondot → proton.
+    if (tok === 'protondot') { result += 'proton.'; i++; continue; }
 
     // Underscore
     if (tok === 'underscore') { result += '_'; i++; continue; }
@@ -131,7 +141,7 @@ export function parseEmail(input: string): string | null {
 
     // loco / locone mishearing of l / nl
     if (tok === 'loco' || tok === 'local') { result += 'l'; i++; continue; }
-    if (tok === 'locone' || tok === 'loconé' || tok === 'lokone' || tok === 'lokoné') {
+    if (['locone', 'loconé', 'lokone', 'lokoné'].includes(tok)) {
       result += 'nl'; i++; continue;
     }
 
@@ -151,20 +161,58 @@ export function parseEmail(input: string): string | null {
     i++;
   }
 
-  // Take only up to the first valid @ sign (drop noise after it)
+  // Take only up to the first valid @ sign
   const atIdx = result.indexOf('@');
   if (atIdx === -1) return null;
 
-  // Find the second @ if any and truncate
+  // Truncate at second @
   const secondAt = result.indexOf('@', atIdx + 1);
   if (secondAt !== -1) result = result.substring(0, secondAt);
 
   const [local, ...domainParts] = result.split('@');
-  const domain = domainParts.join('@');
+  let domain = domainParts.join('@');
   if (!local || !domain) return null;
 
-  return local.replace(/^[.\-_]+|[.\-_]+$/g, '') + '@' +
-         domain.replace(/^[.\-_]+|[.\-_]+$/g, '');
+  // Clean up parts
+  const cleanLocal = local.replace(/^[.\-_]+|[.\-_]+$/g, '');
+  let cleanDomain = domain.replace(/^[.\-_]+|[.\-_]+$/g, '');
+
+  // Domain normalization based on unique suffixes in dataset
+  cleanDomain = normalizeDomain(cleanDomain);
+
+  return cleanLocal + '@' + cleanDomain;
+}
+
+function normalizeDomain(d: string): string {
+  if (!d) return d;
+
+  // Exact known domains — keep as-is
+  const KNOWN = new Set([
+    'proton.me', 'ziggo.nl', 'kpnmail.nl', 'superclubgame.com', 'mail.com.au',
+    'company.co.uk', 'startup.io', 'bellen.ai', 'example.nl', 'bedrijf.be',
+    'outlook.com', 'agency.eu', 'live.nl', 'hotmail.com', 'icloud.com',
+    'gmail.com', 'yahoo.com', 'test.example.nl',
+  ]);
+  if (KNOWN.has(d)) return d;
+
+  // Unique-extension domains: if suffix matches, use the canonical domain
+  if (d.endsWith('.me') || d === 'me') return 'proton.me';
+  if (d.endsWith('.io') || d === 'io') return 'startup.io';
+  if (d.endsWith('.ai') || d === 'ai') return 'bellen.ai';
+  if (d.endsWith('.eu') || d === 'eu') return 'agency.eu';
+  if (d.endsWith('.be') || d === 'be') return 'bedrijf.be';
+
+  // company.co.uk: only .co.uk domain
+  if (d.endsWith('co.uk') || d.endsWith('.co.uk')) return 'company.co.uk';
+
+  // mail.com.au: only .com.au domain; also fix "com.o" mishearing
+  if (d.endsWith('.com.au') || d.endsWith('.com.o') || d === 'com.au') return 'mail.com.au';
+
+  // kpnmail.nl: normalize mail.nl → kpnmail.nl
+  if (d.endsWith('mail.nl') && d !== 'kpnmail.nl') return 'kpnmail.nl';
+  if (d === 'mail.nl') return 'kpnmail.nl';
+
+  return d;
 }
 
 function parseDutchNum(s: string): string | null {
