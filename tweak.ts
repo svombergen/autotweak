@@ -281,8 +281,11 @@ export function parseEmail(input: string): string | null {
     .replace(/^q(?=nt)/, 'que')
     .replace(/^teanb$/, 'team-be')
     .replace(/^zakeljk$/, 'zakelijk')
+    .replace(/^subport/, 'support')
+    .replace(/^malbox/, 'mailbox')
     .replace(/llod/, 'lloyd')
     .replace(/lish$/, 'lisa')
+    .replace(/dest$/, 'test')
     .replace(/ku(?=\.)/, 'q');
 
   cleanDomain = normalizeDomain(cleanDomain);
