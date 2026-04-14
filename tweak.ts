@@ -339,6 +339,16 @@ function normalizeDomain(d: string): string {
   // kpnmail.nl: normalize mail.nl → kpnmail.nl
   if ((d.endsWith('mail.nl') || d === 'mail.nl') && !d.startsWith('kpn')) return 'kpnmail.nl';
 
+  // Domain = just digits + .nl (e.g. "00.nl", "0.nl") → kpnmail.nl
+  if (/^\d+\.nl$/.test(d)) return 'kpnmail.nl';
+
+  // Domain = "nl" alone (TLD only, missing provider) → kpnmail.nl
+  if (d === 'nl') return 'kpnmail.nl';
+
+  // Unique prefix fixes for remaining garbled domains
+  if (d.startsWith('live')) return 'live.nl';
+  if (d.startsWith('yaho')) return 'yahoo.com';
+
   // Ziggo/kpnmail/live without extension: ends with .nl
   if (d.endsWith('.nl')) return d; // keep as-is if has extension
 
