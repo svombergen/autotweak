@@ -148,6 +148,8 @@ export function parseEmail(input: string): string | null {
     if (tok === 'amstrdam') { result += 'amsterdam'; i++; continue; }
     if (tok === 'annaa') { result += 'anna'; i++; continue; }
     if (tok === 'deboir') { result += 'deboer'; i++; continue; }
+    if (tok === 'subport') { result += 'support'; i++; continue; }
+    if (tok === 'resrvering') { result += 'reservering'; i++; continue; }
     if (tok === 'coopand') { result += 'company'; i++; continue; }
 
     // azige/zico → @ziggo (Deepgram mishearings)
@@ -293,6 +295,10 @@ export function parseEmail(input: string): string | null {
     .replace(/^woutr/, 'wouter')
     .replace(/^milam/, 'milan')
     .replace(/^jhn/, 'jan')
+    .replace(/^subport/, 'support')
+    .replace(/^resrvering/, 'reservering')
+    .replace(/^s\+/, 'smit+')
+    .replace(/^team_subport_/, 'team_support_')
     .replace(/annaa$/, 'anna')
     .replace(/deboir$/, 'deboer')
     .replace(/klaa(?=_\d+$)/, 'klaas')
