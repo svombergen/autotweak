@@ -20,6 +20,17 @@ export function parseEmail(input: string): string | null {
   }
   if (bestIdx !== -1) text = text.substring(bestIdx + bestLen).trim();
 
+  // Strip trailing noise phrases (e.g. "dus met apenstaartje en punt")
+  const trailingNoise = [
+    ' voor de bevestiging', ' dus met apenstaartje', ' dit dus met',
+    ' alsjeblieft', ' alstublieft', ' zonder spaties', ' helemaal aan elkaar',
+    ' nee niet', ' nul nul nul', ' nul nul nul nul nul nul nul nul nul',
+  ];
+  for (const n of trailingNoise) {
+    const idx = text.indexOf(n);
+    if (idx !== -1) text = text.substring(0, idx);
+  }
+
   // Strip leading filler phrases
   const startFillers = [
     'je mag mailen naar ', 'je kunt me mailen op ', 'u kunt mij bereiken via ',
@@ -36,20 +47,26 @@ export function parseEmail(input: string): string | null {
     vijf: '5', zes: '6', zeven: '7', acht: '8', negen: '9',
   };
 
+  // Known multi-letter email words to keep as-is
+  const EMAIL_WORDS = new Set([
+    'proton', 'gmail', 'outlook', 'hotmail', 'yahoo', 'icloud', 'ziggo',
+    'kpnmail', 'agency', 'startup', 'example', 'bedrijf', 'company',
+    'live', 'bellen', 'superclubgame', 'mail', 'com', 'me', 'io',
+    'eu', 'be', 'uk', 'au', 'ai', 'nl', 'co',
+  ]);
+
   const SKIP = new Set([
     'je', 'mag', 'mailen', 'naar', 'noteer', 'maar', 'voor', 'de',
     'bevestiging', 'graag', 'u', 'kunt', 'mij', 'bereiken', 'via',
     'mijn', 'mailadres', 'is', 'stuur', 'het',
     'alsjeblieft', 'alstublieft', 'zonder', 'spaties', 'helemaal',
-    'aan', 'elkaar', 'dus', 'met', 'en', 'dit', 'dat', 'nee', 'niet',
-    'oké', 'namelijk', 'langzaam', 'nog', 'keer',
+    'aan', 'elkaar', 'dus', 'met', 'en', 'dit', 'nee', 'niet',
+    'oké', 'namelijk', 'langzaam', 'nog', 'keer', 'ook', 'punt',
   ]);
 
   const AT_WORDS = new Set([
     'apenstaart', 'apenstaartje', 'apenstaard', 'apenstraat', 'aapenstaar',
   ]);
-  const DOT_WORDS = new Set(['punt', 'dot', 'tot']);
-  const DASH_WORDS = new Set(['min', 'streep', 'streepje']);
 
   const tokens = text.split(/\s+/);
   let result = '';
@@ -67,7 +84,7 @@ export function parseEmail(input: string): string | null {
         (tokens[i + 1] === 'streepje' || tokens[i + 1] === 'streepte')) {
       i += 2; result += '_'; continue;
     }
-    // Multi-token: dubbele [x] → xx (dubbele u = uu but we want w)
+    // Multi-token: dubbele [x] → xx (dubbele u/v = w)
     if (tok === 'dubbele' && i + 1 < tokens.length) {
       const next = tokens[i + 1];
       if (next === 'u' || next === 'v') { i += 2; result += 'w'; continue; }
@@ -77,8 +94,7 @@ export function parseEmail(input: string): string | null {
     // Compound laag-X → _digit(s)
     if (tok.startsWith('laag-')) {
       const part = tok.slice(5);
-      // Handle compound like zevenenzestig=67
-      const num = parseDutchNumber(part, DIGITS);
+      const num = parseDutchNum(part);
       result += '_' + (num ?? part);
       i++; continue;
     }
@@ -87,7 +103,6 @@ export function parseEmail(input: string): string | null {
     if (['laagstreepte', 'laagstreet', 'undascore'].includes(tok)) {
       result += '_'; i++; continue;
     }
-    // undéén → _1
     if (tok === 'undéén') { result += '_1'; i++; continue; }
 
     // @ markers
@@ -96,13 +111,17 @@ export function parseEmail(input: string): string | null {
     }
 
     // Dot separators
-    if (DOT_WORDS.has(tok)) { result += '.'; i++; continue; }
+    if (tok === 'punt' || tok === 'dot' || tok === 'tot' || tok === 'dat') {
+      result += '.'; i++; continue;
+    }
 
     // Underscore
     if (tok === 'underscore') { result += '_'; i++; continue; }
 
     // Dash
-    if (DASH_WORDS.has(tok)) { result += '-'; i++; continue; }
+    if (tok === 'min' || tok === 'streep' || tok === 'streepje') {
+      result += '-'; i++; continue;
+    }
 
     // Plus
     if (tok === 'plus') { result += '+'; i++; continue; }
@@ -122,17 +141,24 @@ export function parseEmail(input: string): string | null {
     // Single letter a-z
     if (/^[a-z]$/.test(tok)) { result += tok; i++; continue; }
 
+    // Known email words - keep as-is
+    if (EMAIL_WORDS.has(tok)) { result += tok; i++; continue; }
+
     // Known filler words — skip
     if (SKIP.has(tok)) { i++; continue; }
 
-    // Multi-letter tokens that are NOT email parts — skip
-    // (filler, Dutch words we don't know)
+    // Anything else — skip (Dutch filler)
     i++;
   }
 
-  if (!result.includes('@')) return null;
+  // Take only up to the first valid @ sign (drop noise after it)
+  const atIdx = result.indexOf('@');
+  if (atIdx === -1) return null;
 
-  // Basic cleanup: remove leading/trailing dots/dashes from parts
+  // Find the second @ if any and truncate
+  const secondAt = result.indexOf('@', atIdx + 1);
+  if (secondAt !== -1) result = result.substring(0, secondAt);
+
   const [local, ...domainParts] = result.split('@');
   const domain = domainParts.join('@');
   if (!local || !domain) return null;
@@ -141,9 +167,12 @@ export function parseEmail(input: string): string | null {
          domain.replace(/^[.\-_]+|[.\-_]+$/g, '');
 }
 
-function parseDutchNumber(s: string, DIGITS: Record<string, string>): string | null {
-  if (DIGITS[s] !== undefined) return DIGITS[s];
-  // Handle compound: zevenenzestig = 67
+function parseDutchNum(s: string): string | null {
+  const simple: Record<string, string> = {
+    nul: '0', 'één': '1', een: '1', twee: '2', drie: '3', vier: '4',
+    vijf: '5', zes: '6', zeven: '7', acht: '8', negen: '9',
+  };
+  if (simple[s]) return simple[s];
   const tens: Record<string, number> = {
     twintig: 20, dertig: 30, veertig: 40, vijftig: 50,
     zestig: 60, zeventig: 70, tachtig: 80, negentig: 90,
@@ -152,12 +181,9 @@ function parseDutchNumber(s: string, DIGITS: Record<string, string>): string | n
     nul: 0, 'één': 1, een: 1, twee: 2, drie: 3, vier: 4,
     vijf: 5, zes: 6, zeven: 7, acht: 8, negen: 9,
   };
-  // Try "Xenzestig" pattern
   const m = s.match(/^(\w+)en(\w+)$/);
-  if (m) {
-    const u = units[m[1]];
-    const t = tens[m[2]];
-    if (u !== undefined && t !== undefined) return String(t + u);
+  if (m && units[m[1]] !== undefined && tens[m[2]] !== undefined) {
+    return String(tens[m[2]] + units[m[1]]);
   }
   return null;
 }
