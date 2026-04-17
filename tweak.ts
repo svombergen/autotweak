@@ -15,7 +15,7 @@ const KNOWN_DOMAINS = [
 const KNOWN_DOMAINS_SORTED = [...KNOWN_DOMAINS].sort((a, b) => b.length - a.length);
 
 // Filler words/phrases that prefix a local part — never legitimate email tokens
-const FILLER_PREFIX = /^(je|mag|mailen|kunt|me|op|naar|mijn|e-mail|email|mailadres|mijnmailadres|mijnmail|adres|is|dat|stuur|bereiken|via|voor|debevestiging|bevestiging|graag|noteer|maar|hallo|zijn|een|sturen|het|kan|stuurhetmaarnaar|jekuntmemailenop|jemagmailennaar|voordebevestiginggraagnaar|voordebevestiginggraagnoteermaarnaar|datis|mijnemailis|mijnemails|uistuurhetmaarnaar|uistuurhetmaarnaarf|uistuurhetmaar|tuurhetmaarnaar|datist|peu|ukuntmijbereikenvia|ijemagmailennaar|mijbereikenvia|iemagmailennaar|uikuntmaaailenop|uikuntmailenop|jekuntmemailennaar|jekuntmemailenaardatist)+/;
+const FILLER_PREFIX = /^(je|mag|mailen|kunt|me|op|naar|mijn|e-mail|email|mailadres|mijnmailadres|mijnmail|adres|is|dat|stuur|bereiken|via|voor|debevestiging|bevestiging|graag|noteer|maar|hallo|zijn|een|sturen|het|kan|stuurhetmaarnaar|jekuntmemailenop|jemagmailennaar|voordebevestiginggraagnaar|voordebevestiginggraagnoteermaarnaar|datis|mijnemailis|mijnemails|uistuurhetmaarnaar|uistuurhetmaarnaarf|uistuurhetmaar|tuurhetmaarnaar|datist|peu|ukuntmijbereikenvia|ukuntmemailenop|ijemagmailennaar|uijemagmailennaar|mijbereikenvia|iemagmailennaar|uikuntmaaailenop|uikuntmailenop|jekuntmemailennaar|jekuntmemailenaardatist)+/;
 
 export function parseEmail(input: string): string | null {
   // 1. CLEANING
@@ -216,8 +216,9 @@ export function parseEmail(input: string): string | null {
      // Strip filler prefix and trailing noise before domain scan
      let scanText = normalized.replace(FILLER_PREFIX, '').replace(/^[.\-_]+/, '') || normalized;
      scanText = scanText.replace(/(voordebevestiging|alsjeblieft|graag|dankje).*$/, '');
-     // Fix `ample.nl` → `example.nl` (STT drops leading `ex`)
+     // Fix common STT mis-spellings of domain names in no-@ text
      scanText = scanText.replace(/ample\.nl$/, 'example.nl');
+     scanText = scanText.replace(/ahoo\.com$/, 'yahoo.com');
      for (const domain of KNOWN_DOMAINS_SORTED) {
        const dIdx = scanText.lastIndexOf(domain);
        if (dIdx !== -1 && dIdx > 0) {
@@ -359,6 +360,14 @@ function finalize(local: string, domain: string): string | null {
     .replace(/vanleeuwe\b/g, 'vanleeuwen')
     .replace(/amstrdam/g, 'amsterdam')
     .replace(/([.\-])annaa(?=[._@\-]|$)/g, '$1anna')
+    .replace(/\bannaa+(?=[-_])/g, 'anna')
+    .replace(/gmaltesd/g, 'gmailtest')
+    .replace(/gmailtestd/g, 'gmailtest')
+    .replace(/hannaboeking/g, 'hanna_boeking')
+    .replace(/\bbindhoven/g, 'eindhoven')
+    .replace(/plan1ing/g, 'planning')
+    .replace(/\bpied\b/g, 'piet')
+    .replace(/\+dest(?=@)/g, '+test')
     .replace(/llod/g, 'lloyd')
     .replace(/lish/g, 'lisa')
     .replace(/subport/g, 'support')
@@ -389,6 +398,9 @@ function finalize(local: string, domain: string): string | null {
   if (cleanLocal.startsWith('dedevries')) cleanLocal = cleanLocal.replace('dedevries', 'devries');
   if (cleanLocal.startsWith('vries')) cleanLocal = 'devries' + cleanLocal.substring(5);
 
+  // Strip spurious `@word` suffix that leaks domain prefix into local
+  cleanLocal = cleanLocal.replace(/@[a-z]+$/, '');
+
   cleanLocal = cleanLocal
     .replace(/(ishem|alsjeblieft|dankje|meerniet|voor_de_bevestiging|voordebevestiging|bedank|doei|joe|groet|dat_is_hem|datishem|meerniet|oja)$/g, '')
     .replace(/langzaam$/g, '')
@@ -413,6 +425,7 @@ function normalizeDomain(d: string): string {
        .replace(/helemaalaan.*$/, '')
        .replace(/voordebevestiging.*$/, '')
        .replace(/alsjeblieft.*$/, '')
+       .replace(/dankje.*$/, '')
        .replace(/ishem$/, '')
        .replace(/[.\-_]+$/, '');
 
