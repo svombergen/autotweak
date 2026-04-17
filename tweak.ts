@@ -219,6 +219,7 @@ export function parseEmail(input: string): string | null {
      // Fix common STT mis-spellings of domain names in no-@ text
      scanText = scanText.replace(/ample\.nl$/, 'example.nl');
      scanText = scanText.replace(/ahoo\.com$/, 'yahoo.com');
+     scanText = scanText.replace(/aa+ency\.eu$/, 'agency.eu');
      for (const domain of KNOWN_DOMAINS_SORTED) {
        const dIdx = scanText.lastIndexOf(domain);
        if (dIdx !== -1 && dIdx > 0) {
@@ -359,14 +360,16 @@ function finalize(local: string, domain: string): string | null {
     .replace(/quenti\b/g, 'quentin')
     .replace(/vanleeuwe\b/g, 'vanleeuwen')
     .replace(/amstrdam/g, 'amsterdam')
-    .replace(/([.\-])annaa(?=[._@\-]|$)/g, '$1anna')
-    .replace(/\bannaa+(?=[-_])/g, 'anna')
+    .replace(/([.\-_])anna+(?=[._@\-]|$)/g, '$1anna')
+    .replace(/^anna+(?=[-_@]|$)/g, 'anna')
+    .replace(/\bannaa+(?=[-_@]|$)/g, 'anna')
     .replace(/gmaltesd/g, 'gmailtest')
     .replace(/gmailtestd/g, 'gmailtest')
     .replace(/hannaboeking/g, 'hanna_boeking')
     .replace(/\bbindhoven/g, 'eindhoven')
     .replace(/plan1ing/g, 'planning')
-    .replace(/\bpied\b/g, 'piet')
+    .replace(/planning(\d)/g, 'planning_$1')
+    .replace(/pied(?=[_.\-@]|$)/g, 'piet')
     .replace(/\+dest(?=@)/g, '+test')
     .replace(/llod/g, 'lloyd')
     .replace(/lish/g, 'lisa')
@@ -377,6 +380,10 @@ function finalize(local: string, domain: string): string | null {
     .replace(/rottirdam/g, 'rotterdam')
     .replace(/hillo/g, 'hello')
     .replace(/klaa(?=[_\d]|$)/g, 'klaas')
+    .replace(/(\d)a$/, '$1')
+    .replace(/\+test[a-z]$/g, '+test')
+    .replace(/\bsale(?=[-_])/g, 'sales')
+    .replace(/laag-([a-z])/g, '_$1')
     .replace(/xavierlaura/g, 'xavier_laura')
     .replace(/dubbelever/g, 'wer')
     .replace(/dubbelev/g, 'w')
