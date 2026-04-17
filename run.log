@@ -1,68 +1,8 @@
 MISMATCH
-text      : voor de bevestiging graag naar griekse y v o n n e tot k u tot een negen acht acht apenstaartje i c l o u d tot c o m dus met apenstaartje n punt
-expected  : yvonne.q.1988@icloud.com
-predicted : null
-candidates: null
----
-MISMATCH
-text      : voor de bevestiging graag naar s a l e s dot n l apenstaartje punt co dot u k
-expected  : sales.nl@company.co.uk
-predicted : null
-candidates: null
----
-MISMATCH
-text      : noteer maar a n n a a tot l l o y d ad l i v e tot n loco dus met apenstaartje en punt
-expected  : annaa.lloyd@live.nl
-predicted : anna.lloyd@live.nl
-candidates: anna.lloyd@live.nl
----
-MISMATCH
-text      : je kunt me mailen op m a i l b o x apenstaartje h o t m a i l punt c o m dus met apenstaartje n punt
-expected  : mailbox@hotmail.com
-predicted : null
-candidates: null
----
-MISMATCH
-text      : stuur het maar naar t h u i s laag streepje f i n a n c e laag streepje acht nul a g e een c y dot e u nog een keer langzaam t h u i s laagstreet y f i n a n c e laagstreet acht nul a g e n c y dot e u
-expected  : thuis_finance_80@agency.eu
-predicted : yfinance_80@agency.eu
-candidates: yfinance_80@agency.eu
----
-MISMATCH
-text      : d e b o e r a m s t e r d a m laag-drie zeven apenstaartje proton me
-expected  : deboer_amsterdam_37@proton.me
-predicted : deboeramsterdam_37@proton.me
-candidates: deboeramsterdam_37@proton.me
----
-MISMATCH
-text      : voor de bevestiging graag naar s u p p o r t punt l i s a apenstaartje mail punt namelijk dus met apenstaartje en punt
-expected  : support.lisa@kpnmail.nl
-predicted : null
-candidates: null
----
-MISMATCH
-text      : mijn mailadres is q e nat p r o t o nat m editiet ik herhaal q u e n t i nat p r o t o nat m e
-expected  : quentin@proton.me
-predicted : null
-candidates: null
----
-MISMATCH
 text      : 
 expected  : teamamsterdam@hotmail.com
 predicted : null
 candidates: null
----
-MISMATCH
-text      : mijn e-mail is z a k e l i j k streepje f i n a n c e at punt co punt uk nee wacht ik zeg het opnieuw z a k e l i j k streepje f i n a n c e apenstaartje punt co punt juke
-expected  : zakelijk-finance@company.co.uk
-predicted : zakelijk-finance@co.juke
-candidates: zakelijk-finance@co.juke
----
-MISMATCH
-text      : dat is c o n t a c t p u n t apenstaartje k p n m a i l dot n l dat is hem
-expected  : contactpunt@kpnmail.nl
-predicted : contactpunt@kpnmail.nl.ishem
-candidates: contactpunt@kpnmail.nl.ishem
 ---
 MISMATCH
 text      : voor de bevestiging graag naar m i y dood w i ad o u t l o o k dood c o nee wacht ik zeg het opnieuw m i l l y dood w i l l e m ad
@@ -73,44 +13,8 @@ candidates: null
 MISMATCH
 text      : stuur het maar naar t h u i s laag streepje j a n s e n acht zes acht p r o t o m m e voor de bevestiging
 expected  : thuis_jansen_86@proton.me
-predicted : null
-candidates: null
----
-MISMATCH
-text      : mijn e-mailadres is b o e k i n g twee vijf een twee apenstaartje proton dot me nog een keer langzaam b o e k i n g twee vijf een twee apenstaartje protondot me
-expected  : boeking2512@proton.me
-predicted : boeking2512@protondotme
-candidates: boeking2512@protondotme
----
-MISMATCH
-text      : noteer maar m l drie zeven vijf acht a b e l l e n tot a i ik herhaal m a i l drie zeven vijf acht a b e l l e n tot a i
-expected  : mail3758@bellen.ai
-predicted : 3758a@bellen.ai
-candidates: 3758a@bellen.ai
----
-MISMATCH
-text      : voor de bevestiging graag naar j a n s e n laag streepje a n n a underscore één zes apenstaartje proton punt me dus met apenstaartje punt
-expected  : jansen_anna_16@proton.me
-predicted : null
-candidates: null
----
-MISMATCH
-text      : mijn e-mailadres is d e v r i e s streepje r e s e r v e r i n g at examen punt n l
-expected  : devries-reservering@example.nl
-predicted : devries-reservering@examen.nl
-candidates: devries-reservering@examen.nl
----
-MISMATCH
-text      : voor de bevestiging graag naar z a k e l j k apenstaartje b i d r i j f punt b e
-expected  : zakelijk@bedrijf.be
-predicted : null
-candidates: null
----
-MISMATCH
-text      : noteer maar g m a i t e s t twee nul twee zes apenstaartje e x a m p l e punt n loco ik herhaal g m a i l t e s t twee nul twee zes a m p l e punt n l
-expected  : gmailtest2026@example.nl
-predicted : g@kpnmail.nl
-candidates: g@kpnmail.nl
+predicted : thuis_jansen_868@proton.me
+candidates: thuis_jansen_868@proton.me
 ---
 MISMATCH
 text      : u kunt me mailen op e m m a e nul ad p r o t o n punt m e delict nee niet op mijn punt ik zeg hem opnieuw e m m a e nul ad p r o t o n punt m e
@@ -119,250 +23,10 @@ predicted : emmae0@proton.me
 candidates: emmae0@proton.me
 ---
 MISMATCH
-text      : voor de bevestiging graag naar c o n t a c t p u n t nul één proton me
-expected  : contactpunt01@proton.me
-predicted : null
-candidates: null
----
-MISMATCH
-text      : mijn e-mail is v a n l e u dubbele v e n laag streepje c o n t a c t underscore zes twee at gmail punt com nog een keer langzaam v a n l e e u dubbele v e n laag streepje c o n t a c t zes twee at gmail punt com
-expected  : vanleeuwen_contact_62@gmail.com
-predicted : vanleeudubbeleven_contact62@gmail.com
-candidates: vanleeudubbeleven_contact62@gmail.com
----
-MISMATCH
-text      : je mag mailen naar l i s a r e s e r v e r i n g laagstreepte twee drie apenstaartje examen dot namelijk nee wacht ik zeg het opnieuw l i s a r e s e r v e r i n g laag streepje twee drie apenstaart examen dot nl
-expected  : lisa_reservering_23@example.nl
-predicted : lisareservering_23@examen.nl
-candidates: lisareservering_23@examen.nl
----
-MISMATCH
-text      : mijn e-mailadres is m a b o x apenstaartje p r o o n punt m e dity nee wacht ik zeg het opnieuw m a i l b o x apenstaartje p r o t o n punt m e
-expected  : mailbox@proton.me
-predicted : null
-candidates: null
----
-MISMATCH
-text      : mijn mailadres is i n w e r k negen vier nul één apenstaartje gmail punt com nee wacht ik zeg het opnieuw i o plus w e r k negen vier nul één apenstaartje gmail punt com
-expected  : info+werk9401@gmail.com
-predicted : io+werk9401@gmail.com
-candidates: io+werk9401@gmail.com
----
-MISMATCH
-text      : dat is t e a n b dot c o punt u k
-expected  : team-be@company.co.uk
-predicted : null
-candidates: null
----
-MISMATCH
-text      : mijn e-mailadres is t h u i s tot b o e k i n g apenstaartje s u p e r c l u b g a m e dot com
-expected  : thuis.boeking@superclubgame.com
-predicted : boeking@superclubgame.com
-candidates: boeking@superclubgame.com
----
-MISMATCH
-text      : peu dat is d e b o e r drie acht apenstaartje z i g g o punt n l
-expected  : deboer38@ziggo.nl
-predicted : peu.isdedeboer38@ziggo.nl
-candidates: peu.isdedeboer38@ziggo.nl
----
-MISMATCH
-text      : mijn e-mailadres is m i l ypsilon punt dubbele v i l l e m at o u t l o o k tot c o m nee wacht ik zeg het opnieuw m i l l ypsilon punt dubbele v i l l e m apenstaartje o u t l o o k dot c o m
-expected  : milly.willem@outlook.com
-predicted : milly.dubbelevillem@outlook.com
-candidates: milly.dubbelevillem@outlook.com
----
-MISMATCH
-text      : je mag mailen naar c o n t a c t punt e m m a a apenstaartje h o t m a i l punt com
-expected  : contact.emma@hotmail.com
-predicted : contact.emmaa@hotmail.com
-candidates: contact.emmaa@hotmail.com
----
-MISMATCH
-text      : je mag mailen naar m a i l b o x nul een apenstaartje p r o t o n dat m e meer niet
-expected  : mailbox01@proton.me
-predicted : 01@proton.me
-candidates: 01@proton.me
----
-MISMATCH
-text      : u kunt mij bereiken via d e b o e r apenstaartje z i g g o punt n l ja
-expected  : deboer@ziggo.nl
-predicted : mijbereikenviadedeboer@ziggo.nl
-candidates: mijbereikenviadedeboer@ziggo.nl
----
-MISMATCH
-text      : dat is m a i l b o x ad k p n m a i l punt n loco dus met apenstaartje een punt
-expected  : mailbox@kpnmail.nl
-predicted : null
-candidates: null
----
-MISMATCH
-text      : mijn e-mailadres is dubbele v e k apenstaartje s u p e r c l u b g a m e dot com nee wacht ik zeg het opnieuw dubbele v e r k apenstaartje s u p e r c l u b g a m e dot com
-expected  : werk@superclubgame.com
-predicted : dubbeleverk@superclubgame.com
-candidates: dubbeleverk@superclubgame.com
----
-MISMATCH
-text      : mijn mailadres is i n f o h a n n a c o m p a n y punt c o punt uk
-expected  : info_hanna@company.co.uk
-predicted : infohanna@company.co.uk
-candidates: infohanna@company.co.uk
----
-MISMATCH
-text      : dat is e i n d h o v e n l l o y d laag streepje acht twee apenstaartje p r o t o n m e dit ik nee niet tot maar punt ik zeg hem opnieuw e i n d h o v e n l l o y d acht twee apenstaartje p r o t o m m e
-expected  : eindhoven_lloyd_82@proton.me
-predicted : eindhovenlloyd82@proton.me
-candidates: eindhovenlloyd82@proton.me
----
-MISMATCH
-text      : noteer maar e i n d h o v e n plus t e s t apenstaartje krumeel punt n l
-expected  : eindhoven+test@kpnmail.nl
-predicted : eindhoven+test@krumeel.nl
-candidates: eindhoven+test@krumeel.nl
----
-MISMATCH
-text      : voor de bevestiging graag naar l l o y d punt l l o griekse y d apenstaartje s u p e r c l u b g a m e punt com
-expected  : lloyd.lloyd@superclubgame.com
-predicted : null
-candidates: null
----
-MISMATCH
-text      : mijn e-mail is l l o ypsilon d punt l l o ytsy d apenstaartje s t a r t u p punt i o dus met apenstaartje n punt
-expected  : lloyd.lloyd@startup.io
-predicted : lloyd.lloytsyd@startup.io
-candidates: lloyd.lloytsyd@startup.io
----
-MISMATCH
-text      : dat is dubbele v o u t e r min c o n t a c t apenstaartje proton dot me nog een keer langzaam dubbele v o u t e r min c o n t a c t apenstaartje proton dot me
-expected  : wouter-contact@proton.me
-predicted : dubbelevouter-contact@proton.me
-candidates: dubbelevouter-contact@proton.me
----
-MISMATCH
 text      : mijn e-mail is c o n t a c t underscore d e b o e r a b e d r i j f punt p e
 expected  : contact_deboer@bedrijf.be
 predicted : null
 candidates: null
----
-MISMATCH
-text      : je mag mailen naar mail-r o e r a m apenstaartje agency dot e u nog een keer langzaam mail-r o t t e r d a m apenstaartje agency dot e u
-expected  : mail-rotterdam@agency.eu
-predicted : rotterdam@agency.eu
-candidates: rotterdam@agency.eu
----
-MISMATCH
-text      : voor de bevestiging graag naar s u p p o r t zes zes apenstaartje b e l l e n dot a i
-expected  : support66@bellen.ai
-predicted : null
-candidates: null
----
-MISMATCH
-text      : mijn e-mailadres is p l a n n i n g punt y v o n n e apenstaartje k0l dot n l
-expected  : planning.yvonne@kpnmail.nl
-predicted : planning.yvonne@k0l.nl
-candidates: planning.yvonne@k0l.nl
----
-MISMATCH
-text      : je mag mailen naar j a n apenstaartje proton me helemaal aan elkaar
-expected  : jan@proton.me
-predicted : jan@protonmehelemaalaanelkaar
-candidates: jan@protonmehelemaalaanelkaar
----
-MISMATCH
-text      : u kunt mij bereiken via t e a m y v o n n e zeven zeven proton dot me dank je
-expected  : team_yvonne_77@proton.me
-predicted : mijbereikenviateamyvonne77@proton.me
-candidates: mijbereikenviateamyvonne77@proton.me
----
-MISMATCH
-text      : stuur het maar naar r e s e r v e r i n g min c o n t a c t apenstaartje examenpunt namelijk ik herhaal r e s e r v e r i n g min c o n t a c t examenpunt nl
-expected  : reservering-contact@example.nl
-predicted : null
-candidates: null
----
-MISMATCH
-text      : je kunt me mailen op m a streepje apenstaartje z i g g o tot n lokoné niet tot maar punt ik zeg hem opnieuw m a i l streepje m u l d e r apenstaartje z i g g o tot
-expected  : mail-mulder@ziggo.nl
-predicted : mulder@ziggo.nl
-candidates: mulder@ziggo.nl
----
-MISMATCH
-text      : stuur het maar naar c o n a c t een de spoor k l a a s apenstaartje hotmail punt com nee wacht ik zeg het opnieuw c o n t a c t een de spoor k l a a s apenstaartje hotmail punt com
-expected  : contact_klaas@hotmail.com
-predicted : contact1de_klaas@hotmail.com
-candidates: contact1de_klaas@hotmail.com
----
-MISMATCH
-text      : stuur het maar naar a n a dot l l o griekse y d apenstaartje c o n p a n ypsilon dot c o dot u k nog een keer langzaam a n een a dot l l o griekse y d apenstaartje c o n p a n ypsilon dot c o dot u k
-expected  : anna.lloyd@company.co.uk
-predicted : an1a.lloyd@company.co.uk
-candidates: an1a.lloyd@company.co.uk
----
-MISMATCH
-text      : u kunt mij bereiken via s a l e s min b o e k i n g at gmail dot com dus met apenstaartje en punt
-expected  : sales-boeking@gmail.com
-predicted : mijbereikenviasales-boeking@gmail.com
-candidates: mijbereikenviasales-boeking@gmail.com
----
-MISMATCH
-text      : n o a h laag streepje s m i t een de zes acht apenstaartje tot i o
-expected  : noah_smit_68@startup.io
-predicted : noah_smit1de68@startup.io
-candidates: noah_smit1de68@startup.io
----
-MISMATCH
-text      : u kunt mij bereiken via j a n s e n a h o o punt c o m
-expected  : jansen@yahoo.com
-predicted : null
-candidates: null
----
-MISMATCH
-text      : u kunt mij bereiken via d e v r i e s acht vier hotmail punt com
-expected  : devries84@hotmail.com
-predicted : mijbereikenviadedevries84@hotmail.com
-candidates: mijbereikenviadedevries84@hotmail.com
----
-MISMATCH
-text      : t e a m streepje b at outlook punt com
-expected  : team-be@outlook.com
-predicted : team-b@outlook.com
-candidates: team-b@outlook.com
----
-MISMATCH
-text      : u kunt mij bereiken via s a l e s apenstaartje e x a m p l e punt n l dat is hem
-expected  : sales@example.nl
-predicted : mijbereikenviasales@example.nl.ishem
-candidates: mijbereikenviasales@example.nl.ishem
----
-MISMATCH
-text      : mijn e-mailadres is j a n s e n een despoor g e n t laag streepje acht negen apenstaartje p r o t o n punt m editiet dus met apenstaartje n punt
-expected  : jansen_gent_89@proton.me
-predicted : jansen1_gent_89@proton.me
-candidates: jansen1_gent_89@proton.me
----
-MISMATCH
-text      : m a i l b o x nul één g m a i l dot c o m
-expected  : mailbox01@gmail.com
-predicted : 01@gmail.com
-candidates: 01@gmail.com
----
-MISMATCH
-text      : mijn e-mail is m a nul één apenstaartje b e d punt b e dit ik herhaal m a l b o x nul één apenstaartje b e d r i j f punt b e
-expected  : mailbox01@bedrijf.be
-predicted : malbox01@bedrijf.be
-candidates: malbox01@bedrijf.be
----
-MISMATCH
-text      : je kunt me mailen op u t r e h t dot c o n t a c t apenstaartje b e d r i j f punt bi nee wacht ik zeg het opnieuw u t r e c h t dot c o n t a c t apenstaartje b e d r i j f punt bi
-expected  : utrecht.contact@bedrijf.be
-predicted : trecht.contact@bedrijf.be
-candidates: trecht.contact@bedrijf.be
----
-MISMATCH
-text      : noteer maar t e a m plus t e s t z ziggo dot n l helemaal aan elkaar
-expected  : team+test@ziggo.nl
-predicted : team+testz@ziggo.nl
-candidates: team+testz@ziggo.nl
 ---
 MISMATCH
 text      : noteer maar e d h o n plus d e t apenstaartje mail dot namelijk ik herhaal e i n d h o v e n plus d e s t apenstaartje mail dot nl
@@ -377,106 +41,16 @@ predicted : bakker_mulder_118@mail.com.au
 candidates: bakker_mulder_118@mail.com.au
 ---
 MISMATCH
-text      : stuur het maar naar e streepje k a laag streepje vijf acht apenstaartje proton punt m editit nee niet tot maar punt ik zeg hem opnieuw e m m a laag streepje k l a a laag streepje vijf acht apenstaartje proton punt m e
-expected  : emma_klaas_58@proton.me
-predicted : emma_klaa_58@proton.me
-candidates: emma_klaa_58@proton.me
----
-MISMATCH
-text      : voor de bevestiging graag naar b r u s s e l zeven zeven apenstaartje ziggo punt namelijk dus met apenstaartje n punt
-expected  : brussel77@ziggo.nl
-predicted : null
-candidates: null
----
-MISMATCH
 text      : l a u r a d a a n ad s u b e r c l u b g a m e dot c o n
 expected  : laura.daan@superclubgame.com
 predicted : lauradaan@superclubgame.com
 candidates: lauradaan@superclubgame.com
 ---
 MISMATCH
-text      : dat is t h u i s u t r e c h t laagstreepte een acht apenstaartje p r o t o n punt m editiet nog een keer langzaam t h u i s underscore u t r e c h t laagstreepte een acht apenstaartje p r o t o n punt m e
-expected  : thuis_utrecht_18@proton.me
-predicted : utrecht_18@proton.me
-candidates: utrecht_18@proton.me
----
-MISMATCH
-text      : je kunt me mailen op m a i l b o x twee nul twee zes apenstaartje o u t l o o k tot c o m alsjeblieft
-expected  : mailbox2026@outlook.com
-predicted : 2026@outlook.com
-candidates: 2026@outlook.com
----
-MISMATCH
-text      : mijn e-mailadres is l a u r a laag streepje i n f o underscore een vijf ziggo dot namelijk nog een keer langzaam l a u r a laag streepje i n f o één vijf ziggo dot nl
-expected  : laura_info_15@ziggo.nl
-predicted : laura_info15@ziggo.nl
-candidates: laura_info15@ziggo.nl
----
-MISMATCH
-text      : u kunt mij bereiken via l a u r a vijf een apenstaartje c o m p a n y punt c o punt u k
-expected  : laura51@company.co.uk
-predicted : mijbereikenvialaura51@company.co.uk
-candidates: mijbereikenvialaura51@company.co.uk
----
-MISMATCH
-text      : dat is a a punt l d apenstaartje outlook punt com nog een keer langzaam a n een a punt l l o y d apenstaartje outlook punt com
-expected  : anna.lloyd@outlook.com
-predicted : an1a.lloyd@outlook.com
-candidates: an1a.lloyd@outlook.com
----
-MISMATCH
-text      : stuur het maar naar m l apenstaartje mail dot com punt o nee wacht ik zeg het opnieuw m ai l b o x apenstaartje mail dot com punt o
-expected  : mailbox@mail.com.au
-predicted : null
-candidates: null
----
-MISMATCH
-text      : noteer maar m a nul één apenstaartje proton dot me nog een keer langzaam m a i l b o x nul één apenstaartje proton dot me
-expected  : mailbox01@proton.me
-predicted : 01@proton.me
-candidates: 01@proton.me
----
-MISMATCH
-text      : ui je mag mailen naar m i l l y punt l l o y d apenstaartje protondot me
-expected  : milly.lloyd@proton.me
-predicted : ijemagmailennaarmilly.lloyd@protondotme
-candidates: ijemagmailennaarmilly.lloyd@protondotme
----
-MISMATCH
-text      : je mag mailen naar t h u apenstaartje b e d r i j f dot b nee wacht ik zeg het opnieuw t h u i s apenstaartje b e d r i j f dot b
-expected  : thuis@bedrijf.be
-predicted : null
-candidates: null
----
-MISMATCH
-text      : voor de bevestiging graag naar n o a h plus w e r k apenstaartje e x a m p l e punt n l
-expected  : noah+werk@example.nl
-predicted : null
-candidates: null
----
-MISMATCH
-text      : mijn mailadres is n o min v a u dubbele v e nat l i v e punt n local nog een keer langzaam n o a h min v a n l e e u dubbele v e nat l i v e punt n l
-expected  : noah-vanleeuwen@live.nl
-predicted : noah-vanleeudubbelevenat@live.nl
-candidates: noah-vanleeudubbelevenat@live.nl
----
-MISMATCH
 text      : r e s e r v e r i n g j h n ad m a i l dat koor
 expected  : reserveringjan@mail.com.au
-predicted : reserveringjan@mail.koor
-candidates: reserveringjan@mail.koor
----
-MISMATCH
-text      : dat is d r-b o e k i n g z i g g o punt namelijk nee wacht ik zeg het opnieuw d e b o e r b o e k i n g z i g g o punt n l
-expected  : deboer-boeking@ziggo.nl
-predicted : deboerboeking@ziggo.nl
-candidates: deboerboeking@ziggo.nl
----
-MISMATCH
-text      : u kunt me mailen op s a l e s a m s t r d a m apenstaartje outlook punt com ja
-expected  : salesamsterdam@outlook.com
-predicted : salesamstrdam@outlook.com
-candidates: salesamstrdam@outlook.com
+predicted : reserveringjan@kpnmail.nl
+candidates: reserveringjan@kpnmail.nl
 ---
 MISMATCH
 text      : 
@@ -485,82 +59,10 @@ predicted : null
 candidates: null
 ---
 MISMATCH
-text      : je mag mailen naar l a min r apenstaartje ziggo punt namelijk nog een keer langzaam l a u r a min d e b o i r apenstaartje ziggo punt nl
-expected  : laura-deboer@ziggo.nl
-predicted : laura-dedeboer@ziggo.nl
-candidates: laura-dedeboer@ziggo.nl
----
-MISMATCH
-text      : mijn e-mailadres is f i n a n c e underscore b a k k e r laag-zeven vier apenstaartje b e d r i j f punt b e zonder spaties
-expected  : finance_bakker_74@bedrijf.be
-predicted : finance_bakkerlaag-zeven4@bedrijf.be
-candidates: finance_bakkerlaag-zeven4@bedrijf.be
----
-MISMATCH
-text      : u kunt mij bereiken via s a n a mail punt com punt o nee niet tot maar punt ik zeg hem opnieuw s a n n e min a n n a a bestaat mail punt com punt o
-expected  : sanne-anna@mail.com.au
-predicted : null
-candidates: null
----
-MISMATCH
-text      : mijn mailadres is k e u k e n een twee at k mill punt n l
-expected  : keuken12@kpnmail.nl
-predicted : keuken12@kmill.nl
-candidates: keuken12@kmill.nl
----
-MISMATCH
-text      : noteer maar u t r e c h t dot v a n l e e u w e n apenstaartje s t a r t u p dot i o voor de bevestiging
-expected  : utrecht.vanleeuwen@startup.io
-predicted : trecht.vanleeuwen@startup.io
-candidates: trecht.vanleeuwen@startup.io
----
-MISMATCH
-text      : noteer maar h e l l o punt r o t t e r d a m mat k p n m a i l punt n l
-expected  : hello.rotterdam@kpnmail.nl
-predicted : hello.rotterdammat@kpnmail.nl
-candidates: hello.rotterdammat@kpnmail.nl
----
-MISMATCH
 text      : stuur het maar naar s m i t streepje a n n a a a a e n c ypsilon punt e u nog een keer langzaam s m i t streepje a n n a a a e n c ypsilon punt e u
 expected  : smit-anna@agency.eu
-predicted : null
-candidates: null
----
-MISMATCH
-text      : noteer maar dubbele v i l l e m punt a n n a apenstaartje p r o t o n dot m e alsjeblieft
-expected  : willem.anna@proton.me
-predicted : dubbelevillem.anna@proton.me
-candidates: dubbelevillem.anna@proton.me
----
-MISMATCH
-text      : dat is m a b o x at proton me nee niet tot maar punt ik zeg hem opnieuw m a i l b o x apenstaartje proton me
-expected  : mailbox@proton.me
-predicted : null
-candidates: null
----
-MISMATCH
-text      : u kunt mij bereiken via p l a n n i n g tot v i s s e r apenstaartje examenpunt namelijk dus met apenstaartje n punt
-expected  : planning.visser@example.nl
-predicted : mijbereikenviaplanning.visser@examenpuntnamelijk
-candidates: mijbereikenviaplanning.visser@examenpuntnamelijk
----
-MISMATCH
-text      : noteer maar m a l b o x apenstaartje l i v e punt l locone wacht ik zeg het opnieuw m a i l b o x apenstaartje l i v e punt n l
-expected  : mailbox@live.nl
-predicted : null
-candidates: null
----
-MISMATCH
-text      : noteer maar s mit plus dubbele k apenstaartje b e e n dot a i nee wacht ik zeg het opnieuw s mit plus dubbele v e r k apenstaartje b e l l e n dot a i
-expected  : smit+werk@bellen.ai
-predicted : smit+dubbeleverk@bellen.ai
-candidates: smit+dubbeleverk@bellen.ai
----
-MISMATCH
-text      : voor de bevestiging graag naar m a b o x twee nul twee zes at coopand youké nee wacht ik zeg het opnieuw m a i l b o x twee nul twee zes apenstaartje coopand youké
-expected  : mailbox2026@company.co.uk
-predicted : 2026@coopandyouké
-candidates: 2026@coopandyouké
+predicted : smit-ann@agency.eu
+candidates: smit-ann@agency.eu
 ---
 MISMATCH
 text      : 
@@ -569,28 +71,10 @@ predicted : null
 candidates: null
 ---
 MISMATCH
-text      : stuur het maar naar m a i l streepje b o e k i n g apenstaartje p r o t o n dat m edit ik herhaal m a i l streepje b o e k i n g apenstaartje p r o t o n dat m e
-expected  : mail-boeking@proton.me
-predicted : boeking@proton.me
-candidates: boeking@proton.me
----
-MISMATCH
-text      : je mag mailen naar t e a m laag-j a n vier negen acht e x a m p l e punt n locone wacht ik zeg het opnieuw t e a m laag-j a n vier negen ad e x a m p l e punt n l
-expected  : team_jan_49@example.nl
-predicted : teamlaag-jan49@example.nl
-candidates: teamlaag-jan49@example.nl
----
-MISMATCH
 text      : 
 expected  : lisa_gent@agency.eu
 predicted : null
 candidates: null
----
-MISMATCH
-text      : je mag mailen naar b r u s s e l j a n undascore e l f tot b ik herhaal b r u s s e l j a n undéén drie apenstaartje b e d r i j f tot b
-expected  : brussel_jan_13@bedrijf.be
-predicted : brusseljanundéén3@bedrijf.be
-candidates: brusseljanundéén3@bedrijf.be
 ---
 MISMATCH
 text      : mijn mailadres is m i l l y tot l l o y d apenstaartje nul dot n loco ik herhaal m i l l y d apenstaartje nul nul nul
@@ -599,214 +83,28 @@ predicted : millyd@000
 candidates: millyd@000
 ---
 MISMATCH
-text      : noteer maar a n n a a a a g e n c ypsilon punt e u alsjeblieft
-expected  : anna@agency.eu
-predicted : annaa@agency.eu
-candidates: annaa@agency.eu
----
-MISMATCH
-text      : mijn e-mailadres is g m a e d apenstaartje agency dot e u nee niet op mijn punt ik zeg hem opnieuw g m a l t e s d apenstaartje agency punt e u
-expected  : gmailtest@agency.eu
-predicted : gmaltesd@agency.eu
-candidates: gmaltesd@agency.eu
----
-MISMATCH
-text      : mijn e-mailadres is h a n n a b o e k i n g apenstaartje m a i l tot c o m tot a u dank je
-expected  : hanna_boeking@mail.com.au
-predicted : hannaboeking@mail.com.au
-candidates: hannaboeking@mail.com.au
----
-MISMATCH
-text      : noteer maar p i e d underscore k u u e n t i n underscore twee negen apenstaartje z i g g o dot n loco dus met apenstaartje een punt
-expected  : piet_quentin_29@ziggo.nl
-predicted : pied_quentin_29@ziggo.nl
-candidates: pied_quentin_29@ziggo.nl
----
-MISMATCH
-text      : t e a m r o t t e r d a m apenstaartje protondot me
-expected  : teamrotterdam@proton.me
-predicted : teamrotterdam@protondotme
-candidates: teamrotterdam@protondotme
----
-MISMATCH
-text      : mijn e-mailadres is e m m a apenstaartje nul nul dot n l ja
-expected  : emma@kpnmail.nl
-predicted : emma@00.nlja
-candidates: emma@00.nlja
----
-MISMATCH
-text      : stuur het maar naar s u p p o r t underscore d e b o e r apenstaartje z i g g o tot n loco dus met apenstaartje n punt
-expected  : support_deboer@ziggo.nl
-predicted : support_dedeboer@ziggo.nl
-candidates: support_dedeboer@ziggo.nl
----
-MISMATCH
-text      : je mag mailen naar g m a i l t e s t nul een apenstaartje m a i l dat kon dat a u dank je
-expected  : gmailtest01@mail.com.au
-predicted : gmailtest01@mail.kon.audankje
-candidates: gmailtest01@mail.kon.audankje
----
-MISMATCH
-text      : b i n d h o v e n zes negen vier apenstaartje p r o t o n punt m e
-expected  : eindhoven694@proton.me
-predicted : bindhoven694@proton.me
-candidates: bindhoven694@proton.me
----
-MISMATCH
-text      : c o n t a c t laag streepje p l a n een i n g drie vier apenstaartje b e d r i j f punt b
-expected  : contact_planning_34@bedrijf.be
-predicted : contact_plan1ing34@bedrijf.be
-candidates: contact_plan1ing34@bedrijf.be
----
-MISMATCH
-text      : mijn e-mail is s a l e s punt d e v r i e s ad k p n m a i l dot n loco nog een keer langzaam s a l e s punt d e v r i e s ad k p n m a i l dot n l
-expected  : sales.devries@kpnmail.nl
-predicted : sales.dedevries@kpnmail.nl
-candidates: sales.dedevries@kpnmail.nl
----
-MISMATCH
-text      : noteer maar j a plus t t een zes negen vier at p r n punt m editiet nee niet doet maar punt ik zeg hem opnieuw j a m plus t e s t een zes negen vier apenstaartje p r o t o n punt m e
-expected  : jan+test1694@proton.me
-predicted : jam+test1694@proton.me
-candidates: jam+test1694@proton.me
----
-MISMATCH
-text      : mijn e-mailadres is f i n a n c e streepje b apenstaartje l i v e dot n l
-expected  : finance-be@live.nl
-predicted : finance-b@live.nl
-candidates: finance-b@live.nl
----
-MISMATCH
-text      : je kunt me mailen op s a l e min s a n n e apenstaartje c o m p a n y punt c o tot u k
-expected  : sales-sanne@company.co.uk
-predicted : sale-sanne@company.co.uk
-candidates: sale-sanne@company.co.uk
----
-MISMATCH
-text      : noteer maar h i l l o punt r o t t i r d a m apenstaartje yahoe punt c o m
-expected  : hello.rotterdam@yahoo.com
-predicted : hillo.rottirdam@yahoo.com
-candidates: hillo.rottirdam@yahoo.com
----
-MISMATCH
-text      : je mag mailen naar v a u w e n drie negen k meel dot namelijk ik herhaal v a n l e e u w e n drie negen k meel dot n l
-expected  : vanleeuwen39@kpnmail.nl
-predicted : null
-candidates: null
----
-MISMATCH
-text      : u kunt mij bereiken via i n f o plus p r i v e twee twee zeven zeven apenstaartje s u p e r c l u b g a m e dot com oké
-expected  : info+prive2277@superclubgame.com
-predicted : mijbereikenviainfo+prive2277@superclubgame.com
-candidates: mijbereikenviainfo+prive2277@superclubgame.com
----
-MISMATCH
 text      : g e n t streepje l l o ypsilon d k p n m a i l d o ypsilon
 expected  : gent-lloyd@kpnmail.nl
 predicted : null
 candidates: null
 ---
 MISMATCH
-text      : t e a m r o t t r d a m apenstaartje i c l o u d punt c o m
-expected  : teamrotterdam@icloud.com
-predicted : teamrottrdam@icloud.com
-candidates: teamrottrdam@icloud.com
----
-MISMATCH
 text      : mijn e-mailadres is p l n g underscore s n i had examen tot namelijk nee wacht ik zeg het opnieuw p l a n i n g underscore s n i t apenstaartje examen tot n l
 expected  : planning_smit@example.nl
-predicted : planing_snit@examen.nl
-candidates: planing_snit@examen.nl
+predicted : planning_snit@example.nl
+candidates: planning_snit@example.nl
 ---
 MISMATCH
-text      : mijn e-mail is w e r k laag streepje m i l a een laag streepje drie nul apenstaartje agency punt e u
-expected  : werk_milan_30@agency.eu
-predicted : werk_mila1_30@agency.eu
-candidates: werk_mila1_30@agency.eu
----
-MISMATCH
-text      : voor de bevestiging graag naar c o n t a c t streepje d a a n apenstaartje k p n m a i l tot n loco nul nul nul nul nul nul nul nul nul
-expected  : contact-daan@kpnmail.nl
-predicted : null
-candidates: null
----
-MISMATCH
-text      : u kunt mij bereiken via i n f o l i s a laag-zeven vijf z i g g o punt n l
-expected  : info_lisa_75@ziggo.nl
-predicted : mijbereikenviainfolisalaag-zeven5@ziggo.nl
-candidates: mijbereikenviainfolisalaag-zeven5@ziggo.nl
----
-MISMATCH
-text      : mijn e-mailadres is r e s e r v e r i n g laag-streepte v a n l e e u dubbele v e n apenstaartje l i v e dot n l
-expected  : reservering_vanleeuwen@live.nl
-predicted : reserveringlaag-streeptevanleeudubbeleven@live.nl
-candidates: reserveringlaag-streeptevanleeudubbeleven@live.nl
----
-MISMATCH
-text      : u kunt mij bereiken via a m s t e r d a m plus b o o k i n g ad b e d r i j f punt bi
-expected  : amsterdam+booking@bedrijf.be
-predicted : mijbereikenviaamsterdam+booking@bedrijf.be
-candidates: mijbereikenviaamsterdam+booking@bedrijf.be
----
-MISMATCH
-text      : mijn e-mail is m i l l y tot w i l l e m op kamil punt n l
+text      : mijn e-mail is m i l l y tot w i l l e m op kumul punt n l
 expected  : milly.willem@kpnmail.nl
-predicted : e@kpnmail.nl
-candidates: e@kpnmail.nl
----
-MISMATCH
-text      : mijn e-mail is s a l e s streepje a m s t e r d a m apenstaartje b e d r i j f punt b meer niet
-expected  : sales-amsterdam@bedrijf.be
-predicted : sales-amsterdam@bedrijf.bmeerniet
-candidates: sales-amsterdam@bedrijf.bmeerniet
+predicted : milly@willemopkumul.nl
+candidates: milly@willemopkumul.nl
 ---
 MISMATCH
 text      : stuur het maar naar k e u k n zes twee drie twee apenstaartje proton punt m e die ik nee wacht ik zeg het opnieuw k u k e n zes twee drie twee apenstaartje proton punt m e
 expected  : keuken6232@proton.me
 predicted : qken6232@proton.me
 candidates: qken6232@proton.me
----
-MISMATCH
-text      : e n f o plus dubbele v e r k apenstaartje m a i l tot c o m tot a u
-expected  : info+werk@mail.com.au
-predicted : enfo+dubbeleverk@mail.com.au
-candidates: enfo+dubbeleverk@mail.com.au
----
-MISMATCH
-text      : u kunt mij bereiken via d a a n punt v e r k apenstaartje i c l o u d dot c o m
-expected  : daan.werk@icloud.com
-predicted : mijbereikenviadaan.verk@icloud.com
-candidates: mijbereikenviadaan.verk@icloud.com
----
-MISMATCH
-text      : u kunt mij bereiken via g m a i l t e s t nul één apenstaartje a g e n c y dot e u dus met apenstaartje en punt
-expected  : gmailtest01@agency.eu
-predicted : mijbereikenviagmailtest01@agency.eu
-candidates: mijbereikenviagmailtest01@agency.eu
----
-MISMATCH
-text      : dat is m a i l b o x nul een apenstaartje p r o t o n dat m e alsjeblieft
-expected  : mailbox01@proton.me
-predicted : 01@proton.me
-candidates: 01@proton.me
----
-MISMATCH
-text      : noteer maar z a k i l i j k apenstaartje ziggo punt nl
-expected  : zakelijk@ziggo.nl
-predicted : zakilijk@ziggo.nl
-candidates: zakilijk@ziggo.nl
----
-MISMATCH
-text      : s u p p o r t streepje w o u t e r a ziggo punt nl
-expected  : support-wouter@ziggo.nl
-predicted : support-woutera@ziggo.nl
-candidates: support-woutera@ziggo.nl
----
-MISMATCH
-text      : je kunt me mailen op f i n a n c e streepje r o t t r d a m apenstaartje i c l o u d d tot c o m o k
-expected  : finance-rotterdam@icloud.com
-predicted : finance-rottrdam@icloud.com
-candidates: finance-rottrdam@icloud.com
 ---
 MISMATCH
 text      : stuur het maar naar a m s t e r a m b o e i n g ziggo punt nl
@@ -817,62 +115,8 @@ candidates: amsteramboeing@ziggo.nl
 MISMATCH
 text      : b e z o r g i n g min d h een at examen punt n l
 expected  : bezorging-daan@example.nl
-predicted : bezorging-dh1@examen.nl
-candidates: bezorging-dh1@examen.nl
----
-MISMATCH
-text      : je kunt me mailen op d e v r i e s underscore d e b o e r apenstaartje protondot me nog een keer langzaam d e v r i e s underscore d e b o e r apenstaartje protondot me
-expected  : devries_deboer@proton.me
-predicted : devries_dedeboer@protondotme
-candidates: devries_dedeboer@protondotme
----
-MISMATCH
-text      : je kunt me mailen op e m m a acht één drie apenstaartje proton me helemaal aan elkaar
-expected  : emma813@proton.me
-predicted : emma813@protonmehelemaalaanelkaar
-candidates: emma813@protonmehelemaalaanelkaar
----
-MISMATCH
-text      : stuur het maar naar i n f o d e b o e r zes vijf at ziggo dan l
-expected  : info_deboer_65@ziggo.nl
-predicted : infodedeboer65@ziggo.nl
-candidates: infodedeboer65@ziggo.nl
----
-MISMATCH
-text      : stuur het maar naar s a n n e laag streepje b o e k i n g drie drie apenstaartje p r o t o n dat m e
-expected  : sanne_boeking_33@proton.me
-predicted : sanne_boeking33@proton.me
-candidates: sanne_boeking33@proton.me
----
-MISMATCH
-text      : u kunt mij bereiken via p l a n n i n g underscore c o n t a c t ad p r o t o n punt m e
-expected  : planning_contact@proton.me
-predicted : mijbereikenviaplanning_contact@proton.me
-candidates: mijbereikenviaplanning_contact@proton.me
----
-MISMATCH
-text      : mijn mailadres is g m a i l t e s t twee nul twee zes apenstaartje e x a m p l e dot n l dat is hem
-expected  : gmailtest2026@example.nl
-predicted : gmailtest2026@example.nl.ishem
-candidates: gmailtest2026@example.nl.ishem
----
-MISMATCH
-text      : mijn e-mail is m a i l b o x twee nul twee zes apenstaartje yahoo dot com
-expected  : mailbox2026@yahoo.com
-predicted : 2026@yahoo.com
-candidates: 2026@yahoo.com
----
-MISMATCH
-text      : dat is d a a l laag streepje p i e t vijf drie startup punt i o
-expected  : daan_piet_53@startup.io
-predicted : daal_piet53@startup.io
-candidates: daal_piet53@startup.io
----
-MISMATCH
-text      : voor de bevestiging graag naar d v r s azige punt nl nog een keer langzaam d e v r i e s azige punt nl
-expected  : devries@ziggo.nl
-predicted : null
-candidates: null
+predicted : bezorging-dh1@example.nl
+candidates: bezorging-dh1@example.nl
 ---
 MISMATCH
 text      : je mag mailen naar h e l l o d r o h m apenstaartje b e l l e n d a i
@@ -881,58 +125,16 @@ predicted : helloydrohm@bellen.ai
 candidates: helloydrohm@bellen.ai
 ---
 MISMATCH
-text      : je mag mailen naar m a i l b o x twee nul twee zes ad s u p e r c l u b g a m e dot com nee niet tot maar punt ik zeg hem opnieuw m a i l b o x twee nul twee zes apenstaartje s u p e r c l u b g a m e punt com
-expected  : mailbox2026@superclubgame.com
-predicted : 2026@superclubgame.com
-candidates: 2026@superclubgame.com
----
-MISMATCH
 text      : je mag mailen naar e m m a plus t e s d apenstaartje proton dot me dus met apenstaartje n punt
 expected  : emma+test@proton.me
 predicted : emma+tesd@proton.me
 candidates: emma+tesd@proton.me
 ---
 MISMATCH
-text      : u kunt mij bereiken via r e s e r v e r i n g min b e z o r g i n g azige dot n l helemaal aan elkaar
-expected  : reservering-bezorging@ziggo.nl
-predicted : null
-candidates: null
----
-MISMATCH
 text      : c o n t a c t punt dubbele v a r k apenstaartje s u p e r c l u b g a m e dot com
 expected  : contact.werk@superclubgame.com
-predicted : contact.dubbelevark@superclubgame.com
-candidates: contact.dubbelevark@superclubgame.com
----
-MISMATCH
-text      : we mijn mailadres is s u p p o r t één zeven apenstaartje proton dot me
-expected  : support17@proton.me
-predicted : wemijnmailadresissupport17@proton.me
-candidates: wemijnmailadresissupport17@proton.me
----
-MISMATCH
-text      : mijn e-mailadres is u t r e c h t streepje e m m a apenstaartje punt code toeké nee wacht ik zeg het opnieuw u t r e c h t streepje e m m a punt code toe k
-expected  : utrecht-emma@company.co.uk
-predicted : null
-candidates: null
----
-MISMATCH
-text      : voor de bevestiging graag naar p i e t plus w e r k at c o m p a n y punt c o punt u k
-expected  : piet+werk@company.co.uk
-predicted : null
-candidates: null
----
-MISMATCH
-text      : u kunt mij bereiken via m a i l b o x twee nul twee zes ad a g e n c y punt e u o k
-expected  : mailbox2026@agency.eu
-predicted : mijbereikenviamailbox2026@agency.eu
-candidates: mijbereikenviamailbox2026@agency.eu
----
-MISMATCH
-text      : dat is p l a n n i n g t a m apenstaartje proton punt me
-expected  : planningteam@proton.me
-predicted : planningtam@proton.me
-candidates: planningtam@proton.me
+predicted : contact.wark@superclubgame.com
+candidates: contact.wark@superclubgame.com
 ---
 MISMATCH
 text      : mijn mailadres is f i n a n c een l apenstaartje p r o t o n dot me nee niet op mijn punt ik zeg hem opnieuw f i n a n c n l apenstaartje p r o t o n punt me
@@ -941,76 +143,16 @@ predicted : financnl@proton.me
 candidates: financnl@proton.me
 ---
 MISMATCH
-text      : mijn mailadres is t i t a m apenstaartje mail punt com dot o nog een keer langzaam t i a m r o t t r d a m apenstaartje mail punt com dot o
-expected  : teamrotterdam@mail.com.au
-predicted : tiamrottrdam@mail.com.au
-candidates: tiamrottrdam@mail.com.au
----
-MISMATCH
-text      : mijn e-mail is f i n a n c e streepje b apenstaartje ziggo punt n l
-expected  : finance-be@ziggo.nl
-predicted : finance-b@ziggo.nl
-candidates: finance-b@ziggo.nl
----
-MISMATCH
-text      : dat is l a u r a streepje t h u i s apenstaartje proton mee meer niet
-expected  : laura-thuis@proton.me
-predicted : laura-thuis@protonmeemeerniet
-candidates: laura-thuis@protonmeemeerniet
----
-MISMATCH
-text      : mijn e-mailadres is s m it l a u r a laag-streepje een acht apenstaartje c o n p a een y dot c o dot u k
-expected  : smit_laura_18@company.co.uk
-predicted : smitlauralaag-streepje18@company.co.uk
-candidates: smitlauralaag-streepje18@company.co.uk
----
-MISMATCH
 text      : u kunt mij bereiken via w i l e n tot w i l m zico dot namelijk nee wacht ik zeg het opnieuw w i l l e n tot w i l l e m zico dot n l
 expected  : willem.willem@ziggo.nl
-predicted : null
-candidates: null
----
-MISMATCH
-text      : stuur het maar naar s m i t q e n t i n vier at gmail dot c o m
-expected  : smit_quentin_4@gmail.com
-predicted : smitqentin4@gmail.com
-candidates: smitqentin4@gmail.com
----
-MISMATCH
-text      : je mag mailen naar mail apenstaartje ziggo punt namelijk dus met apenstaartje en punt
-expected  : mail@ziggo.nl
-predicted : null
-candidates: null
----
-MISMATCH
-text      : dat is m a i l b o x ad b e l l e n punt a i
-expected  : mailbox@bellen.ai
-predicted : null
-candidates: null
----
-MISMATCH
-text      : u kunt mij bereiken via u t r e c h t apenstaartje punt nul dot nl
-expected  : utrecht@kpnmail.nl
-predicted : mijbereikenviautrecht@kpnmail.nl
-candidates: mijbereikenviautrecht@kpnmail.nl
----
-MISMATCH
-text      : mijn e-mailadres is k u u e n t i n apenstaartje mail dot com punt o ja
-expected  : quentin@mail.com.au
-predicted : quentin@mail.com.oja
-candidates: quentin@mail.com.oja
+predicted : willen.willem@ziggo.nl
+candidates: willen.willem@ziggo.nl
 ---
 MISMATCH
 text      : voor de bevestiging graag naar b a k k i r streepje s a l e s apenstaartje example dot n l
 expected  : bakker-sales@example.nl
-predicted : null
-candidates: null
----
-MISMATCH
-text      : mijn e-mailadres is v i s s e r streepje v a n l e e u dubbele v e n ad p r o t o n punt m editiet dus met apenstaartje en punt
-expected  : visser-vanleeuwen@proton.me
-predicted : visser-vanleeudubbeleven@proton.me
-candidates: visser-vanleeudubbeleven@proton.me
+predicted : bakkir-sales@example.nl
+candidates: bakkir-sales@example.nl
 ---
 MISMATCH
 text      : u kunt mij bereiken via p l n n i n e n t apenstaartje z i g g punt n locone niet tot maar punt ik zeg hem opnieuw p l a n g g e n t apenstaartje z i g g o punt n l
@@ -1019,64 +161,16 @@ predicted : planggent@ziggo.nl
 candidates: planggent@ziggo.nl
 ---
 MISMATCH
-text      : voor de bevestiging graag naar s a mail punt com dot o ik herhaal s a n n e mail punt com dot o
-expected  : sanne@mail.com.au
-predicted : null
-candidates: null
----
-MISMATCH
-text      : je mag mailen naar t h u is c o n t a c t underscore vijf apenstaartje z i g g o dot een l oké
-expected  : thuis_contact_5@ziggo.nl
-predicted : contact_5@ziggo.nl
-candidates: contact_5@ziggo.nl
----
-MISMATCH
-text      : je kunt me mailen op m a nul één apenstaartje proton punt me nee niet tot maar punt ik zeg hem opnieuw m a l b o x nul één apenstaartje proton punt me
-expected  : mailbox01@proton.me
-predicted : malbox01@proton.me
-candidates: malbox01@proton.me
----
-MISMATCH
 text      : stuur het maar naar f i n a n c e a m s t e r d a m apenstaartje startup d a o nee niet tot maar punt ik zeg hem opnieuw f i n a n c e a m s t e r d a m a a starten punt i o
 expected  : financeamsterdam@startup.io
-predicted : null
-candidates: null
----
-MISMATCH
-text      : dubbele v o u t r apenstaartje l i v e punt een l
-expected  : wouter@live.nl
-predicted : dubbelevoutr@live.nl
-candidates: dubbelevoutr@live.nl
----
-MISMATCH
-text      : k e u k e n acht een een vier at punt koop punt uw k
-expected  : keuken8114@company.co.uk
-predicted : keuken8114@koop.uwk
-candidates: keuken8114@koop.uwk
----
-MISMATCH
-text      : mijn mailadres is d a a plus w e r k negen twee acht acht apenstaartje dot namelijk nee wacht ik zeg het opnieuw d a a m plus w e r k negen twee acht acht apenstaartje ziggo dot n l
-expected  : daan+werk9288@ziggo.nl
-predicted : daam+werk9288@ziggo.nl
-candidates: daam+werk9288@ziggo.nl
+predicted : financeamsterdamaastarten@startup.io
+candidates: financeamsterdamaastarten@startup.io
 ---
 MISMATCH
 text      : stuur het maar naar j a n s e n l r l r vijf e a e r vijf a apenstaartje mail dot com dot o dus met apenstaartje en punt
 expected  : jansen_mulder_51@mail.com.au
-predicted : jansenlrlr5eaer5a@mail.com.au
-candidates: jansenlrlr5eaer5a@mail.com.au
----
-MISMATCH
-text      : noteer maar p a i g streep a x a r apenstaartje e x a n p l e punt l locone wacht ik zeg het opnieuw p l a n n i n g streep a x a v i e r apenstaartje e x a m p l e punt n l
-expected  : planning-xavier@example.nl
-predicted : planning-axavier@example.nl
-candidates: planning-axavier@example.nl
----
-MISMATCH
-text      : u kunt mij bereiken via i n f o vier vijf apenstaartje e x a n p l e dot n l
-expected  : info45@example.nl
-predicted : mijbereikenviainfo45@example.nl
-candidates: mijbereikenviainfo45@example.nl
+predicted : jansenlrlr5eaer5@mail.com.au
+candidates: jansenlrlr5eaer5@mail.com.au
 ---
 MISMATCH
 text      : u kunt mij bereiken via r e s e r v e r i n g j a n s e n adcomail dot n loco ik herhaal r e s e r v e r i n g j a n s e n n l
@@ -1087,20 +181,14 @@ candidates: null
 MISMATCH
 text      : h a n n a tot w een l l e m a a l dat n l
 expected  : hanna.willem@kpnmail.nl
-predicted : null
-candidates: null
+predicted : hanna@w1llemaal.nl
+candidates: hanna@w1llemaal.nl
 ---
 MISMATCH
 text      : u kunt mij bereiken via d e v r i e s laag-zevenenzestig a k e l i k laag-vier zes at yahoo dot c o m voor de bevestiging
 expected  : devries_zakelijk_46@yahoo.com
-predicted : mijbereikenviadedevrieslaag-zevenenzestigakeliklaag-vier6@yahoo.com
-candidates: mijbereikenviadedevrieslaag-zevenenzestigakeliklaag-vier6@yahoo.com
----
-MISMATCH
-text      : u kunt mij bereiken via mail proton dot me nee wacht ik zeg het opnieuw mail apenstaartje proton dot me
-expected  : mail@proton.me
-predicted : null
-candidates: null
+predicted : devries_7enzestigakelik_46@yahoo.com
+candidates: devries_7enzestigakelik_46@yahoo.com
 ---
 MISMATCH
 text      : dat is b o e k i n g acht e nul nul a een dus met apenstaart n punt
@@ -1109,60 +197,12 @@ predicted : null
 candidates: null
 ---
 MISMATCH
-text      : mijn e-mailadres is s a n n e p l a n n i n g een ad b e l l e n punt i
-expected  : sanne_planning_1@bellen.ai
-predicted : sanneplanning1@bellen.ai
-candidates: sanneplanning1@bellen.ai
----
-MISMATCH
-text      : noteer maar d a a nat p r o t o n dat m e
-expected  : daan@proton.me
-predicted : daanat@proton.me
-candidates: daanat@proton.me
----
-MISMATCH
-text      : noteer maar l s a a apenstaartje proton punt nee wacht ik zeg het opnieuw l i s a a apenstaartje proton punt me
-expected  : lisa@proton.me
-predicted : lisaa@proton.me
-candidates: lisaa@proton.me
----
-MISMATCH
-text      : stuur het maar naar m a l b o x twee nul twee zes a b e d r i j f tot b nee wacht ik zeg het opnieuw m a i l b o x twee nul twee zes apenstaartje b e d r i j f tot b
-expected  : mailbox2026@bedrijf.be
-predicted : 2026@bedrijf.be
-candidates: 2026@bedrijf.be
----
-MISMATCH
-text      : mijn mailadres is mail apenstaartje l i v e punt n l meer niet
-expected  : mail@live.nl
-predicted : null
-candidates: null
----
-MISMATCH
 text      : stuur het maar naar s a l e streepje r t e r a m apenstaartje r t t e r d m m apenstaartje r d a m apenstaartje d r a
 expected  : sales-rotterdam@agency.eu
-predicted : sale-rteram@rtterdmm@rdam@dra
-candidates: sale-rteram@rtterdmm@rdam@dra
----
-MISMATCH
-text      : u kunt mailen op t h u i s zeven drie zeven een ad s t a r t u p dot i o o k
-expected  : thuis7371@startup.io
-predicted : 7371@startup.io
-candidates: 7371@startup.io
----
-MISMATCH
-text      : noteer maar mail laag streepje v i s e r laag streepje drie zes apenstaartje s u p e r c l u b g a m e punt com ik herhaal mail laag streepje v i s s e r laag streepje drie zes apenstaartje s u p e r c l u b g a m e punt com
-expected  : mail_visser_36@superclubgame.com
-predicted : visser_36@superclubgame.com
-candidates: visser_36@superclubgame.com
----
-MISMATCH
-text      : mijn e-mail is m a i l b o x twee nul twee zes apenstaartje gmail punt com voor de bevestiging
-expected  : mailbox2026@gmail.com
-predicted : 2026@gmail.com
-candidates: 2026@gmail.com
+predicted : sales-rteram@rtterdmm@dra
+candidates: sales-rteram@rtterdmm@dra
 ---
 ---
-val_score:        226/420 (53.81%)
-lines_of_code:    210
-total_seconds:    0.07
+val_score:        386/420 (91.90%)
+lines_of_code:    504
+total_seconds:    0.10
