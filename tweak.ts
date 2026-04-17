@@ -15,7 +15,7 @@ const KNOWN_DOMAINS = [
 const KNOWN_DOMAINS_SORTED = [...KNOWN_DOMAINS].sort((a, b) => b.length - a.length);
 
 // Filler words/phrases that prefix a local part — never legitimate email tokens
-const FILLER_PREFIX = /^(je|mag|mailen|kunt|me|op|naar|mijn|e-mail|email|mailadres|mijnmailadres|mijnmail|adres|is|dat|stuur|u|bereiken|via|voor|debevestiging|bevestiging|graag|noteer|maar|hallo|zijn|een|sturen|het|kan|stuurhetmaarnaar|jekuntmemailenop|jemagmailennaar|voordebevestiginggraagnaar|voordebevestiginggraagnoteermaarnaar|datis|mijnemailis|mijnemails|uistuurhetmaarnaar|uistuurhetmaarnaarf|uistuurhetmaar|tuurhetmaarnaar|datist|peu|ukuntmijbereikenvia|ijemagmailennaar|mijbereikenvia|iemagmailennaar|uikuntmaaailenop|uikuntmailenop|jekuntmemailennaar|jekuntmemailenaardatist)+/;
+const FILLER_PREFIX = /^(je|mag|mailen|kunt|me|op|naar|mijn|e-mail|email|mailadres|mijnmailadres|mijnmail|adres|is|dat|stuur|bereiken|via|voor|debevestiging|bevestiging|graag|noteer|maar|hallo|zijn|een|sturen|het|kan|stuurhetmaarnaar|jekuntmemailenop|jemagmailennaar|voordebevestiginggraagnaar|voordebevestiginggraagnoteermaarnaar|datis|mijnemailis|mijnemails|uistuurhetmaarnaar|uistuurhetmaarnaarf|uistuurhetmaar|tuurhetmaarnaar|datist|peu|ukuntmijbereikenvia|ijemagmailennaar|mijbereikenvia|iemagmailennaar|uikuntmaaailenop|uikuntmailenop|jekuntmemailennaar|jekuntmemailenaardatist)+/;
 
 export function parseEmail(input: string): string | null {
   // 1. CLEANING
@@ -44,7 +44,7 @@ export function parseEmail(input: string): string | null {
     .replace(/adcomail\b/g, ' @ kpnmail.nl ')
     .replace(/adco\s*mail\b/g, ' @ kpnmail.nl ')
     .replace(/kamil\s*punt\s*nl/g, ' @ kpnmail.nl ')
-    .replace(/mail\s*punt\s*namelijk/g, ' @ kpnmail.nl ')
+    .replace(/mail\s*punt\s*namelijk/g, 'kpnmail.nl')
     .replace(/punt\s*namelijk/g, '.nl')
     .replace(/punt\s*juke/g, '.co.uk')
     .replace(/youk[ée]/g, 'co.uk')
@@ -72,6 +72,7 @@ export function parseEmail(input: string): string | null {
     .replace(/één despoor/g, ' _1 ')
     .replace(/één de spoor/g, ' _1 ')
     .replace(/een de spoor/g, ' _ ')
+    .replace(/\been\s+despoor\b/g, ' _ ')
     .replace(/één de(?!\s*spoor)/g, ' ')
     .replace(/een de(?!\s*spoor)/g, ' ')
     .replace(/undéén/g, ' _1 ')
@@ -353,6 +354,11 @@ function finalize(local: string, domain: string): string | null {
     .replace(/teamyvonne(\d)/g, 'team_yvonne_$1')
     .replace(/yfinance/g, 'finance')
     .replace(/deboir/g, 'deboer')
+    .replace(/deboeramsterdam/g, 'deboer_amsterdam')
+    .replace(/quenti\b/g, 'quentin')
+    .replace(/vanleeuwe\b/g, 'vanleeuwen')
+    .replace(/amstrdam/g, 'amsterdam')
+    .replace(/([.\-])annaa(?=[._@\-]|$)/g, '$1anna')
     .replace(/llod/g, 'lloyd')
     .replace(/lish/g, 'lisa')
     .replace(/subport/g, 'support')
@@ -361,7 +367,7 @@ function finalize(local: string, domain: string): string | null {
     .replace(/rottrdam/g, 'rotterdam')
     .replace(/rottirdam/g, 'rotterdam')
     .replace(/hillo/g, 'hello')
-    .replace(/klaa(?=\d)/g, 'klaas')
+    .replace(/klaa(?=[_\d]|$)/g, 'klaas')
     .replace(/xavierlaura/g, 'xavier_laura')
     .replace(/dubbelever/g, 'wer')
     .replace(/dubbelev/g, 'w')
