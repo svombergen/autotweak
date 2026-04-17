@@ -2,12 +2,21 @@
 
 This is an autotweak instruction to optimize a single TypeScript function by running experiments.
 
+## Branch structure
+
+Two-tier branching keeps main clean for new/other tweak setups:
+
+1. **Function branch** — one per function being tweaked, branched from main (e.g. `parse_email`). Lives as long as work on that function continues.
+2. **Day branch** — one per session, branched from the function branch (e.g. `apr14`). At end of session: merge into the function branch and delete.
+
+Main is never used for experiments. Each new function gets its own branch.
+
 ## Setup
 
 To set up a new tweak session, work with the user to:
 
-1. **Agree on a run tag**: propose a tag based on today's date (e.g. `apr13`). The branch `autotweak/<tag>` must not already exist — this is a fresh run.
-2. **Create the branch**: `git checkout -b autotweak/<tag>` from current main.
+1. **Identify or create the function branch**: If a branch for this function already exists (e.g. `parse_email`), check it out. Otherwise create it from main: `git checkout -b <function_name>`.
+2. **Create a day branch**: `git checkout -b <date>` from the function branch (e.g. `apr14`). The branch must not already exist — this is a fresh session.
 3. **Read the in-scope files**: The repo is small. Read these files for full context:
    - `README.md` — repository context.
    - `evaluate.ts` — fixed CSV loading and evaluation harness. Do not modify. It imports `transform` from `tweak.ts` — that is the generic entry point it always calls.
@@ -75,7 +84,7 @@ NOTE: do not commit the results.csv file, leave it untracked by git.
 
 ## The experiment loop
 
-The experiment runs on a dedicated branch (e.g. `autotweak/apr13`).
+The experiment runs on a day branch (e.g. `apr14`) off the function branch (e.g. `parse_email`).
 
 LOOP FOR 10 ITERATIONS:
 
@@ -89,3 +98,15 @@ LOOP FOR 10 ITERATIONS:
 8. If val_score improved, keep the commit. If val_score is equal but loc is lower, keep the commit. Otherwise, `git reset --hard` back to where you started.
 
 **Crashes**: If a run crashes (a bug, a missing import, etc.), use your judgment: If it's something dumb and easy to fix (e.g. a typo), fix it and re-run. If the idea itself is fundamentally broken, skip it, log `crash` in the csv, and move on.
+
+## End of session
+
+Merge the day branch back into the function branch and delete it:
+
+```
+git checkout <function_name>   # e.g. parse_email
+git merge <date> --ff-only     # e.g. apr14
+git branch -d <date>
+git push origin <function_name>
+git push origin --delete <date>
+```
