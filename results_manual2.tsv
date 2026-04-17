@@ -1,0 +1,10 @@
+commit	val_score	loc	status	description
+e700bef	67.62%	343	discard	spoken letter map plus aggressive local repair regressed
+a4b192b	75.24%	320	keep	targeted local fixes for q and common names
+f118e8a	53.57%	335	discard	separator-preserve fallback over-corrected locals
+68f3f8c	76.19%	323	keep	conservative local typo fixes
+47cba89	77.14%	331	keep	fix frequent local-part mishears
+bf86d3f	76.90%	343	discard	separator restoration helped some names but regressed overall
+090fc67	78.10%	336	keep	high-frequency name repairs
+882c784	78.81%	342	keep	patch support and reservering mishears
+082de7e	79.29%	346	keep	more local ending repairs

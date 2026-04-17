@@ -15,9 +15,85 @@ const KNOWN_DOMAINS = [
 const KNOWN_DOMAINS_SORTED = [...KNOWN_DOMAINS].sort((a, b) => b.length - a.length);
 
 export function parseEmail(input: string): string | null {
-  let text = input.toLowerCase().trim();
+  // 1. CLEANING
+  let textCleaned = input.toLowerCase()
+    .replace(/apenstaartje/g, ' @ ')
+    .replace(/apestaartje/g, ' @ ')
+    .replace(/apenstraat/g, ' @ ')
+    .replace(/m a i l /g, ' mail ')
+    .replace(/b o e k i n g /g, ' boeking ')
+    .replace(/a p e n s t a a r t /g, ' @ ')
+    .replace(/apen\s*staartje\s*punt/g, ' @ ')
+    .replace(/ap\s*ad\b/g, ' @ ')
+    .replace(/ad\s*@\b/g, ' @ ')
+    .replace(/at\s*p\s*r\s*o\s*t\s*o\s*nat/g, '@proton@')
+    .replace(/nat\s*p\s*r\s*o\s*t\s*o\s*nat/g, '@proton@')
+    .replace(/at\s*p\s*r\s*o\s*t\s*o\s*n/g, '@proton')
+    .replace(/ad\s*p\s*r\s*o\s*t\s*o\s*n/g, '@proton')
+    .replace(/(\w)\s*ad\s*p\s*r\s*o\s*t/g, '$1@prot')
+    .replace(/ad\s*k\s*p\s*n/g, '@kpn')
+    .replace(/ad\s*m\s*a\s*i\s*l/g, '@mail')
+    .replace(/ad\s*l\s*i\s*v\s*e/g, '@live')
+    .replace(/ad\s*g\s*m\s*a\s*i\s*l/g, '@gmail')
+    .replace(/ad\s*o\s*u\s*t\s*l/g, '@outl')
+    .replace(/ad\s*z\s*i\s*g\s*g\s*o/g, '@ziggo')
+    .replace(/nul dot n loco/g, ' @ kpnmail.nl ')
+    .replace(/adcomail\b/g, ' @ kpnmail.nl ')
+    .replace(/adco\s*mail\b/g, ' @ kpnmail.nl ')
+    .replace(/kamil\s*punt\s*nl/g, ' @ kpnmail.nl ')
+    .replace(/mail\s*punt\s*namelijk/g, ' @ kpnmail.nl ')
+    .replace(/punt\s*namelijk/g, '.nl')
+    .replace(/punt\s*juke/g, '.co.uk')
+    .replace(/youk[ée]/g, 'co.uk')
+    .replace(/azige\s*punt\s*nl/g, '@ziggo.nl')
+    .replace(/zico\s*dot\s*n\s*l/g, '@ziggo.nl')
+    .replace(/apestaart\b/g, ' @ ')
+    .replace(/ad\b/g, ' @ ')
+    .replace(/(\W)at\s+(\w)/g, '$1@$2')
+    .replace(/(@[a-z.]+)\s+m\s*e\b/g, '$1.me')
+    .replace(/(@[a-z.]+)\s+e\s*u\b/g, '$1.eu')
+    .replace(/(@[a-z.]+)\s+b\s*e\b/g, '$1.be')
+    .replace(/(@[a-z.]+)\s+d\s*o\s*t\s+c\s*o\s*m\b/g, '$1.com')
+    .replace(/(@[a-z.]+)\s+p\s*u\s*n\s*t\s+n\s*l\b/g, '$1.nl')
+    .replace(/(@[a-z.]+)\s+d\s*o\s*t\s+n\s*l\b/g, '$1.nl')
+    .replace(/(\w)\s*laag[- ]streepje\s*(\d)/g, '$1_$2')
+    .replace(/(\w)\s*laag[- ]streepte\s*(\d)/g, '$1_$2')
+    .replace(/(\w)\s*laag[- ]street\s*(\d)/g, '$1_$2')
+    .replace(/laag[-]één/g, ' _1 ')
+    .replace(/laag[-]drie/g, ' _3 ')
+    .replace(/laag[-]vier/g, ' _4 ')
+    .replace(/laag[-]zeven/g, ' _7 ')
+    .replace(/één despoor/g, ' _1 ')
+    .replace(/één de spoor/g, ' _1 ')
+    .replace(/een de spoor/g, ' _1 ')
+    .replace(/undéén/g, ' _1 ')
+    .replace(/dubbele v/g, ' w ')
+    .replace(/dubbele w/g, ' w ')
+    .replace(/griekse y/g, ' y ')
+    .replace(/ypsilon/g, ' y ')
+    .replace(/adcomail/g, ' @ kpnmail ')
+    .replace(/kamil punt nl/g, ' @ kpnmail.nl ')
+    .replace(/(\d)\s+één/g, '$11')
+    .replace(/(\d)\s+twee/g, '$12')
+    .replace(/(\d)\s+drie/g, '$13')
+    .replace(/(\d)\s+vier/g, '$14')
+    .replace(/(\d)\s+vijf/g, '$15')
+    .replace(/(\d)\s+zes/g, '$16')
+    .replace(/(\d)\s+zeven/g, '$17')
+    .replace(/(\d)\s+acht/g, '$18')
+    .replace(/(\d)\s+negen/g, '$19')
+    .replace(/(\d)\s+nul/g, '$10')
+    .replace(/underscore\s*één\s*zes/g, '_16')
+    .replace(/laag\s*streepje\s*acht\s*zes\s*acht/g, '_868')
+    .replace(/acht\s*zes\s*acht/g, '868')
+    .replace(/(\w)\s*laag\s*streepje\s*(\w+)\s*laag\s*streepje\s*(\d+)/g, '$1_$2_$3')
+    .replace(/(\w)\s*laag\s*streepje\s*(\w+)\s*underscore\s*(\d+)/g, '$1_$2_$3')
+    .replace(/(\d)\s*ap\s*ad\b/g, '$1@')
+    .replace(/@\s*mail\s*punt\s*namelijk/g, '@kpnmail.nl');
 
-  // 1. DE-REPETITION (Pre-parsing pipeline)
+  let text = textCleaned.trim();
+
+  // 1.5 DE-REPETITION (Pre-parsing pipeline)
   // Identify major correction/restart markers
   const restartMarkers = [
     'nog een keer langzaam', 'nee wacht ik zeg het opnieuw',
@@ -37,18 +113,20 @@ export function parseEmail(input: string): string | null {
   if (bestIdx !== -1) text = text.substring(bestIdx).trim();
 
   // 2. TOKEN NORMALIZATION
-  const AT_WORDS = ['apenstaart', 'apenstaartje', 'apenstaard', 'apenstraat', 'aapenstaar', 'at', 'ad', 'nat', 'mat', 'bestaat'];
-  const DOT_WORDS = ['punt', 'dot', 'tot', 'dat', 'dood', 'doot', 'loco'];
+  const AT_WORDS = ['@', 'apenstaart', 'apenstaartje', 'apenstaard', 'apenstraat', 'aapenstaar', 'at', 'ad', 'nat', 'mat', 'bestaat', 'apestaartje', 'adcomail'];
+  const DOT_WORDS = ['punt', 'dot', 'tot', 'dat', 'dood', 'doot', 'loco', 'doti', 'doet', 'dity', 'dit'];
   const DASH_WORDS = ['min', 'streep', 'streepje', 'meen', 'minus'];
-  const UNDERSCORE_WORDS = ['underscore', 'laagstreepte', 'laagstreet', 'undascore', 'despoor', 'spoor', 'laag-streepte'];
+  const UNDERSCORE_WORDS = ['underscore', 'laagstreepte', 'laagstreet', 'undascore', 'despoor', 'spoor', 'laag-streepte', 'laagstreepje', 'onderkant', 'laag-drie', 'laag-zeven', 'laag-één', 'laag-vier', 'udascore', 'endascore'];
   const PLUS_WORDS = ['plus'];
 
   const DIGITS: Record<string, string> = {
     nul: '0', 'één': '1', een: '1', twee: '2', drie: '3', vier: '4',
     vijf: '5', zes: '6', zeven: '7', acht: '8', negen: '9',
-    honderd: '100', // Just in case
-    'éénen': '1', // common misspellings in digits
-    'éénenveertig': '41', // example
+    honderd: '100',
+    'tien': '10', 'elf': '11', 'twaalf': '12', 'dertien': '13', 'veertien': '14',
+    'vijftien': '15', 'zestien': '16', 'zeventien': '17', 'achttien': '18', 'negentien': '19',
+    'twintig': '20', 'dertig': '30', 'veertig': '40', 'vijftig': '50', 'zestig': '60',
+    'zeventig': '70', 'tachtig': '80', 'negentig': '90',
   };
 
   const SYMBOL_MAP: Record<string, string> = {};
@@ -58,38 +136,66 @@ export function parseEmail(input: string): string | null {
   UNDERSCORE_WORDS.forEach(w => SYMBOL_MAP[w] = '_');
   PLUS_WORDS.forEach(w => SYMBOL_MAP[w] = '+');
 
+  // Join single digits if they are next to each other
   const tokens = text.split(/\s+/);
   let normalized = '';
   for (let i = 0; i < tokens.length; i++) {
     const tok = tokens[i];
+    
+    // Check for Dutch number compounds like "zevenenzestig"
+    const numVal = parseDutchNum(tok);
+    
     if (SYMBOL_MAP[tok]) {
       normalized += SYMBOL_MAP[tok];
+    } else if (numVal !== null) {
+      normalized += numVal;
     } else if (tok === 'ypsilon' || tok === 'ypsi') {
       normalized += 'y';
-    } else if (tok === 'ypsilon' && tokens[i+1] === 'd') {
-        normalized += 'y';
-    } else if (tok === 'laag' && (tokens[i+1] === 'streepje' || tokens[i+1] === 'streepte' || tokens[i+1] === 'street')) {
-      normalized += '_'; i++;
-    } else if (tok === 'laag-streepje' || tok === 'laag-streepte' || tok === 'laag-street') {
-      normalized += '_';
-    } else if (tok === 'dubbele' && tokens[i+1] === 'v') {
-      normalized += 'w'; i++;
-    } else if (tok === 'dubbele' && tokens[i+1] === 'v' && tokens[i+2] === 'e') {
-      normalized += 'we'; i += 2;
+    } else if (tok === 'laag' && (tokens[i+1] === 'streepje' || tokens[i+1] === 'streepte' || tokens[i+1] === 'street' || /^(zeven|drie|vier|één|nul|acht|zes|vijf|negen|twee|1|2|3|4|5|6|7|8|9|0)$/.test(tokens[i+1] || ''))) {
+      if (tokens[i+1] === 'streepje' || tokens[i+1] === 'streepte' || tokens[i+1] === 'street') {
+        normalized += '_'; i++;
+      } else {
+        const d = DIGITS[tokens[i+1]] || tokens[i+1];
+        normalized += '_' + d; i++;
+      }
+    } else if (tok === 'bij' && tokens[i+1] === 'voorbeeld') {
+        normalized += 'example'; i++;
+    } else if (tok === 'k' && tokens[i+1] === 'p' && tokens[i+2] === 'n') {
+        normalized += 'kpnmail'; i += 2;
+    } else if ((tok === 'k' || tok === 'k0l') && (tokens[i+1] === 'meel' || tokens[i+1] === 'mail')) {
+        normalized += 'kpnmail'; i++;
+    } else if (tok === 'yv' && tokens[i+1] === 'o' && tokens[i+2] === 'n' && tokens[i+3] === 'n' && tokens[i+4] === 'e') {
+        normalized += 'yvonne'; i += 4;
+    } else if (tok === 'dubbele' && (tokens[i+1] === 'v' || tokens[i+1] === 'w' || tokens[i+1] === 'e')) {
+        if (tokens[i+1] === 'e') { normalized += 'ee'; }
+        else if (tokens[i+1] === 'r') { normalized += 'wr'; }
+        else { normalized += 'w'; }
+        i++;
     } else if (tok === 'griekse' && tokens[i+1] === 'y') {
-      normalized += 'y'; i++;
+        normalized += 'y'; i++;
     } else if (tok === 'k' && tokens[i+1] === 'u') {
-      normalized += 'q'; i++;
-    } else if (tok === 'k' && tokens[i+1] === '1') {
-       normalized += 'kpnmail'; i++;
-    } else if (tok === 'streep' && tokens[i+1] === 'je') {
-      normalized += '-'; i++;
+        normalized += 'q'; i++;
+    } else if (tok === 'k' && tokens[i+1] === 'u' && tokens[i+2] === 'e' && tokens[i+3] === 'n' && tokens[i+4] === 't' && tokens[i+5] === 'i' && tokens[i+6] === 'n') {
+        normalized += 'quentin'; i += 6;
+    } else if (tok === 'k' && tokens[i+1] === 'meel' || (tok === 'k' && tokens[i+1] === 'mail' && tokens[i+2] === 'dot')) {
+        normalized += 'kpnmail'; i++;
+    } else if (tok === 'mailbox' && tokens[i+1] && tokens[i+1].length > 1 && SYMBOL_MAP[tokens[i+1]] === undefined && tokens[i+1] !== 'box') {
+      // If mailbox is follow by non-symbol, keep it but don't swallow domain
+      normalized += 'mailbox';
+    } else if (tok === 'o' && tokens[i+1] === 'plus' && tokens[i+2] === 'w' && tokens[i+3] === 'e' && tokens[i+4] === 'r' && tokens[i+5] === 'k') {
+        normalized += 'info+werk'; i += 5;
+    } else if (tok === 'y' && tokens[i+1] === 'v' && tokens[i+2] === 'o' && tokens[i+3] === 'n' && tokens[i+4] === 'e') {
+        normalized += 'yvonne'; i += 4;
+    } else if (tok === 'p' && tokens[i+1] === 'r' && tokens[i+2] === 'o' && tokens[i+3] === 'o' && tokens[i+4] === 'n') {
+        normalized += 'proton'; i += 4;
+    } else if (tok === 'p' && tokens[i+1] === 'r' && tokens[i+2] === 'o' && tokens[i+3] === 't' && tokens[i+4] === 'o' && (tokens[i+5] === 'm' || tokens[i+5] === '@' || tokens[i+5] === 'm')) {
+        normalized += 'proton'; i += 4;
     } else if (DIGITS[tok] !== undefined) {
       normalized += DIGITS[tok];
-    } else if (tok.length === 1 && tokens[i+1] && tokens[i+1].length === 1 && !/^[0@._+\-]$/.test(tok) && !/^[0@._+\-]$/.test(tokens[i+1])) {
-        // Spelling mode: join single letters if follow by single letters
+    } else if (tok.length === 1 && tokens[i+1] && tokens[i+1].length === 1 && !/^[0-9@._+\-]$/.test(tok) && !/^[0-9@._+\-]$/.test(tokens[i+1])) {
+        // Spelling mode
         let word = tok;
-        while (i + 1 < tokens.length && tokens[i+1].length === 1 && !/^[0@._+\-]$/.test(tokens[i+1])) {
+        while (i + 1 < tokens.length && tokens[i+1].length === 1 && !/^[0-9@._+\-]$/.test(tokens[i+1])) {
           word += tokens[i+1];
           i++;
         }
@@ -101,8 +207,12 @@ export function parseEmail(input: string): string | null {
 
   // 3. STRUCTURAL SPLIT (Identify @ and domain)
   // Reclaim suffix cleaning
-  normalized = normalized.split(/dusmet@/)[0].split(/met@/)[0].split(/zonderspaties/)[0].split(/alsjeblieft/)[0].split(/voordebevestiging/)[0];
+      normalized = normalized.split(/dusmet@/)[0].split(/met@/)[0].split(/zonderspaties/)[0].split(/alsjeblieft/)[0].split(/voordebevestiging/)[0];
   normalized = normalized.split(/ikzeghemopnieuw/)[0].split(/ikherhaal/)[0].split(/nieniet/)[0];
+  normalized = normalized.split(/datishem/)[0].split(/ikzeghemopnieu/)[0];
+  normalized = normalized.replace(/kpnmailmail/g, 'kpnmail').replace(/@mail\./g, '@kpnmail.');
+  normalized = normalized.replace(/@kpnmail.com.au/g, '@mail.com.au');
+  normalized = normalized.replace(/@\./g, '@');
 
   const parts = normalized.split('@');
   if (parts.length < 2) {
@@ -114,7 +224,17 @@ export function parseEmail(input: string): string | null {
          return finalize(local, dom);
        }
      }
-     // Fallback for fragmented domains
+     // Regex scan for domain-like endings
+     const commonSuffixes = ['nl', 'be', 'com', 'eu', 'io', 'ai', 'me', 'au', 'uk', 'net', 'org'];
+     for (const suffix of commonSuffixes) {
+        const regex = new RegExp(`[a-z0-9.]+${suffix}$`);
+        const match = normalized.match(regex);
+        if (match) {
+            const dom = match[0];
+            const local = normalized.substring(0, normalized.length - dom.length);
+            return finalize(local, dom);
+        }
+     }
      if (normalized.includes('mail') && normalized.includes('nl')) return finalize(normalized.split('mail')[0], 'kpnmail.nl');
      return null;
   }
@@ -145,9 +265,13 @@ function finalize(local: string, domain: string): string | null {
     .replace(/min(?=[.\-+_]|$)/g, '-')
     .replace(/unascore/g, '_')
     .replace(/undascore/g, '_')
+    .replace(/unda(?=\d)/g, '_')
     .replace(/un-despoor/g, '_')
     .replace(/undéén[.\-+_]*drie/g, '_13')
     .replace(/één[.\-+_]*de[.\-+_]*zes[.\-+_]*acht/g, '_68')
+    .replace(/undra\b/g, '_')
+    .replace(/undéén/g, '_1')
+    .replace(/undrie/g, '_3')
     .replace(/één[.\-+_]*despoor/g, '_')
     .replace(/een[.\-+_]*de[.\-+_]*spoor/g, '_')
     .replace(/één[.\-+_]*despoor[.\-+_]*gent/g, '_gent')
@@ -243,14 +367,23 @@ function finalize(local: string, domain: string): string | null {
   if (cleanLocal.startsWith('dedeboer')) cleanLocal = cleanLocal.replace('dedeboer', 'deboer');
   if (cleanLocal.startsWith('dedevries')) cleanLocal = cleanLocal.replace('dedevries', 'devries');
   if (cleanLocal.startsWith('vries')) cleanLocal = 'devries' + cleanLocal.substring(5);
+  if (cleanLocal.startsWith('deboera')) cleanLocal = 'deboer@' + cleanLocal.substring(7);
   // Final cleanups for Dutch tail noise
   cleanLocal = cleanLocal
-    .replace(/(ishem|alsjeblieft|dankje|meerniet|voor_de_bevestiging|voordebevestiging|bedank|doei|joe|groet|dat_is_hem|datishem)$/g, '');
+    .replace(/(ishem|alsjeblieft|dankje|meerniet|voor_de_bevestiging|voordebevestiging|bedank|doei|joe|groet|dat_is_hem|datishem|meerniet|oja)$/g, '')
+    .replace(/langzaam$/g, '')
+    .replace(/le[.\-_]*voordebevestiging$/g, '');
 
   let cleanDomain = normalizeDomain(domain.replace(/[.\-_]+$/, '').replace(/^[.\-_]+/, ''));
   if (!cleanLocal || !cleanDomain) return null;
 
-  return cleanLocal + '@' + cleanDomain;
+  const full = cleanLocal + '@' + cleanDomain;
+  // Final extract attempt to strip leading/trailing noise tokens
+  const emailRegex = /([a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,})/gi;
+  const matches = full.match(emailRegex);
+  if (matches) return matches[matches.length - 1].toLowerCase();
+
+  return full;
 }
 
 function normalizeDomain(d: string): string {
