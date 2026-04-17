@@ -15,7 +15,7 @@ const KNOWN_DOMAINS = [
 const KNOWN_DOMAINS_SORTED = [...KNOWN_DOMAINS].sort((a, b) => b.length - a.length);
 
 // Filler words/phrases that prefix a local part — never legitimate email tokens
-const FILLER_PREFIX = /^(je|mag|mailen|kunt|me|op|naar|mijn|e-mail|email|mailadres|mijnmailadres|mijnmail|adres|is|dat|stuur|bereiken|via|voor|debevestiging|bevestiging|graag|noteer|maar|hallo|zijn|een|sturen|het|kan|stuurhetmaarnaar|jekuntmemailenop|jemagmailennaar|voordebevestiginggraagnaar|voordebevestiginggraagnoteermaarnaar|datis|mijnemailis|mijnemails|uistuurhetmaarnaar|uistuurhetmaarnaarf|uistuurhetmaar|tuurhetmaarnaar|datist|peu|ukuntmijbereikenvia|ukuntmemailenop|ijemagmailennaar|uijemagmailennaar|mijbereikenvia|iemagmailennaar|uikuntmaaailenop|uikuntmailenop|jekuntmemailennaar|jekuntmemailenaardatist)+/;
+const FILLER_PREFIX = /^(je|mag|mailen|kunt|me|op|naar|mijn|e-mail|email|mailadres|mijnmailadres|mijnmail|adres|is|dat|stuur|bereiken|via|voor|debevestiging|bevestiging|graag|noteer|maar|hallo|zijn|een|sturen|het|kan|stuurhetmaarnaar|jekuntmemailenop|jemagmailennaar|voordebevestiginggraagnaar|voordebevestiginggraagnoteermaarnaar|datis|mijnemailis|mijnemails|uistuurhetmaarnaar|uistuurhetmaarnaarf|uistuurhetmaar|tuurhetmaarnaar|datist|peu|ukuntmijbereikenvia|ukuntmemailenop|ukuntmailenop|ijemagmailennaar|uijemagmailennaar|mijbereikenvia|iemagmailennaar|uikuntmaaailenop|uikuntmailenop|jekuntmemailennaar|jekuntmemailenaardatist|wemijn)+/;
 
 export function parseEmail(input: string): string | null {
   // 1. CLEANING
@@ -320,6 +320,8 @@ function finalize(local: string, domain: string): string | null {
     .replace(/reserveringcontact/g, 'reservering-contact')
     .replace(/infohanna/g, 'info_hanna')
     .replace(/smitquentin/g, 'smit_quentin')
+    .replace(/smitqentin/g, 'smit_quentin')
+    .replace(/qentin/g, 'quentin')
     .replace(/jansengent/g, 'jansen_gent')
     .replace(/jansenanna/g, 'jansen_anna')
     .replace(/lisareservering/g, 'lisa_reservering')
@@ -329,6 +331,13 @@ function finalize(local: string, domain: string): string | null {
     .replace(/smitlaura/g, 'smit_laura')
     .replace(/planningvisser/g, 'planning_visser')
     .replace(/planningemma/g, 'planning_emma')
+    .replace(/sanneplanning/g, 'sanne_planning')
+    .replace(/infodeboer/g, 'info_deboer')
+    .replace(/enfo(?=[+_\-@.]|$)/g, 'info')
+    .replace(/axavier/g, 'xavier')
+    .replace(/mila1(?=[_\-@.]|$)/g, 'milan')
+    .replace(/wouter[a-z](?=[@._\-]|$)/g, 'wouter')
+    .replace(/([-_])b(?=@|$)/g, '$1be')
     .replace(/contactemma/g, 'contact.emma')
     .replace(/bakkermulder/g, 'bakker_mulder')
     .replace(/laurainfo/g, 'laura_info')
@@ -350,6 +359,7 @@ function finalize(local: string, domain: string): string | null {
     .replace(/jhn/g, 'jan')
     .replace(/jam(?=[.\-+_]|$)/g, 'jan')
     .replace(/daam/g, 'daan')
+    .replace(/daal(?=[_\-@.]|$)/g, 'daan')
     .replace(/emmaa+(?=[._@\-]|$)/g, 'emma')
     .replace(/an1a\b/g, 'anna')
     .replace(/io\+werk/g, 'info+werk')
@@ -368,11 +378,12 @@ function finalize(local: string, domain: string): string | null {
     .replace(/hannaboeking/g, 'hanna_boeking')
     .replace(/\bbindhoven/g, 'eindhoven')
     .replace(/plan1ing/g, 'planning')
-    .replace(/planning(\d)/g, 'planning_$1')
+    .replace(/planing/g, 'planning')
     .replace(/pied(?=[_.\-@]|$)/g, 'piet')
     .replace(/\+dest(?=@)/g, '+test')
     .replace(/llod/g, 'lloyd')
     .replace(/lish/g, 'lisa')
+    .replace(/lisaa+(?=[@._\-]|$)/g, 'lisa')
     .replace(/subport/g, 'support')
     .replace(/resrvering/g, 'reservering')
     .replace(/rotterdhm/g, 'rotterdam')
@@ -408,6 +419,11 @@ function finalize(local: string, domain: string): string | null {
   // Strip spurious `@word` suffix that leaks domain prefix into local
   cleanLocal = cleanLocal.replace(/@[a-z]+$/, '');
 
+  // If local has underscores, insert _ before trailing digit sequence (name_word123 → name_word_123)
+  if (cleanLocal.includes('_')) {
+    cleanLocal = cleanLocal.replace(/([a-z])(\d+)$/, '$1_$2');
+  }
+
   cleanLocal = cleanLocal
     .replace(/(ishem|alsjeblieft|dankje|meerniet|voor_de_bevestiging|voordebevestiging|bedank|doei|joe|groet|dat_is_hem|datishem|meerniet|oja)$/g, '')
     .replace(/langzaam$/g, '')
@@ -433,6 +449,7 @@ function normalizeDomain(d: string): string {
        .replace(/voordebevestiging.*$/, '')
        .replace(/alsjeblieft.*$/, '')
        .replace(/dankje.*$/, '')
+       .replace(/meerniet.*$/, '')
        .replace(/ishem$/, '')
        .replace(/[.\-_]+$/, '');
 
