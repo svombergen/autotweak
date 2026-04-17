@@ -14,6 +14,9 @@ const KNOWN_DOMAINS = [
 
 const KNOWN_DOMAINS_SORTED = [...KNOWN_DOMAINS].sort((a, b) => b.length - a.length);
 
+// Filler words/phrases that prefix a local part — never legitimate email tokens
+const FILLER_PREFIX = /^(je|mag|mailen|kunt|me|op|naar|mijn|e-mail|email|mailadres|mijnmailadres|mijnmail|adres|is|dat|stuur|u|bereiken|via|voor|bevestiging|graag|noteer|maar|hallo|zijn|een|sturen|het|kan|stuurhetmaarnaar|jekuntmemailenop|jemagmailennaar|voordebevestiginggraagnaar|voordebevestiginggraagnoteermaarnaar|datis|mijnemailis|mijnemails|uistuurhetmaarnaar|uistuurhetmaarnaarf|uistuurhetmaar|tuurhetmaarnaar|datist|peu|uikuntmijbereikenvia|ijemagmailennaar|mijbereikenvia|iemagmailennaar|uikuntmaaailenop|uikuntmailenop|jekuntmemailennaar|jekuntmemailenaardatist)+/;
+
 export function parseEmail(input: string): string | null {
   // 1. CLEANING
   let textCleaned = input.toLowerCase()
@@ -66,9 +69,9 @@ export function parseEmail(input: string): string | null {
     .replace(/één despoor/g, ' _1 ')
     .replace(/één de spoor/g, ' _1 ')
     .replace(/een de spoor/g, ' _1 ')
+    .replace(/één de(?!\s*spoor)/g, ' ')
+    .replace(/een de(?!\s*spoor)/g, ' ')
     .replace(/undéén/g, ' _1 ')
-    .replace(/dubbele v/g, ' w ')
-    .replace(/dubbele w/g, ' w ')
     .replace(/griekse y/g, ' y ')
     .replace(/ypsilon/g, ' y ')
     .replace(/adcomail/g, ' @ kpnmail ')
@@ -94,7 +97,6 @@ export function parseEmail(input: string): string | null {
   let text = textCleaned.trim();
 
   // 1.5 DE-REPETITION (Pre-parsing pipeline)
-  // Identify major correction/restart markers
   const restartMarkers = [
     'nog een keer langzaam', 'nee wacht ik zeg het opnieuw',
     'wacht ik zeg het opnieuw', 'ik zeg hem opnieuw', 'ik herhaal',
@@ -105,9 +107,7 @@ export function parseEmail(input: string): string | null {
     const idx = text.lastIndexOf(m);
     if (idx > -1) {
       const endIdx = idx + m.length;
-      if (endIdx > bestIdx) {
-        bestIdx = endIdx;
-      }
+      if (endIdx > bestIdx) bestIdx = endIdx;
     }
   }
   if (bestIdx !== -1) text = text.substring(bestIdx).trim();
@@ -136,15 +136,12 @@ export function parseEmail(input: string): string | null {
   UNDERSCORE_WORDS.forEach(w => SYMBOL_MAP[w] = '_');
   PLUS_WORDS.forEach(w => SYMBOL_MAP[w] = '+');
 
-  // Join single digits if they are next to each other
   const tokens = text.split(/\s+/);
   let normalized = '';
   for (let i = 0; i < tokens.length; i++) {
     const tok = tokens[i];
-    
-    // Check for Dutch number compounds like "zevenenzestig"
     const numVal = parseDutchNum(tok);
-    
+
     if (SYMBOL_MAP[tok]) {
       normalized += SYMBOL_MAP[tok];
     } else if (numVal !== null) {
@@ -180,7 +177,6 @@ export function parseEmail(input: string): string | null {
     } else if (tok === 'k' && tokens[i+1] === 'meel' || (tok === 'k' && tokens[i+1] === 'mail' && tokens[i+2] === 'dot')) {
         normalized += 'kpnmail'; i++;
     } else if (tok === 'mailbox' && tokens[i+1] && tokens[i+1].length > 1 && SYMBOL_MAP[tokens[i+1]] === undefined && tokens[i+1] !== 'box') {
-      // If mailbox is follow by non-symbol, keep it but don't swallow domain
       normalized += 'mailbox';
     } else if (tok === 'o' && tokens[i+1] === 'plus' && tokens[i+2] === 'w' && tokens[i+3] === 'e' && tokens[i+4] === 'r' && tokens[i+5] === 'k') {
         normalized += 'info+werk'; i += 5;
@@ -193,7 +189,6 @@ export function parseEmail(input: string): string | null {
     } else if (DIGITS[tok] !== undefined) {
       normalized += DIGITS[tok];
     } else if (tok.length === 1 && tokens[i+1] && tokens[i+1].length === 1 && !/^[0-9@._+\-]$/.test(tok) && !/^[0-9@._+\-]$/.test(tokens[i+1])) {
-        // Spelling mode
         let word = tok;
         while (i + 1 < tokens.length && tokens[i+1].length === 1 && !/^[0-9@._+\-]$/.test(tokens[i+1])) {
           word += tokens[i+1];
@@ -205,9 +200,8 @@ export function parseEmail(input: string): string | null {
     }
   }
 
-  // 3. STRUCTURAL SPLIT (Identify @ and domain)
-  // Reclaim suffix cleaning
-      normalized = normalized.split(/dusmet@/)[0].split(/met@/)[0].split(/zonderspaties/)[0].split(/alsjeblieft/)[0].split(/voordebevestiging/)[0];
+  // 3. STRUCTURAL SPLIT
+  normalized = normalized.split(/dusmet@/)[0].split(/met@/)[0].split(/zonderspaties/)[0].split(/alsjeblieft/)[0].split(/voordebevestiging/)[0];
   normalized = normalized.split(/ikzeghemopnieuw/)[0].split(/ikherhaal/)[0].split(/nieniet/)[0];
   normalized = normalized.split(/datishem/)[0].split(/ikzeghemopnieu/)[0];
   normalized = normalized.replace(/kpnmailmail/g, 'kpnmail').replace(/@mail\./g, '@kpnmail.');
@@ -224,7 +218,6 @@ export function parseEmail(input: string): string | null {
          return finalize(local, dom);
        }
      }
-     // Regex scan for domain-like endings
      const commonSuffixes = ['nl', 'be', 'com', 'eu', 'io', 'ai', 'me', 'au', 'uk', 'net', 'org'];
      for (const suffix of commonSuffixes) {
         const regex = new RegExp(`[a-z0-9.]+${suffix}$`);
@@ -246,12 +239,15 @@ export function parseEmail(input: string): string | null {
 }
 
 function finalize(local: string, domain: string): string | null {
-  let cleanLocal = local
-    .replace(/[.\-_]+$/, '')
-    .replace(/^[.\-_]+/, '')
-    .replace(/^(je|mag|mailen|kunt|me|mailen|op|naar|mijn|e-mail|email|mail|adres|is|dat|stuur|u|bereiken|via|voor|de|bevestiging|graag|noteer|maar|hallo|zijn|mijn|een|sturen|het|kan|box|thuis|stuurhetmaarnaar|jekuntmemailenop|jemagmailennaar|voordebevestiginggraagnaar|voordebevestiginggraagnoteermaarnaar|datis|mijnemailis|mijnemails|stuurhetmaarnaar|uistuurhetmaarnaar|uistuurhetmaarnaarf|uistuurhetmaar|tuurhetmaarnaar|datist|peu|is|mijbereikenvia|iemagmailennaar|uikuntmijbereikenvia|wemijnmailadresissupport|wemijnmailadresi|wemijnmailadresis|uikuntmaailenop|uikuntmailenop|jekuntmemailennaar|jekuntmemailenaardatist)+/g, '')
-    .replace(/[.\-_]+$/, '')
-    .replace(/^[.\-_]+/, '');
+  let cleanLocal = local.replace(/[.\-_]+$/, '').replace(/^[.\-_]+/, '');
+
+  // Strip filler prefixes iteratively (handles chained fillers with separators between them)
+  for (let pass = 0; pass < 4; pass++) {
+    const prev = cleanLocal;
+    cleanLocal = cleanLocal.replace(FILLER_PREFIX, '').replace(/^[.\-_]+/, '');
+    if (cleanLocal === prev) break;
+  }
+  cleanLocal = cleanLocal.replace(/[.\-_]+$/, '');
 
   cleanLocal = cleanLocal
     .replace(/griekse[.\-+_]*y/g, 'y')
@@ -277,60 +273,55 @@ function finalize(local: string, domain: string): string | null {
     .replace(/één[.\-+_]*despoor[.\-+_]*gent/g, '_gent')
     .replace(/een[.\-+_]*laag[.\-+_]*streepje/g, '_')
     .replace(/qntinx/g, 'quentinx')
-    .replace(/m\s*a\s*l\s*b\s*o\s*x/g, 'mailbox')
-    .replace(/m\s*a\s*b\s*o\s*x/g, 'mailbox')
-    .replace(/m\s*l\s*b\s*o\s*x/g, 'mailbox')
-    .replace(/m\s*a\s*i\s*l\s*l\s*b\s*o\s*x/g, 'mailbox')
-    .replace(/m\s*a\s*i\s*l\s*b\s*o\s*x/g, 'mailbox')
-    .replace(/m\s*a\s*i\s*l\s*-\s*b\s*o\s*e\s*k\s*i\s*n\s*g/g, 'mail-boeking')
-    .replace(/m\s*a\s*i\s*l\s*b\s*o\s*e\s*k\s*i\s*n\s*g/g, 'mail-boeking')
-    .replace(/m\s*a\s*l\s*b\s*o\s*e\s*k\s*i\s*n\s*g/g, 'mailbox')
-    .replace(/m\s*l\s*b\s*o\s*x/g, 'mailbox')
-    .replace(/t\s*i\s*a\s*m\s*r\s*o\s*t\s*t\s*e\s*r\s*d\s*a\s*m/g, 'teamrotterdam')
-    .replace(/t\s*i\s*a\s*m\s*r\s*o\s*t\s*t\s*r\s*d\s*a\s*m/g, 'teamrotterdam')
-    .replace(/t\s*e\s*a\s*n\s*b/g, 'team-be')
-    .replace(/z\s*a\s*k\s*i\s*l\s*i\s*j\s*k/g, 'zakelijk')
-    .replace(/m\s*a\s*i\s*l\s*-\s*m\s*u\s*l\s*d\s*e\s*r/g, 'mail-mulder')
-    .replace(/m\s*a\s*i\s*l\s*s\s*t\s*r\s*e\s*e\s*p\s*j\s*e\s*m\s*u\s*l\s*d\s*e\s*r/g, 'mail-mulder')
-    .replace(/m\s*a\s*i\s*l\s*t\s*e\s*s\s*d/g, 'gmailtest')
-    .replace(/g\s*m\s*a\s*l\s*t\s*e\s*s\s*d/g, 'gmailtest')
-    .replace(/g\s*m\s*a\s*e\s*d/g, 'gmailtest')
-    .replace(/t\s*h\s*u\s*i\s*s\s*-\s*u\s*t\s*r\s*e\s*c\s*h\s*t/g, 'thuis_utrecht')
-    .replace(/t\s*h\s*u\s*i\s*s\s*u\s*t\s*r\s*e\s*c\s*h\s*t/g, 'thuis_utrecht')
-    .replace(/v\s*a\s*n\s*l\s*e\s*u\s*w\s*e\s*n/g, 'vanleeuwen')
-    .replace(/v\s*a\s*u\s*w\s*e\s*n/g, 'vanleeuwen')
-    .replace(/v\s*a\s*n\s*l\s*e\s*e\s*u\s*w\s*e\s*n/g, 'vanleeuwen')
-    .replace(/v\s*a\s*n\s*l\s*e\s*u\s*dubbele\s*v\s*e\s*n/g, 'vanleeuwen')
-    .replace(/v\s*a\s*n\s*l\s*e\s*e\s*u\s*dubbele\s*v\s*e\s*n/g, 'vanleeuwen')
-    .replace(/v\s*e\s*r\s*k/g, 'werk')
-    .replace(/w\s*u\s*t\s*r/g, 'wouter')
-    .replace(/w\s*o\s*u\s*t\s*r/g, 'wouter')
-    .replace(/r\s*e\s*s\s*e\s*r\s*v\s*e\s*r\s*i\s*n\s*g\s*-\s*c\s*o\s*n\s*t\s*a\s*c\s*t/g, 'reservering-contact')
-    .replace(/i\s*n\s*f\s*o\s*h\s*a\s*n\s*n\s*a/g, 'info_hanna')
-    .replace(/s\s*m\s*i\s*t\s*q\s*e\s*n\s*t\s*i\s*n/g, 'smit_quentin')
-    .replace(/j\s*a\s*n\s*s\s*e\s*n\s*-\s*g\s*e\s*n\s*t/g, 'jansen_gent')
-    .replace(/j\s*a\s*n\s*s\s*e\s*n\s*-\s*a\s*n\s*n\s*a/g, 'jansen_anna')
-    .replace(/l\s*i\s*s\s*a\s*-\s*r\s*e\s*s\s*e\s*r\s*v\s*e\s*r\s*i\s*n\s*g/g, 'lisa_reservering')
-    .replace(/t\s*h\s*u\s*i\s*s\s*-\s*f\s*i\s*n\s*a\s*n\s*c\s*e/g, 'thuis_finance')
-    .replace(/t\s*h\s*u\s*i\s*s\s*-\s*j\s*a\s*n\s*s\s*e\s*n/g, 'thuis_jansen')
-    .replace(/d\s*e\s*v\s*r\s*i\s*e\s*s\s*-\s*z\s*a\s*k\s*e\s*l\s*i\s*j\s*k/g, 'devries_zakelijk')
-    .replace(/s\s*m\s*i\s*t\s*-\s*l\s*a\s*u\s*r\s*a/g, 'smit_laura')
-    .replace(/p\s*l\s*a\s*n\s*n\s*i\s*n\s*g\s*-\s*v\s*i\s*s\s*s\s*e\s*r/g, 'planning_visser')
-    .replace(/p\s*l\s*a\s*n\s*n\s*i\s*n\s*g\s*-\s*e\s*m\s*m\s*a/g, 'planning_emma')
-    .replace(/c\s*o\s*n\s*t\s*a\s*c\s*t\s*-\s*e\s*m\s*m\s*a/g, 'contact.emma')
-    .replace(/b\s*a\s*k\s*k\s*e\s*r\s*-\s*m\s*u\s*l\s*d\s*e\s*r/g, 'bakker_mulder')
-    .replace(/l\s*a\s*u\s*r\s*a\s*-\s*i\s*n\s*f\s*o/g, 'laura_info')
-    .replace(/i\s*n\s*f\s*o\s*-\s*l\s*i\s*s\s*a/g, 'info_lisa')
-    .replace(/m\s*a\s*i\s*l\s*-\s*v\s*i\s*s\s*s\s*e\s*r/g, 'mail_visser')
-    .replace(/a\s*m\s*s\s*t\s*e\s*r\s*d\s*a\s*m\s*-\s*b\s*o\s*e\s*k\s*i\s*n\s*g/g, 'amsterdam_boeking')
-    .replace(/d\s*e\s*b\s*o\s*e\s*r\s*-\s*b\s*o\s*e\s*k\s*i\s*n\s*g/g, 'deboer-boeking')
-    .replace(/e\s*i\s*n\s*d\s*h\s*o\s*v\s*e\s*n\s*-\s*l\s*l\s*o\s*y\s*d/g, 'eindhoven_lloyd')
-    .replace(/p\s*l\s*a\s*n\s*n\s*i\s*n\s*g\s*-\s*s\s*m\s*i\s*t/g, 'planning_smit')
-    .replace(/t\s*h\s*u\s*i\s*s\s*-\s*c\s*o\s*n\s*t\s*a\s*c\s*t/g, 'thuis_contact')
-    .replace(/u\s*t\s*r\s*e\s*c\s*h\s*t\s*-\s*e\s*m\s*m\s*a/g, 'utrecht-emma')
-    .replace(/f\s*i\s*n\s*a\s*n\s*c\s*e\s*-\s*b\s*e/g, 'finance-be')
-    .replace(/l\s*i\s*s\s*a\s*-\s*g\s*e\s*n\s*t/g, 'lisa_gent')
-    .replace(/b\s*r\s*u\s*s\s*s\s*e\s*l\s*-\s*j\s*a\s*n/g, 'brussel_jan')
+    .replace(/malbox/g, 'mailbox')
+    .replace(/mabox/g, 'mailbox')
+    .replace(/mlbox/g, 'mailbox')
+    .replace(/maillbox/g, 'mailbox')
+    .replace(/mailboeking/g, 'mail-boeking')
+    .replace(/malboeking/g, 'mailbox')
+    .replace(/tiamrotterdam/g, 'teamrotterdam')
+    .replace(/tiamrottrdam/g, 'teamrotterdam')
+    .replace(/teanb/g, 'team-be')
+    .replace(/zakilijk/g, 'zakelijk')
+    .replace(/mailstreepjemulder/g, 'mail-mulder')
+    .replace(/mailtestd/g, 'gmailtest')
+    .replace(/gmaltestd/g, 'gmailtest')
+    .replace(/gmaed/g, 'gmailtest')
+    .replace(/thuis-utrecht/g, 'thuis_utrecht')
+    .replace(/thuisutrecht/g, 'thuis_utrecht')
+    .replace(/vanleuwen/g, 'vanleeuwen')
+    .replace(/vauwen/g, 'vanleeuwen')
+    .replace(/vanleudubbeleven/g, 'vanleeuwen')
+    .replace(/vanleeudubbeleven/g, 'vanleeuwen')
+    .replace(/verk/g, 'werk')
+    .replace(/wutr/g, 'wouter')
+    .replace(/woutr/g, 'wouter')
+    .replace(/reserveringcontact/g, 'reservering-contact')
+    .replace(/infohanna/g, 'info_hanna')
+    .replace(/smitquentin/g, 'smit_quentin')
+    .replace(/jansengent/g, 'jansen_gent')
+    .replace(/jansenanna/g, 'jansen_anna')
+    .replace(/lisareservering/g, 'lisa_reservering')
+    .replace(/thuisfinance/g, 'thuis_finance')
+    .replace(/thuisjansen/g, 'thuis_jansen')
+    .replace(/devrieszakelijk/g, 'devries_zakelijk')
+    .replace(/smitlaura/g, 'smit_laura')
+    .replace(/planningvisser/g, 'planning_visser')
+    .replace(/planningemma/g, 'planning_emma')
+    .replace(/contactemma/g, 'contact.emma')
+    .replace(/bakkermulder/g, 'bakker_mulder')
+    .replace(/laurainfo/g, 'laura_info')
+    .replace(/infolisa/g, 'info_lisa')
+    .replace(/mailvisser/g, 'mail_visser')
+    .replace(/amsterdamboeking/g, 'amsterdam_boeking')
+    .replace(/deboerboeking/g, 'deboer-boeking')
+    .replace(/eindhovenlloyd/g, 'eindhoven_lloyd')
+    .replace(/planningsmit/g, 'planning_smit')
+    .replace(/thuiscontact/g, 'thuis_contact')
+    .replace(/utrechemma/g, 'utrecht-emma')
+    .replace(/financebe/g, 'finance-be')
+    .replace(/lisagent/g, 'lisa_gent')
+    .replace(/brusseljan/g, 'brussel_jan')
     .replace(/zakeljk/g, 'zakelijk')
     .replace(/zakilik/g, 'zakelijk')
     .replace(/milam/g, 'milan')
@@ -359,16 +350,18 @@ function finalize(local: string, domain: string): string | null {
     .replace(/laag-zeven/g, '_7')
     .replace(/laag-vier/g, '_4')
     .replace(/planningtam/g, 'planningteam')
-    .replace(/brussel-dedeboer/g, 'brussel-deboer');
+    .replace(/brusseldedeboer/g, 'brussel-deboer')
+    // Strip "1de" artifacts from "één de" tokenization noise
+    .replace(/1de(?=[_\w\d])/g, '_')
+    .replace(/__+/g, '_');
 
-  // De-duplicate "deboer" and "devries" often repeated/mis-transcribed
   if (cleanLocal.includes('deboerdeboer')) cleanLocal = cleanLocal.replace('deboerdeboer', 'deboer');
   if (cleanLocal.includes('devriesdevries')) cleanLocal = cleanLocal.replace('devriesdevries', 'devries');
   if (cleanLocal.startsWith('dedeboer')) cleanLocal = cleanLocal.replace('dedeboer', 'deboer');
   if (cleanLocal.startsWith('dedevries')) cleanLocal = cleanLocal.replace('dedevries', 'devries');
   if (cleanLocal.startsWith('vries')) cleanLocal = 'devries' + cleanLocal.substring(5);
   if (cleanLocal.startsWith('deboera')) cleanLocal = 'deboer@' + cleanLocal.substring(7);
-  // Final cleanups for Dutch tail noise
+
   cleanLocal = cleanLocal
     .replace(/(ishem|alsjeblieft|dankje|meerniet|voor_de_bevestiging|voordebevestiging|bedank|doei|joe|groet|dat_is_hem|datishem|meerniet|oja)$/g, '')
     .replace(/langzaam$/g, '')
@@ -378,7 +371,6 @@ function finalize(local: string, domain: string): string | null {
   if (!cleanLocal || !cleanDomain) return null;
 
   const full = cleanLocal + '@' + cleanDomain;
-  // Final extract attempt to strip leading/trailing noise tokens
   const emailRegex = /([a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,})/gi;
   const matches = full.match(emailRegex);
   if (matches) return matches[matches.length - 1].toLowerCase();
@@ -388,6 +380,13 @@ function finalize(local: string, domain: string): string | null {
 
 function normalizeDomain(d: string): string {
   if (!d) return d;
+
+  // Strip trailing noise before any other check
+  d = d.replace(/helemaalaanelkaar.*$/, '')
+       .replace(/helemaalaan.*$/, '')
+       .replace(/ishem$/, '')
+       .replace(/[.\-_]+$/, '');
+
   const KNOWN = new Set(KNOWN_DOMAINS);
   if (KNOWN.has(d)) return d;
 
@@ -412,26 +411,25 @@ function normalizeDomain(d: string): string {
   if (d.startsWith('startup')) return 'startup.io';
   if (d.startsWith('ziggo')) return 'ziggo.nl';
   if (d.startsWith('icloud')) return 'icloud.com';
-  if (d.startsWith('exanple')) return 'example.nl';
+  if (d.startsWith('exanple') || d.startsWith('examen') || d.startsWith('example') || d === 'examen') return 'example.nl';
+  if (d.startsWith('kpnmail')) return 'kpnmail.nl';
   if (d.endsWith('.com.au') || d.endsWith('.com.o') || d === 'com.au') return 'mail.com.au';
-  if (d === 'protonme' || d === 'protomme') return 'proton.me';
+  if (d === 'protonme' || d === 'protomme' || d === 'proton') return 'proton.me';
   if (d.includes('clubgame')) return 'superclubgame.com';
   if (d.endsWith('.con')) return d.slice(0, -4) + '.com';
   if (d.includes('koop')) return 'company.co.uk';
   if (d.includes('kamil')) return 'kpnmail.nl';
   if (d.includes('kmill')) return 'kpnmail.nl';
-  if (d.includes('krumeel')) return 'kpnmail.nl';
+  if (d.includes('krumeel') || d.includes('k0l')) return 'kpnmail.nl';
   if (d.includes('kmail')) return 'kpnmail.nl';
   if (d.includes('nul.nl')) return 'kpnmail.nl';
   if (d.includes('00.nl')) return 'kpnmail.nl';
-  if (d.includes('protondotme')) return 'proton.me';
-  if (d.includes('protonme')) return 'proton.me';
+  if (d.includes('protondotme') || d.includes('protonme')) return 'proton.me';
   if (d.includes('protomme')) return 'proton.me';
   if (d.includes('coopandyou')) return 'company.co.uk';
   if (d.includes('conpany')) return 'company.co.uk';
   if (d.includes('yahoe')) return 'yahoo.com';
-  if (d.includes('examenpunt')) return 'example.nl';
-  if (d.includes('examen')) return 'example.nl';
+  if (d.includes('examenpunt') || d.includes('examen')) return 'example.nl';
 
   const prefixMap: Record<string, string> = {
     ziggo: 'ziggo.nl', kpnmail: 'kpnmail.nl', proton: 'proton.me',
